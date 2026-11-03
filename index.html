@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anne Models Management</title>
+<meta name="description" content="Anne Models Management: agência de modelos, manequins e atores há mais de três décadas. Concursos, Fashion Trade e formação profissional em São Paulo e outras capitais.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0c; --paper:#f7f5f0; --white:#fff; --mute:#6b6862; --line:#dcd8cf;
+  --gold:#b08d57; --gold-soft:#d9c29b;
+  --serif:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --sans:"Jost",system-ui,sans-serif;
+  --wrap:min(1200px,100% - 32px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font:300 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+.wrap{width:var(--wrap);margin-inline:auto}
+.eyebrow{font:500 12px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h2{font:400 clamp(36px,5.4vw,68px)/1.04 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+h2 em{font-style:italic}
+.lead{font-size:clamp(17px,1.6vw,20px);max-width:56ch;color:#3a3833}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font:500 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid currentColor;transition:background .25s,color .25s}
+.btn{max-width:100%}
+.btn-mail{text-transform:none;letter-spacing:.04em;font-size:14px;overflow-wrap:anywhere}
+.btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-solid:hover{background:var(--gold);border-color:var(--gold)}
+.btn-ghost:hover{background:var(--paper);color:var(--ink)}
+section{padding:clamp(80px,11vw,150px) 0}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,color .3s;color:var(--paper)}
+.top.solid{background:rgba(247,245,240,.94);backdrop-filter:blur(10px);color:var(--ink);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font:500 14px/1 var(--sans);letter-spacing:.32em}
+.top nav{display:flex;gap:28px;font:400 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.top nav a{text-decoration:none;opacity:.85}
+.top nav a:hover{opacity:1;color:var(--gold)}
+.top .btn{padding:11px 18px;font-size:12px}
+@media (max-width:960px){.top nav{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:end center;padding:0 0 clamp(48px,8vw,96px);color:var(--paper);background:#111;overflow:hidden}
+.hero img{position:absolute;inset:0;filter:grayscale(1) contrast(1.05);opacity:.72}
+@media (max-width:760px){.hero img{object-position:24% center}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.75) 100%)}
+.hero .wrap{position:relative;z-index:1;text-align:center}
+.hero h1{font:400 clamp(56px,13vw,180px)/.9 var(--serif);letter-spacing:-.02em}
+.hero .sub{margin-top:18px;font:400 clamp(11px,1.2vw,14px)/1 var(--sans);letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft)}
+.hero p.intro{margin:28px auto 0;max-width:46ch;font-size:clamp(16px,1.5vw,19px);color:rgba(247,245,240,.86)}
+.hero .ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+
+/* números */
+.facts{border-bottom:1px solid var(--line);padding:0}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.facts div{padding:36px 8px;text-align:center;border-right:1px solid var(--line)}
+.facts div:last-child{border:0}
+.facts b{display:block;font:400 clamp(30px,4vw,48px)/1 var(--serif)}
+.facts span{display:block;margin-top:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:640px){.facts .wrap{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* projetos */
+.proj-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px}
+.proj-head .eyebrow{margin-bottom:22px}
+.proj-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px);align-items:start}
+.proj-photo{position:sticky;top:100px;aspect-ratio:3/4}
+.proj-photo img{object-position:center 15%}
+.proj-list{list-style:none;padding:0;border-top:1px solid var(--ink)}
+.proj-list li{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding:30px 0;border-bottom:1px solid var(--line)}
+.proj-list h3{font:400 clamp(26px,3vw,38px)/1.1 var(--serif)}
+.proj-list .tag{align-self:center;font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.proj-list p{grid-column:1/-1;color:#3a3833;max-width:60ch}
+@media (max-width:860px){.proj-head,.proj-grid{grid-template-columns:1fr}.proj-photo{position:static;aspect-ratio:4/3}}
+
+/* fashion trade */
+.trade{background:var(--ink);color:var(--paper)}
+.trade .lead{color:rgba(247,245,240,.78)}
+.trade-top{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
+.trade-top .eyebrow{margin-bottom:22px}
+.trade-top aside{border-left:1px solid rgba(255,255,255,.18);padding-left:28px}
+.trade-top aside b{display:block;font:400 30px/1.1 var(--serif);color:var(--gold-soft)}
+.trade-top aside span{font-size:14px;color:rgba(247,245,240,.6)}
+.triptych{margin:64px 0;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:end}
+.triptych figure{aspect-ratio:3/4;overflow:hidden}
+.triptych figure:nth-child(2){aspect-ratio:3/4.4}
+.days{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18)}
+.days div{padding:30px 28px 30px 0}
+.days div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.18)}
+.days small{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.days h3{margin:14px 0 8px;font:400 26px/1.15 var(--serif)}
+.days p{font-size:15px;color:rgba(247,245,240,.7)}
+.passes{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px}
+.passes span{padding:10px 16px;border:1px solid rgba(255,255,255,.22);font-size:13px;letter-spacing:.08em}
+.trade .ctas{margin-top:44px}
+.trade .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.trade .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+@media (max-width:860px){.trade-top{grid-template-columns:1fr}.trade-top aside{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:20px}.days{grid-template-columns:1fr}.days div,.days div+div{padding:24px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}.triptych{grid-template-columns:1fr 1fr}.triptych figure:first-child{display:none}}
+
+/* formação */
+.metodo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.metodo-img{aspect-ratio:3/4}
+.metodo-grid .eyebrow{margin-bottom:22px}
+.metodo-grid h2{margin-bottom:26px}
+.workshops{margin-top:36px;list-style:none;padding:0;columns:2;column-gap:32px}
+.workshops li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;break-inside:avoid}
+.faq{margin-top:clamp(64px,8vw,110px);display:grid;grid-template-columns:4fr 8fr;gap:48px}
+.faq h3{font:400 32px/1.1 var(--serif)}
+details{border-bottom:1px solid var(--line)}
+details:first-child{border-top:1px solid var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:400 21px/1.3 var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-weight:300;color:var(--gold);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 24px;color:#3a3833;max-width:62ch}
+@media (max-width:860px){.metodo-grid,.faq{grid-template-columns:1fr}.workshops{columns:1}}
+
+/* cast */
+.cast{background:var(--white)}
+.cast-head{max-width:760px;margin-bottom:56px}
+.cast-head .eyebrow{margin-bottom:22px}
+.cast-head h2{margin-bottom:22px}
+.cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cast-card{position:relative;aspect-ratio:3/4.3;overflow:hidden;background:var(--ink);color:var(--paper)}
+.cast-card img{filter:grayscale(.2);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.cast-card:hover img{transform:scale(1.04)}
+.cast-card .cap{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.cast-card h3{font:400 24px/1.1 var(--serif)}
+.cast-card p{font-size:14px;color:rgba(247,245,240,.78)}
+.cast-card.text{display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:var(--ink)}
+.cast-card.text svg{width:56px;margin-bottom:auto;color:var(--gold)}
+.cast .ctas{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+@media (max-width:960px){.cast-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.cast-grid{grid-template-columns:1fr}}
+
+/* fundadora */
+.founder-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:center}
+.founder-mark{aspect-ratio:4/5;background:var(--ink);color:var(--paper);display:grid;place-items:center;text-align:center;padding:32px}
+.founder-mark svg{width:42%;color:var(--paper)}
+.founder-mark span{display:block;margin-top:28px;font:400 12px/1.8 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft)}
+.founder-grid .eyebrow{margin-bottom:22px}
+.founder-grid h2{margin-bottom:26px}
+.founder-grid p+p{margin-top:16px}
+.roles{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
+.roles span{padding:8px 14px;border:1px solid var(--line);font-size:13px;letter-spacing:.04em}
+@media (max-width:860px){.founder-grid{grid-template-columns:1fr}.founder-mark{aspect-ratio:16/10}}
+
+/* canais e contato */
+.contact{background:var(--ink);color:var(--paper);text-align:center}
+.contact h2{max-width:16ch;margin:22px auto 0}
+.contact .lead{margin:24px auto 0;color:rgba(247,245,240,.75)}
+.contact .ctas{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.contact .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+.channels{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.16)}
+.channels a,.channels div{padding:28px 12px;text-decoration:none;border-right:1px solid rgba(255,255,255,.16)}
+.channels > :last-child{border-right:0}
+.channels small{display:block;font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.channels span{display:block;margin-top:12px;font-size:15px;color:rgba(247,245,240,.85);overflow-wrap:anywhere}
+.channels a:hover span{color:var(--gold-soft)}
+@media (max-width:860px){.channels{grid-template-columns:1fr 1fr}.channels > *{border-bottom:1px solid rgba(255,255,255,.16)}}
+@media (max-width:520px){.channels{grid-template-columns:1fr}.channels > *{border-right:0}}
+footer{background:var(--ink);color:rgba(247,245,240,.5);font-size:13px;padding:28px 0;border-top:1px solid rgba(255,255,255,.1)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* entrada suave */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cast-card img{transition:none}}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-a" viewBox="0 0 100 100">
+    <path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z"/>
+  </symbol>
+</svg>
+
+<header class="top" id="topo">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Anne Models, início">
+      <svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span>
+    </a>
+    <nav aria-label="Seções">
+      <a href="#projetos">Projetos</a>
+      <a href="#fashion-trade">Fashion Trade</a>
+      <a href="#formacao">Formação</a>
+      <a href="#cast">Contratantes</a>
+      <a href="#fundadora">A fundadora</a>
+    </nav>
+    <a class="btn btn-ghost" href="#contato">Contato</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-label="Apresentação">
+    <img src="img/hero.jpg" alt="Modelo e modelo masculino em retrato preto e branco" fetchpriority="high">
+    <div class="wrap">
+      <h1>ANNE MODELS</h1>
+      <p class="sub">Management · National &amp; International</p>
+      <p class="intro">Agência de modelos, manequins e atores há mais de três décadas. Concursos, desfiles e formação profissional em São Paulo e em outras capitais.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#projetos">Conheça os projetos</a>
+        <a class="btn btn-ghost" href="#contato">Seja agenciado</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="A agência em números">
+    <div class="wrap">
+      <div><b>1995</b><span>Fundação da agência</span></div>
+      <div><b>6 meses a 80 anos</b><span>Perfis agenciados</span></div>
+      <div><b>SP e capitais</b><span>Eventos em 2027</span></div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="proj-head reveal">
+        <div>
+          <p class="eyebrow">Projetos 2027</p>
+          <h2>Concursos que <em>lançam</em> novos rostos</h2>
+        </div>
+        <p class="lead">Cada projeto abre a porta da agência para um público diferente: crianças, jovens talentos, influenciadores, sósias e modelos do cast. As inscrições serão abertas aqui.</p>
+      </div>
+      <div class="proj-grid">
+        <figure class="proj-photo reveal"><img src="img/projeto-branco.jpg" alt="Modelo de terno branco na passarela" loading="lazy"></figure>
+        <ul class="proj-list">
+          <li class="reveal"><h3>Top Fashion Star</h3><span class="tag">12 a 35 anos</span>
+            <p>Em três categorias, seleciona 150 youtubers, influenciadores e apresentadores de TV e rádio web. A carreira começa neste concurso.</p></li>
+          <li class="reveal"><h3>ABC do Amanhã</h3><span class="tag">2 a 11 anos</span>
+            <p>A criança vencedora estampa capa de revista e faz trabalhos infantis para agências de publicidade. Todas as participantes entram para o cast da agência e recebem brindes.</p></li>
+          <li class="reveal"><h3>Sósias do Brasil</h3><span class="tag">Todas as idades</span>
+            <p>Concurso para agenciar pessoas parecidas com celebridades e transformá-las em influenciadores, youtubers, sósias e dublês, com a formação profissional necessária.</p></li>
+          <li class="reveal"><h3>The Model of the Year</h3><span class="tag">Cast da agência</span>
+            <p>Premia a modelo que mais se destacou no ano com a boneca-símbolo da nossa marca.</p></li>
+          <li class="reveal"><h3>Garota Anny Models</h3><span class="tag">New faces</span>
+            <p>Em parceria com a revista Edição Fofoca dos Famosos, de Vadu Braga, lança novos rostos pela revista e depois para a agência.</p></li>
+          <li class="reveal"><h3>Luxo no Lixo</h3><span class="tag">Moda e meio ambiente</span>
+            <p>Modelos criam looks com materiais reciclados e fazem da passarela um exemplo de cuidado com o planeta.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="trade" id="fashion-trade">
+    <div class="wrap">
+      <div class="trade-top reveal">
+        <div>
+          <p class="eyebrow">Evento de encerramento</p>
+          <h2>Fashion <em>Trade</em></h2>
+          <p class="lead" style="margin-top:24px">O ponto alto da formação Anne Models: três dias de imersão em São Paulo, com produção de books, composites, catálogos e vídeos publicitários, e um desfile final com grifes, mídia e convidados.</p>
+        </div>
+        <aside>
+          <b>Próxima edição</b>
+          <span>São Paulo, capital. Data a anunciar.</span>
+        </aside>
+      </div>
+
+      <div class="triptych reveal">
+        <figure><img src="img/trade-passarela.jpg" alt="Desfile com look prateado" loading="lazy"></figure>
+        <figure><img src="img/trade-salao.jpg" alt="Desfile em salão clássico com plateia" loading="lazy"></figure>
+        <figure><img src="img/trade-dourado.jpg" alt="Modelo com vestido dourado na passarela" loading="lazy"></figure>
+      </div>
+
+      <div class="days reveal">
+        <div><small>Dia 1</small><h3>Técnica e expressão</h3><p>Passarela, postura e fotos de book e composite.</p></div>
+        <div><small>Dia 2</small><h3>Editorial e vídeo</h3><p>Catálogo, editorial de moda e vídeo publicitário.</p></div>
+        <div><small>Dia 3</small><h3>O desfile</h3><p>Show de encerramento com grifes, imprensa e celebridades.</p></div>
+      </div>
+
+      <div class="passes reveal" aria-label="Formas de participar">
+        <span>Público</span><span>VIP com lounge e after-party</span><span>Formandos do Método Mac Pherson</span><span>Cantores e dançarinos</span><span>Equipe técnica e fotógrafos</span>
+      </div>
+      <div class="ctas"><a class="btn btn-solid" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Quero%20participar%20do%20Fashion%20Trade." target="_blank" rel="noopener">Quero participar</a></div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap">
+      <div class="metodo-grid">
+        <figure class="metodo-img reveal"><img src="img/metodo-pose.jpg" alt="Modelo de vestido preto em pose de estúdio" loading="lazy"></figure>
+        <div class="reveal">
+          <p class="eyebrow">Formação profissional</p>
+          <h2>Método <em>Mac Pherson</em></h2>
+          <p class="lead">Técnica, comportamento e estética para modelos e manequins. Ao concluir, você recebe o Certificado de Capacitação Técnica (CCT), com o qual tira o registro profissional (RPMT) e passa a assinar contratos dentro da lei.</p>
+          <ul class="workshops">
+            <li>Workshop de modelos e manequins</li>
+            <li>Workshop de atores</li>
+            <li>Recepcionistas de eventos</li>
+            <li>Passarela para concursos de beleza</li>
+            <li>Influenciadores e youtubers</li>
+            <li>Integração profissional e palestras</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq">
+        <h3 class="reveal">Dúvidas comuns</h3>
+        <div class="reveal">
+          <details>
+            <summary>Como entro para a carreira de modelo ou manequim?</summary>
+            <p>Você passa por avaliação de medidas, teste fotogênico, de passarela e de vídeo comercial. Aprovada, faz a formação profissional, recebe o CCT e é convidada a se agenciar para ser apresentada aos contratantes.</p>
+          </details>
+          <details>
+            <summary>O que é o DRT e como consigo?</summary>
+            <p>No caso de modelos e manequins, o nome correto é RPMT, o registro profissional emitido pelo Ministério do Trabalho. Você leva o CCT do curso com RG, CPF, comprovante de residência e os demais documentos pedidos.</p>
+          </details>
+          <details>
+            <summary>Tem limite de idade?</summary>
+            <p>Não. Agenciamos de 6 meses a 80 anos, de qualquer etnia. A partir de 16 anos é exigido o RPMT; abaixo disso, é preciso autorização do responsável legal.</p>
+          </details>
+          <details>
+            <summary>Por que estar em uma agência?</summary>
+            <p>A agência garante contrato assinado, piso salarial e apoio jurídico junto ao SATED, e apresenta seu perfil às agências de publicidade, produtores e diretores.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cast" id="cast">
+    <div class="wrap">
+      <div class="cast-head reveal">
+        <p class="eyebrow">Para contratantes</p>
+        <h2>Talentos para a sua <em>marca</em></h2>
+        <p class="lead">A Anne Models faz a ponte entre o talento e o contratante, com contrato e segurança jurídica em cada trabalho. Peça perfis, orçamentos e propostas de cachê.</p>
+      </div>
+      <div class="cast-grid">
+        <article class="cast-card reveal"><img src="img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p></div></article>
+        <article class="cast-card reveal"><img src="img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p></div></article>
+        <article class="cast-card reveal"><img src="img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p></div></article>
+        <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis, para shows e eventos.</p></article>
+      </div>
+      <div class="ctas reveal">
+        <a class="btn btn-solid" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20talentos%20da%20Anne%20Models." target="_blank" rel="noopener">Solicitar talentos</a>
+        <a class="btn btn-ghost btn-mail" style="color:var(--ink)" href="mailto:annymodelsassessoria@gmail.com">annymodelsassessoria@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="fundadora">
+    <div class="wrap founder-grid">
+      <div class="founder-mark reveal"><div><svg aria-hidden="true"><use href="#logo-a"/></svg><span>Anne Models<br>Management</span></div></div>
+      <div class="reveal">
+        <p class="eyebrow">Fundadora e CEO</p>
+        <h2>Anne Mac Pherson <em>Praddo</em></h2>
+        <p class="lead">Fundou a agência em 1995, como Versátil Publicidades. A marca passou a levar o próprio nome e, em 2024, virou o GAP, Grupo Anny Praddo.</p>
+        <p>É a criadora do Método Mac Pherson e produz os concursos e desfiles da agência. Como colunista social, faz a cobertura de eventos no canal Anny TV Fashion Trade.</p>
+        <div class="roles">
+          <span>Agenciadora</span><span>Produtora de eventos de moda</span><span>Ministrante de cursos</span><span>Fotógrafa</span><span>Apresentadora</span><span>Palestrante</span><span>Personal stylist</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="wrap">
+      <p class="eyebrow reveal">Contato</p>
+      <h2 class="reveal">Sua carreira começa com uma <em>conversa</em></h2>
+      <p class="lead reveal">Inscrições, agenciamento, Fashion Trade ou contratação de talentos: fale direto com a agência.</p>
+      <div class="ctas reveal">
+        <a class="btn btn-solid" href="https://wa.me/5531973023077" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="https://forms.gle/VuQUWbzRoZpm6ykv9" target="_blank" rel="noopener">Inscrição gratuita</a>
+      </div>
+      <div class="channels reveal">
+        <a href="https://wa.me/5531973023077" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97302-3077<br>(31) 99658-9729</span></a>
+        <div><small>E-mail</small><span><a href="mailto:annypraddocursos@gmail.com">annypraddocursos@gmail.com</a><br><a href="mailto:annymodelsassessoria@gmail.com">annymodelsassessoria@gmail.com</a></span></div>
+        <a href="https://www.youtube.com/@TVANNYPRADDOEVENTOS" target="_blank" rel="noopener"><small>YouTube</small><span>TV Anny Praddo Eventos</span></a>
+        <a href="https://www.instagram.com/anny_praddo_modeling_career" target="_blank" rel="noopener"><small>Instagram</small><span>@anny_praddo_modeling_career</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Anne Models Management</span>
+    <span>Agência de modelos, manequins e atores desde 1995</span>
+  </div>
+</footer>
+
+<script>
+  const top = document.getElementById('topo');
+  const onScroll = () => top.classList.toggle('solid', scrollY > innerHeight * 0.75);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
