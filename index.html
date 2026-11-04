@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anne Models Management</title>
 <meta name="description" content="Anne Models Management: agência de modelos, manequins e atores há mais de três décadas. Concursos, Fashion Trade e formação profissional em São Paulo e outras capitais.">
 <meta name="robots" content="noindex, nofollow">
@@ -304,6 +304,105 @@ html:not(.js) .pick{display:none}
 .cat-big .cv-foot b{font-size:26px}
 .cat-media{justify-content:center}
 @media (max-width:860px){.cat-big{aspect-ratio:auto;min-height:62svh}}
+
+/* atalhos fixos: barra no celular, botão de WhatsApp no computador */
+.dock{display:none}
+.wa-fab{position:fixed;right:24px;bottom:24px;z-index:25;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#1f8f4e;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.06)}
+.wa-fab svg,.dock svg{width:26px;height:26px}
+@media (max-width:860px){
+  .wa-fab{display:none}
+  .dock{position:fixed;inset:auto 0 0;z-index:25;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(13,13,12,.96);backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom);border-top:1px solid rgba(255,255,255,.1)}
+  .dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:60px;color:rgba(247,245,240,.85);text-decoration:none;font:500 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+  .dock svg{width:22px;height:22px}
+  .dock a.wa{background:#1f8f4e;color:#fff}
+  body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+  .selbar{bottom:calc(70px + env(safe-area-inset-bottom))}
+  .top .btn{display:none}
+}
+
+/* celular: mais compacto */
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:56px 0}
+  h2{font-size:clamp(30px,8.6vw,38px)}
+  .lead{font-size:16px}
+  .eyebrow{font-size:11px}
+  .proj-head .eyebrow,.insc-head .eyebrow,.trade-top .eyebrow,.metodo-grid .eyebrow,.cat-head .eyebrow,.cast-head .eyebrow,.founder-grid .eyebrow{margin-bottom:12px}
+  .hero{min-height:88svh}
+  .hero p.intro{margin-top:18px;font-size:15px}
+  .hero .ctas{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .btn{justify-content:center;padding:14px 10px;font-size:11px;letter-spacing:.12em}
+  .facts .wrap{grid-template-columns:repeat(3,1fr)}
+  .facts div{padding:18px 4px;border-bottom:0;border-right:1px solid var(--line)}
+  .facts b{font-size:19px}
+  .facts span{font-size:9px;letter-spacing:.1em;margin-top:6px}
+  .proj-head,.insc-head,.cat-head{gap:14px;margin-bottom:24px}
+  .proj-photo{display:none}
+  .proj-list li{padding:16px 0;gap:4px 12px}
+  .proj-list h3{font-size:22px}
+  .proj-list .tag{font-size:9px;letter-spacing:.14em}
+  .proj-list p{font-size:14px;line-height:1.5}
+  .guide ol{grid-template-columns:1fr 1fr;gap:8px}
+  .guide li{padding:12px;font-size:14px}
+  .guide p{font-size:14px}
+  .qa{margin-top:28px}
+  summary{font-size:18px;padding:16px 0}
+  legend{font-size:24px}
+  .trade-top{gap:20px}
+  .trade-top aside b{font-size:22px}
+  .triptych{margin:28px -16px;padding:0 16px;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;scrollbar-width:none}
+  .triptych::-webkit-scrollbar{display:none}
+  .triptych figure,.triptych figure:first-child,.triptych figure:nth-child(2){display:block;flex:0 0 58%;aspect-ratio:3/4;scroll-snap-align:start}
+  .days{grid-template-columns:repeat(3,1fr)}
+  .days div,.days div+div{padding:16px 8px 16px 0;border-bottom:0}
+  .days div+div{padding-left:8px;border-left:1px solid rgba(255,255,255,.18)}
+  .days h3{font-size:16px;margin:8px 0 0}
+  .days p{display:none}
+  .passes{margin-top:24px;gap:6px}
+  .passes span{padding:7px 10px;font-size:12px}
+  .trade .ctas{margin-top:24px}
+  .metodo-img{display:none}
+  .metodo-grid h2{margin-bottom:14px}
+  .workshops{columns:2;column-gap:14px;margin-top:20px}
+  .workshops li{font-size:13px;padding:9px 0}
+  .faq{margin-top:40px;gap:14px}
+  .faq h3{font-size:26px}
+  .cat-filtros{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 24px;padding:0 16px;scrollbar-width:none}
+  .cat-filtros::-webkit-scrollbar{display:none}
+  .cat-filtros button{flex:0 0 auto;padding:10px 14px;font-size:11px}
+  .cat-grid{grid-template-columns:1fr 1fr;gap:22px 10px}
+  .cv{padding:14px}
+  .cv::before{inset:6px}
+  .cv-top{font-size:9px;letter-spacing:.18em}
+  .cv-top svg{width:18px;height:18px}
+  .cv-title{font-size:20px;line-height:1.05}
+  .cv-foot{gap:4px;padding-top:8px;font-size:8px;letter-spacing:.1em}
+  .cv-foot b{font-size:15px}
+  .cat-meta{padding-top:8px;gap:2px}
+  .cat-sum{display:none}
+  .cat-more{font-size:10px;padding:8px 0}
+  .cast-head{margin-bottom:24px}
+  .cast-head h2{margin-bottom:12px}
+  .cast-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .cast-card{aspect-ratio:3/4}
+  .cast-card .cap,.cast-card.text{padding:12px}
+  .cast-card h3{font-size:17px}
+  .cast-card p{display:none}
+  .cast-card.text svg{width:32px}
+  .pick{margin-top:8px;min-height:40px;padding:8px 10px;font-size:10px;letter-spacing:.08em;width:100%;justify-content:center}
+  .cast .ctas{margin-top:24px}
+  .founder-mark{display:none}
+  .founder-grid h2{margin-bottom:14px}
+  .roles{margin-top:18px;gap:6px}
+  .roles span{padding:6px 10px;font-size:12px}
+  .contact .ctas{margin-top:24px}
+  .channels{margin-top:36px;grid-template-columns:1fr 1fr}
+  .channels > *{border-right:1px solid rgba(255,255,255,.16)}
+  .channels > :nth-child(2n){border-right:0}
+  .channels a,.channels div{padding:18px 8px}
+  .channels span{font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -645,10 +744,10 @@ html:not(.js) .pick{display:none}
         <p class="lead">A Anne Models faz a ponte entre o talento e o contratante, com contrato e segurança jurídica em cada trabalho. Peça perfis, orçamentos e propostas de cachê. Marque os talentos que procura e envie o pedido pelo WhatsApp.</p>
       </div>
       <div class="cast-grid">
-        <article class="cast-card reveal"><img src="img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p><button class="pick" type="button" data-pick="Modelos e manequins" aria-pressed="false">+ Adicionar à seleção</button></div></article>
-        <article class="cast-card reveal"><img src="img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p><button class="pick" type="button" data-pick="Atores e atrizes" aria-pressed="false">+ Adicionar à seleção</button></div></article>
-        <article class="cast-card reveal"><img src="img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p><button class="pick" type="button" data-pick="Dançarinos" aria-pressed="false">+ Adicionar à seleção</button></div></article>
-        <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis, para shows e eventos.</p><button class="pick" type="button" data-pick="Cantores e bandas" aria-pressed="false">+ Adicionar à seleção</button></article>
+        <article class="cast-card reveal"><img src="img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p><button class="pick" type="button" data-pick="Modelos e manequins" aria-pressed="false">+ Selecionar</button></div></article>
+        <article class="cast-card reveal"><img src="img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p><button class="pick" type="button" data-pick="Atores e atrizes" aria-pressed="false">+ Selecionar</button></div></article>
+        <article class="cast-card reveal"><img src="img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p><button class="pick" type="button" data-pick="Dançarinos" aria-pressed="false">+ Selecionar</button></div></article>
+        <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis, para shows e eventos.</p><button class="pick" type="button" data-pick="Cantores e bandas" aria-pressed="false">+ Selecionar</button></article>
       </div>
       <div class="ctas reveal">
         <a class="btn btn-solid" id="ctaTalentos" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20talentos%20da%20Anne%20Models." target="_blank" rel="noopener">Solicitar talentos</a>
@@ -690,6 +789,21 @@ html:not(.js) .pick{display:none}
     </div>
   </section>
 </main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.76 4.88-1.28A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.9.76.78-2.83-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.54 11 11 0 0 0 4.2 3.7c1.56.68 2.18.73 2.96.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
+</svg>
+
+<nav class="dock" aria-label="Atalhos">
+  <a href="#projetos"><svg aria-hidden="true"><use href="#i-star"/></svg>Projetos</a>
+  <a href="#inscricao"><svg aria-hidden="true"><use href="#i-pen"/></svg>Inscrição</a>
+  <a href="#catalogo"><svg aria-hidden="true"><use href="#i-grid"/></svg>Catálogo</a>
+  <a class="wa" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+</nav>
+<a class="wa-fab" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
 <div class="selbar" id="selbar" hidden role="status" aria-live="polite"><p><b id="selCount">0</b> na seleção: <span id="selList"></span></p><a class="btn" id="selSend" href="https://wa.me/5531973023077" target="_blank" rel="noopener">Pedir orçamento</a></div>
 
@@ -769,7 +883,7 @@ html:not(.js) .pick{display:none}
   document.querySelectorAll('.pick').forEach(b => b.addEventListener('click', () => {
     const v = b.dataset.pick, on = !sel.has(v);
     on ? sel.add(v) : sel.delete(v);
-    b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ Na seleção' : '+ Adicionar à seleção';
+    b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ Selecionado' : '+ Selecionar';
     upd();
   }));
 
