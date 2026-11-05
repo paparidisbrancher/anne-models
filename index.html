@@ -4,913 +4,253 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anne Models Management</title>
-<meta name="description" content="Anne Models Management: agência de modelos, manequins e atores há mais de três décadas. Concursos, Fashion Trade e formação profissional em São Paulo e outras capitais.">
+<meta name="description" content="Agência de modelos, manequins e atores há 33 anos. Cursos, serviços, concursos e o Fashion Trade.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0d0d0c">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Anne Models Management">
-<meta property="og:description" content="Concursos, Fashion Trade e formação profissional para modelos, manequins e atores. Inscrição gratuita pelo celular.">
+<meta property="og:description" content="Agência de modelos, manequins e atores há 33 anos. Cursos, serviços, concursos e o Fashion Trade.">
 <meta property="og:url" content="https://paparidisbrancher.github.io/anne-models/">
 <meta property="og:image" content="https://paparidisbrancher.github.io/anne-models/img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#0d0d0c; --paper:#f7f5f0; --white:#fff; --mute:#6b6862; --line:#dcd8cf;
-  --gold:#b08d57; --gold-soft:#d9c29b;
-  --serif:"Bodoni Moda",Didot,"Times New Roman",serif;
-  --sans:"Jost",system-ui,sans-serif;
-  --wrap:min(1200px,100% - 32px);
-}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{background:var(--paper);color:var(--ink);font:300 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-img{display:block;width:100%;height:100%;object-fit:cover}
-a{color:inherit}
-.wrap{width:var(--wrap);margin-inline:auto}
-.eyebrow{font:500 12px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
-h2{font:400 clamp(36px,5.4vw,68px)/1.04 var(--serif);letter-spacing:-.01em;text-wrap:balance}
-h2 em{font-style:italic}
-.lead{font-size:clamp(17px,1.6vw,20px);max-width:56ch;color:#3a3833}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font:500 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid currentColor;transition:background .25s,color .25s}
-.btn{max-width:100%}
-.btn-mail{text-transform:none;letter-spacing:.04em;font-size:14px;overflow-wrap:anywhere}
-.btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.btn-solid:hover{background:var(--gold);border-color:var(--gold)}
-.btn-ghost:hover{background:var(--paper);color:var(--ink)}
-section{padding:clamp(80px,11vw,150px) 0}
-
-/* header */
-.top{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,color .3s;color:var(--paper)}
-.top.solid{background:rgba(247,245,240,.94);backdrop-filter:blur(10px);color:var(--ink);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font:500 14px/1 var(--sans);letter-spacing:.32em}
-.top nav{display:flex;gap:28px;font:400 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.top nav a{text-decoration:none;opacity:.85}
-.top nav a:hover{opacity:1;color:var(--gold)}
-.top .btn{padding:11px 18px;font-size:12px}
-@media (max-width:960px){.top nav{display:none}}
-
-/* hero */
-.hero{position:relative;min-height:100svh;display:grid;place-items:end center;padding:0 0 clamp(48px,8vw,96px);color:var(--paper);background:#111;overflow:hidden}
-.hero img{position:absolute;inset:0;filter:grayscale(1) contrast(1.05);opacity:.72}
-@media (max-width:760px){.hero img{object-position:24% center}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.75) 100%)}
-.hero .wrap{position:relative;z-index:1;text-align:center}
-.hero h1{font:400 clamp(56px,13vw,180px)/.9 var(--serif);letter-spacing:-.02em}
-.hero .sub{margin-top:18px;font:400 clamp(11px,1.2vw,14px)/1 var(--sans);letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft)}
-.hero p.intro{margin:28px auto 0;max-width:46ch;font-size:clamp(16px,1.5vw,19px);color:rgba(247,245,240,.86)}
-.hero .ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hero .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.hero .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
-
-/* números */
-.facts{border-bottom:1px solid var(--line);padding:0}
-.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
-.facts div{padding:36px 8px;text-align:center;border-right:1px solid var(--line)}
-.facts div:last-child{border:0}
-.facts b{display:block;font:400 clamp(30px,4vw,48px)/1 var(--serif)}
-.facts span{display:block;margin-top:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-@media (max-width:640px){.facts .wrap{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:1px solid var(--line)}}
-
-/* projetos */
-.proj-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px}
-.proj-head .eyebrow{margin-bottom:22px}
-.proj-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px);align-items:start}
-.proj-photo{position:sticky;top:100px;aspect-ratio:3/4}
-.proj-photo img{object-position:center 15%}
-.proj-list{list-style:none;padding:0;border-top:1px solid var(--ink)}
-.proj-list li{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding:30px 0;border-bottom:1px solid var(--line)}
-.proj-list h3{font:400 clamp(26px,3vw,38px)/1.1 var(--serif)}
-.proj-list .tag{align-self:center;font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-.proj-list p{grid-column:1/-1;color:#3a3833;max-width:60ch}
-@media (max-width:860px){.proj-head,.proj-grid{grid-template-columns:1fr}.proj-photo{position:static;aspect-ratio:4/3}}
-
-/* fashion trade */
-.trade{background:var(--ink);color:var(--paper)}
-.trade .lead{color:rgba(247,245,240,.78)}
-.trade-top{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end}
-.trade-top .eyebrow{margin-bottom:22px}
-.trade-top aside{border-left:1px solid rgba(255,255,255,.18);padding-left:28px}
-.trade-top aside b{display:block;font:400 30px/1.1 var(--serif);color:var(--gold-soft)}
-.trade-top aside span{font-size:14px;color:rgba(247,245,240,.6)}
-.triptych{margin:64px 0;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:end}
-.triptych figure{aspect-ratio:3/4;overflow:hidden}
-.triptych figure:nth-child(2){aspect-ratio:3/4.4}
-.days{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18)}
-.days div{padding:30px 28px 30px 0}
-.days div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.18)}
-.days small{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.days h3{margin:14px 0 8px;font:400 26px/1.15 var(--serif)}
-.days p{font-size:15px;color:rgba(247,245,240,.7)}
-.passes{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px}
-.passes span{padding:10px 16px;border:1px solid rgba(255,255,255,.22);font-size:13px;letter-spacing:.08em}
-.trade .ctas{margin-top:44px}
-.trade .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.trade .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
-@media (max-width:860px){.trade-top{grid-template-columns:1fr}.trade-top aside{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:20px}.days{grid-template-columns:1fr}.days div,.days div+div{padding:24px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}.triptych{grid-template-columns:1fr 1fr}.triptych figure:first-child{display:none}}
-
-/* formação */
-.metodo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
-.metodo-img{aspect-ratio:3/4}
-.metodo-grid .eyebrow{margin-bottom:22px}
-.metodo-grid h2{margin-bottom:26px}
-.workshops{margin-top:36px;list-style:none;padding:0;columns:2;column-gap:32px}
-.workshops li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;break-inside:avoid}
-.faq{margin-top:clamp(64px,8vw,110px);display:grid;grid-template-columns:4fr 8fr;gap:48px}
-.faq h3{font:400 32px/1.1 var(--serif)}
-details{border-bottom:1px solid var(--line)}
-details:first-child{border-top:1px solid var(--ink)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:400 21px/1.3 var(--serif)}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--sans);font-weight:300;color:var(--gold);transition:transform .25s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 0 24px;color:#3a3833;max-width:62ch}
-@media (max-width:860px){.metodo-grid,.faq{grid-template-columns:1fr}.workshops{columns:1}}
-
-/* cast */
-.cast{background:var(--white)}
-.cast-head{max-width:760px;margin-bottom:56px}
-.cast-head .eyebrow{margin-bottom:22px}
-.cast-head h2{margin-bottom:22px}
-.cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.cast-card{position:relative;aspect-ratio:3/4.3;overflow:hidden;background:var(--ink);color:var(--paper)}
-.cast-card img{filter:grayscale(.2);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.cast-card:hover img{transform:scale(1.04)}
-.cast-card .cap{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.78))}
-.cast-card h3{font:400 24px/1.1 var(--serif)}
-.cast-card p{font-size:14px;color:rgba(247,245,240,.78)}
-.cast-card.text{display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:var(--ink)}
-.cast-card.text svg{width:56px;margin-bottom:auto;color:var(--gold)}
-.cast .ctas{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
-@media (max-width:960px){.cast-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.cast-grid{grid-template-columns:1fr}}
-
-/* fundadora */
-.founder-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:center}
-.founder-mark{aspect-ratio:4/5;background:var(--ink);color:var(--paper);display:grid;place-items:center;text-align:center;padding:32px}
-.founder-mark svg{width:42%;color:var(--paper)}
-.founder-mark span{display:block;margin-top:28px;font:400 12px/1.8 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft)}
-.founder-grid .eyebrow{margin-bottom:22px}
-.founder-grid h2{margin-bottom:26px}
-.founder-grid p+p{margin-top:16px}
-.roles{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
-.roles span{padding:8px 14px;border:1px solid var(--line);font-size:13px;letter-spacing:.04em}
-@media (max-width:860px){.founder-grid{grid-template-columns:1fr}.founder-mark{aspect-ratio:16/10}}
-
-/* canais e contato */
-.contact{background:var(--ink);color:var(--paper);text-align:center}
-.contact h2{max-width:16ch;margin:22px auto 0}
-.contact .lead{margin:24px auto 0;color:rgba(247,245,240,.75)}
-.contact .ctas{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.contact .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.contact .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
-.channels{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.16)}
-.channels a,.channels div{padding:28px 12px;text-decoration:none;border-right:1px solid rgba(255,255,255,.16)}
-.channels > :last-child{border-right:0}
-.channels small{display:block;font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.channels span{display:block;margin-top:12px;font-size:15px;color:rgba(247,245,240,.85);overflow-wrap:anywhere}
-.channels a:hover span{color:var(--gold-soft)}
-@media (max-width:860px){.channels{grid-template-columns:1fr 1fr}.channels > *{border-bottom:1px solid rgba(255,255,255,.16)}}
-@media (max-width:520px){.channels{grid-template-columns:1fr}.channels > *{border-right:0}}
-footer{background:var(--ink);color:rgba(247,245,240,.5);font-size:13px;padding:28px 0;border-top:1px solid rgba(255,255,255,.1)}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-/* entrada suave */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
-.reveal.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cast-card img{transition:none}}
-a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-
-[hidden]{display:none !important}
-/* inscrição */
-.insc{background:var(--white)}
-.insc-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
-.insc-head .eyebrow{margin-bottom:22px}
-.insc-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px);align-items:start}
-.guide h3,.qa h3{font:400 26px/1.15 var(--serif);margin-bottom:16px}
-.guide ol{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.guide li{padding:16px;border:1px solid var(--line);font-size:15px;line-height:1.4}
-.guide li b{display:block;font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.guide p{font-size:15px;color:#3a3833}
-.qa{margin-top:44px}
-.form{border-top:1px solid var(--ink)}
-.steps-nav{display:flex;gap:10px;padding:18px 0 6px;font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#a29d93}
-.steps-nav .on{color:var(--ink)}
-html:not(.js) .steps-nav{display:none}
-fieldset{border:0;padding:14px 0 0;min-width:0;display:grid;gap:18px}
-legend{font:400 28px/1.15 var(--serif);padding:0;margin-bottom:8px}
-.field{display:grid;gap:8px}
-.field > span{font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
-.field input,.field select{font:400 16px/1.4 var(--sans);padding:14px;border:1px solid #c9c4b9;background:var(--paper);color:var(--ink);border-radius:0;width:100%;min-height:50px}
-.field input:focus,.field select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{position:relative}
-.chips input{position:absolute;opacity:0;inset:0;margin:0}
-.chips span{display:inline-flex;align-items:center;min-height:46px;padding:10px 16px;border:1px solid #c9c4b9;font-size:15px;cursor:pointer;background:var(--paper)}
-.chips input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.chips input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
-.form-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:30px 0 8px}
-button.btn{cursor:pointer;background:transparent;color:var(--ink)}
-button.btn-solid{background:var(--ink);color:var(--paper)}
-html:not(.js) #btnSeguir,html:not(.js) #btnVoltar{display:none}
-.note{font-size:14px;color:var(--mute)}
-.note a{color:var(--ink)}
-.js .step{display:none}.js .step.on{display:grid}
-@media (max-width:860px){.insc-head,.insc-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.row2,.guide ol{grid-template-columns:1fr}.form-actions .btn{flex:1;justify-content:center}}
-
-/* seleção de talentos */
-.trade .ctas{display:flex;gap:14px;flex-wrap:wrap}
-.pick{margin-top:14px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.25);border:1px solid rgba(247,245,240,.6);cursor:pointer;position:relative;z-index:1}
-.pick:hover{border-color:var(--gold-soft)}
-.pick[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-.pick:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.selbar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;width:min(720px,100% - 24px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 12px 12px 20px;background:var(--ink);color:var(--paper);box-shadow:0 12px 40px rgba(0,0,0,.28)}
-.selbar[hidden]{display:none}
-.selbar p{font-size:14px;line-height:1.4}
-.selbar b{color:var(--gold-soft);font-weight:500}
-.selbar .btn{background:var(--paper);color:var(--ink);border-color:var(--paper);white-space:nowrap}
-.selbar .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
-@media (max-width:520px){.selbar{flex-direction:column;align-items:stretch}.selbar .btn{justify-content:center}}
-html:not(.js) .reveal{opacity:1;transform:none}
-html:not(.js) .pick{display:none}
-
-/* catálogo */
-.catalogo{background:var(--paper);border-top:1px solid var(--line)}
-.cat-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:40px}
-.cat-head .eyebrow{margin-bottom:22px}
-.cat-filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
-.cat-filtros button{min-height:44px;padding:10px 18px;font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid #c9c4b9;cursor:pointer;transition:background .2s,color .2s}
-.cat-filtros button:hover{border-color:var(--ink)}
-.cat-filtros button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.cat-grid{list-style:none;padding:0;display:grid;grid-template-columns:1fr;gap:36px 16px}
-@media (min-width:560px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:900px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
-@media (min-width:1200px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
-.cat-card{display:flex;flex-direction:column;min-width:0}
-.cat-img{display:block;width:100%;aspect-ratio:4/5;padding:0;border:0;background:var(--ink);overflow:hidden;cursor:zoom-in}
-.cat-img img{object-fit:contain;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.cat-card:hover .cat-img img{transform:scale(1.05)}
-.cat-meta{padding-top:16px;display:grid;gap:6px}
-.cat-tag{font:500 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.cat-meta h3{font:400 24px/1.15 var(--serif);text-wrap:balance}
-.cat-price{font-size:15px;color:#3a3833}
-.cat-more{justify-self:start;margin-top:4px;padding:10px 0;font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--gold);cursor:pointer}
-.cat-more:hover{color:var(--gold)}
-.cat-dlg{width:min(1040px,100% - 24px);max-width:none;max-height:calc(100svh - 24px);padding:0;border:0;background:var(--paper);color:var(--ink);overflow:auto}
-.cat-dlg::backdrop{background:rgba(13,13,12,.84)}
-.cat-dlg-in{display:grid;grid-template-columns:7fr 5fr}
-.cat-media{background:var(--ink);display:flex;flex-direction:column}
-.cat-media figure{flex:1;display:grid;place-items:center;min-height:300px}
-.cat-media figure img{height:auto;max-height:calc(100svh - 110px);object-fit:contain}
-.cat-thumbs{display:flex;gap:8px;padding:0 12px 12px}
-.cat-thumbs:empty{display:none}
-.cat-thumbs button{width:56px;height:56px;padding:0;border:1px solid rgba(255,255,255,.25);background:#000;cursor:pointer;overflow:hidden}
-.cat-thumbs button[aria-current="true"]{border-color:var(--gold)}
-.cat-txt{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.cat-txt h3{font:400 clamp(28px,3vw,40px)/1.1 var(--serif);padding-right:36px}
-.cat-txt .cat-price{font:400 26px/1 var(--serif);color:var(--ink)}
-.cat-txt ul{padding-left:18px;display:grid;gap:10px;color:#3a3833;font-size:16px}
-.cat-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:var(--paper);color:var(--ink);font:300 28px/1 var(--sans);cursor:pointer;z-index:2}
-@media (max-width:860px){.cat-head,.cat-dlg-in{grid-template-columns:1fr}.cat-media figure img{max-height:58svh}}
-@media (prefers-reduced-motion:reduce){.cat-img img{transition:none}}
-
-/* capas do catálogo no padrão do site */
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cv{display:flex;flex-direction:column;justify-content:space-between;padding:24px;text-align:left;position:relative;isolation:isolate;cursor:pointer;font-family:var(--sans)}
-.cv-dark{background:var(--ink);color:var(--paper)}
-.cv-light{background:var(--white);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
-.cv::before{content:"";position:absolute;inset:12px;border:1px solid currentColor;opacity:.16;pointer-events:none;transition:inset .6s cubic-bezier(.2,.7,.2,1),opacity .6s}
-.cat-card:hover .cv::before,.cv:focus-visible::before{inset:7px;opacity:.5}
-.cv-top{display:flex;justify-content:space-between;align-items:center;font:500 11px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
-.cv-top svg{width:28px;height:28px}
-.cv-title{font:400 clamp(30px,2.9vw,40px)/1.02 var(--serif);letter-spacing:-.01em;text-wrap:balance;overflow-wrap:anywhere;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.cat-card:hover .cv-title{transform:translateY(-5px)}
-.cv-title em{font-style:italic;color:var(--gold-soft)}
-.cv-light .cv-title em{color:#8a6a2b}
-.cv-foot{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:14px;border-top:1px solid rgba(128,128,128,.35);font:500 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-.cv-foot b{font:400 19px/1.15 var(--serif);letter-spacing:0;text-transform:none}
-.cat-sum{font-size:15px;line-height:1.5;color:#3a3833}
-.cat-big{width:100%;aspect-ratio:4/5;max-height:calc(100svh - 48px);padding:clamp(24px,4vw,44px);cursor:default}
-.cat-big .cv-title{font-size:clamp(40px,5vw,64px)}
-.cat-big .cv-foot b{font-size:26px}
-.cat-media{justify-content:center}
-@media (max-width:860px){.cat-big{aspect-ratio:auto;min-height:62svh}}
-
-/* atalhos fixos: barra no celular, botão de WhatsApp no computador */
-.dock{display:none}
-.wa-fab{position:fixed;right:24px;bottom:24px;z-index:25;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#1f8f4e;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s}
-.wa-fab:hover{transform:scale(1.06)}
-.wa-fab svg,.dock svg{width:26px;height:26px}
-@media (max-width:860px){
-  .wa-fab{display:none}
-  .dock{position:fixed;inset:auto 0 0;z-index:25;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(13,13,12,.96);backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom);border-top:1px solid rgba(255,255,255,.1)}
-  .dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:60px;color:rgba(247,245,240,.85);text-decoration:none;font:500 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
-  .dock svg{width:22px;height:22px}
-  .dock a.wa{background:#1f8f4e;color:#fff}
-  body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
-  .selbar{bottom:calc(70px + env(safe-area-inset-bottom))}
-  .top .btn{display:none}
-}
-
-/* celular: mais compacto */
-@media (max-width:640px){
-  body{font-size:16px}
-  section{padding:56px 0}
-  h2{font-size:clamp(30px,8.6vw,38px)}
-  .lead{font-size:16px}
-  .eyebrow{font-size:11px}
-  .proj-head .eyebrow,.insc-head .eyebrow,.trade-top .eyebrow,.metodo-grid .eyebrow,.cat-head .eyebrow,.cast-head .eyebrow,.founder-grid .eyebrow{margin-bottom:12px}
-  .hero{min-height:88svh}
-  .hero p.intro{margin-top:18px;font-size:15px}
-  .hero .ctas{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .hero .btn{justify-content:center;padding:14px 10px;font-size:11px;letter-spacing:.12em}
-  .facts .wrap{grid-template-columns:repeat(3,1fr)}
-  .facts div{padding:18px 4px;border-bottom:0;border-right:1px solid var(--line)}
-  .facts b{font-size:19px}
-  .facts span{font-size:9px;letter-spacing:.1em;margin-top:6px}
-  .proj-head,.insc-head,.cat-head{gap:14px;margin-bottom:24px}
-  .proj-photo{display:none}
-  .proj-list li{padding:16px 0;gap:4px 12px}
-  .proj-list h3{font-size:22px}
-  .proj-list .tag{font-size:9px;letter-spacing:.14em}
-  .proj-list p{font-size:14px;line-height:1.5}
-  .guide ol{grid-template-columns:1fr 1fr;gap:8px}
-  .guide li{padding:12px;font-size:14px}
-  .guide p{font-size:14px}
-  .qa{margin-top:28px}
-  summary{font-size:18px;padding:16px 0}
-  legend{font-size:24px}
-  .trade-top{gap:20px}
-  .trade-top aside b{font-size:22px}
-  .triptych{margin:28px -16px;padding:0 16px;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;scrollbar-width:none}
-  .triptych::-webkit-scrollbar{display:none}
-  .triptych figure,.triptych figure:first-child,.triptych figure:nth-child(2){display:block;flex:0 0 58%;aspect-ratio:3/4;scroll-snap-align:start}
-  .days{grid-template-columns:repeat(3,1fr)}
-  .days div,.days div+div{padding:16px 8px 16px 0;border-bottom:0}
-  .days div+div{padding-left:8px;border-left:1px solid rgba(255,255,255,.18)}
-  .days h3{font-size:16px;margin:8px 0 0}
-  .days p{display:none}
-  .passes{margin-top:24px;gap:6px}
-  .passes span{padding:7px 10px;font-size:12px}
-  .trade .ctas{margin-top:24px}
-  .metodo-img{display:none}
-  .metodo-grid h2{margin-bottom:14px}
-  .workshops{columns:2;column-gap:14px;margin-top:20px}
-  .workshops li{font-size:13px;padding:9px 0}
-  .faq{margin-top:40px;gap:14px}
-  .faq h3{font-size:26px}
-  .cat-filtros{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 24px;padding:0 16px;scrollbar-width:none}
-  .cat-filtros::-webkit-scrollbar{display:none}
-  .cat-filtros button{flex:0 0 auto;padding:10px 14px;font-size:11px}
-  .cat-grid{grid-template-columns:1fr 1fr;gap:22px 10px}
-  .cv{padding:14px}
-  .cv::before{inset:6px}
-  .cv-top{font-size:9px;letter-spacing:.18em}
-  .cv-top svg{width:18px;height:18px}
-  .cv-title{font-size:20px;line-height:1.05}
-  .cv-foot{gap:4px;padding-top:8px;font-size:8px;letter-spacing:.1em}
-  .cv-foot b{font-size:15px}
-  .cat-meta{padding-top:8px;gap:2px}
-  .cat-sum{display:none}
-  .cat-more{font-size:10px;padding:8px 0}
-  .cast-head{margin-bottom:24px}
-  .cast-head h2{margin-bottom:12px}
-  .cast-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .cast-card{aspect-ratio:3/4}
-  .cast-card .cap,.cast-card.text{padding:12px}
-  .cast-card h3{font-size:17px}
-  .cast-card p{display:none}
-  .cast-card.text svg{width:32px}
-  .pick{margin-top:8px;min-height:40px;padding:8px 10px;font-size:10px;letter-spacing:.08em;width:100%;justify-content:center}
-  .cast .ctas{margin-top:24px}
-  .founder-mark{display:none}
-  .founder-grid h2{margin-bottom:14px}
-  .roles{margin-top:18px;gap:6px}
-  .roles span{padding:6px 10px;font-size:12px}
-  .contact .ctas{margin-top:24px}
-  .channels{margin-top:36px;grid-template-columns:1fr 1fr}
-  .channels > *{border-right:1px solid rgba(255,255,255,.16)}
-  .channels > :nth-child(2n){border-right:0}
-  .channels a,.channels div{padding:18px 8px}
-  .channels span{font-size:13px}
-}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-
+<body data-wa="5531973023077">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="logo-a" viewBox="0 0 100 100">
-    <path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z"/>
-  </symbol>
-</svg>
-
-<header class="top" id="topo">
-  <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Anne Models, início">
-      <svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span>
-    </a>
-    <nav aria-label="Seções">
-      <a href="#projetos">Projetos</a>
-      <a href="#inscricao">Inscrição</a>
-      <a href="#fashion-trade">Fashion Trade</a>
-      <a href="#formacao">Formação</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#cast">Contratantes</a>
-      <a href="#fundadora">A fundadora</a>
-    </nav>
-    <a class="btn btn-ghost" href="#contato">Contato</a>
-  </div>
-</header>
-
-<main id="inicio">
-  <section class="hero" aria-label="Apresentação">
-    <img src="img/hero.jpg" alt="Modelo e modelo masculino em retrato preto e branco" fetchpriority="high">
-    <div class="wrap">
-      <h1>ANNE MODELS</h1>
-      <p class="sub">Management · National &amp; International</p>
-      <p class="intro">Agência de modelos, manequins e atores há mais de três décadas. Concursos, desfiles e formação profissional em São Paulo e em outras capitais.</p>
-      <div class="ctas">
-        <a class="btn btn-solid" href="#inscricao">Fazer inscrição</a>
-        <a class="btn btn-ghost" href="#projetos">Conheça os projetos</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="facts" aria-label="A agência em números">
-    <div class="wrap">
-      <div><b>1995</b><span>Fundação da agência</span></div>
-      <div><b>6 meses a 80 anos</b><span>Perfis agenciados</span></div>
-      <div><b>SP e capitais</b><span>Eventos em 2027</span></div>
-    </div>
-  </section>
-
-  <section id="projetos">
-    <div class="wrap">
-      <div class="proj-head reveal">
-        <div>
-          <p class="eyebrow">Projetos 2027</p>
-          <h2>Concursos que <em>lançam</em> novos rostos</h2>
-        </div>
-        <p class="lead">Cada projeto abre a porta da agência para um público diferente: crianças, jovens talentos, influenciadores, sósias e modelos do cast. As inscrições serão abertas aqui. Enquanto isso, <a href="#inscricao">faça sua inscrição na agência</a> e marque o concurso que interessa.</p>
-      </div>
-      <div class="proj-grid">
-        <figure class="proj-photo reveal"><img src="img/projeto-branco.jpg" alt="Modelo de terno branco na passarela" loading="lazy"></figure>
-        <ul class="proj-list">
-          <li class="reveal"><h3>Top Fashion Star</h3><span class="tag">12 a 35 anos</span>
-            <p>Em três categorias, seleciona 150 youtubers, influenciadores e apresentadores de TV e rádio web. A carreira começa neste concurso.</p></li>
-          <li class="reveal"><h3>ABC do Amanhã</h3><span class="tag">2 a 11 anos</span>
-            <p>A criança vencedora estampa capa de revista e faz trabalhos infantis para agências de publicidade. Todas as participantes entram para o cast da agência e recebem brindes.</p></li>
-          <li class="reveal"><h3>Sósias do Brasil</h3><span class="tag">Todas as idades</span>
-            <p>Concurso para agenciar pessoas parecidas com celebridades e transformá-las em influenciadores, youtubers, sósias e dublês, com a formação profissional necessária.</p></li>
-          <li class="reveal"><h3>The Model of the Year</h3><span class="tag">Cast da agência</span>
-            <p>Premia a modelo que mais se destacou no ano com a boneca-símbolo da nossa marca.</p></li>
-          <li class="reveal"><h3>Garota Anny Models</h3><span class="tag">New faces</span>
-            <p>Em parceria com a revista Edição Fofoca dos Famosos, de Vadu Braga, lança novos rostos pela revista e depois para a agência.</p></li>
-          <li class="reveal"><h3>Luxo no Lixo</h3><span class="tag">Moda e meio ambiente</span>
-            <p>Modelos criam looks com materiais reciclados e fazem da passarela um exemplo de cuidado com o planeta.</p></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="insc" id="inscricao">
-    <div class="wrap">
-      <div class="insc-head reveal">
-        <div>
-          <p class="eyebrow">Inscrição gratuita</p>
-          <h2>Comece pelo <em>celular</em></h2>
-        </div>
-        <p class="lead">São três passos rápidos. Ao final, seus dados chegam direto ao WhatsApp da agência, e você manda as fotos na mesma conversa.</p>
-      </div>
-      <div class="insc-grid">
-        <div class="reveal">
-          <div class="guide">
-            <h3>Como fazer as fotos</h3>
-            <ol>
-              <li><b>Foto 1</b>Corpo inteiro, de frente</li>
-              <li><b>Foto 2</b>Meio corpo</li>
-              <li><b>Foto 3</b>De perfil</li>
-              <li><b>Foto 4</b>Rosto, sério e sorrindo</li>
-            </ol>
-            <p>Fotografe com o celular, de dia, perto de uma janela e diante de uma parede lisa. Não use filtro nem óculos escuros. Prefira roupa simples, como uma camiseta preta ou branca.</p>
-          </div>
-          <div class="qa">
-            <h3>Antes de começar</h3>
-            <details><summary>A inscrição é paga?</summary><p>Não. A inscrição é gratuita.</p></details>
-            <details><summary>Tem limite de idade?</summary><p>Não. Agenciamos de 6 meses a 80 anos. Quem tem menos de 16 anos se inscreve com o nome de um responsável.</p></details>
-            <details><summary>Preciso ter book profissional?</summary><p>Não para se inscrever. Nesta etapa, fotos de celular bastam.</p></details>
-          </div>
-        </div>
-        <form class="form reveal" id="formInsc">
-          <div class="steps-nav" aria-hidden="true"><span data-s="0" class="on">1 Você</span><span>·</span><span data-s="1">2 Perfil</span><span>·</span><span data-s="2">3 Origem</span></div>
-          <fieldset class="step on" data-step="0">
-            <legend>Sobre você</legend>
-            <label class="field"><span>Nome completo</span><input name="nome" autocomplete="name" required></label>
-            <div class="row2">
-              <label class="field"><span>Idade</span><input name="idade" type="number" inputmode="numeric" min="0" max="99" required></label>
-              <label class="field"><span>Cidade e estado</span><input name="cidade" autocomplete="address-level2" placeholder="Ex.: Belo Horizonte, MG" required></label>
-            </div>
-            <label class="field" id="campoResp" hidden><span>Nome do responsável</span><input name="responsavel" autocomplete="off"></label>
-          </fieldset>
-          <fieldset class="step" data-step="1">
-            <legend>Seu perfil</legend>
-            <div class="field"><span>Quero ser</span><div class="chips">
-              <label><input type="checkbox" name="interesse" value="Modelo ou manequim"><span>Modelo ou manequim</span></label>
-              <label><input type="checkbox" name="interesse" value="Ator ou atriz"><span>Ator ou atriz</span></label>
-              <label><input type="checkbox" name="interesse" value="Influenciador"><span>Influenciador</span></label>
-              <label><input type="checkbox" name="interesse" value="Cantor ou cantora"><span>Cantor ou cantora</span></label>
-              <label><input type="checkbox" name="interesse" value="Dançarino ou dançarina"><span>Dançarino ou dançarina</span></label>
-              <label><input type="checkbox" name="interesse" value="Sósia"><span>Sósia</span></label>
-            </div></div>
-            <label class="field"><span>Concurso de interesse</span><select name="concurso">
-              <option>Ainda não sei</option><option>Top Fashion Star (12 a 35 anos)</option><option>ABC do Amanhã (2 a 11 anos)</option><option>Sósias do Brasil</option><option>Garota Anny Models</option><option>Luxo no Lixo</option>
-            </select></label>
-            <div class="row2">
-              <label class="field"><span>Altura (cm)</span><input name="altura" type="number" inputmode="numeric" min="40" max="230" placeholder="Ex.: 172"></label>
-              <label class="field"><span>Instagram ou TikTok</span><input name="redes" placeholder="@seuperfil" autocapitalize="off"></label>
-            </div>
-          </fieldset>
-          <fieldset class="step" data-step="2">
-            <legend>Como você conheceu a Anne?</legend>
-            <div class="chips">
-              <label><input type="radio" name="origem" value="Entrevista na TV" required><span>Entrevista na TV</span></label>
-              <label><input type="radio" name="origem" value="Instagram"><span>Instagram</span></label>
-              <label><input type="radio" name="origem" value="YouTube"><span>YouTube</span></label>
-              <label><input type="radio" name="origem" value="Indicação"><span>Indicação</span></label>
-              <label><input type="radio" name="origem" value="Outro"><span>Outro</span></label>
-            </div>
-            <p class="note">Quando você enviar, o WhatsApp abre com seus dados preenchidos. Depois, é só mandar as 4 fotos na mesma conversa.</p>
-          </fieldset>
-          <div class="form-actions">
-            <button type="button" class="btn btn-ghost" id="btnVoltar" hidden>Voltar</button>
-            <button type="button" class="btn btn-solid" id="btnSeguir">Continuar</button>
-            <button type="submit" class="btn btn-solid" id="btnEnviar">Enviar pelo WhatsApp</button>
-          </div>
-          <p class="note">Prefere outro caminho? Use o <a href="https://forms.gle/VuQUWbzRoZpm6ykv9" target="_blank" rel="noopener">formulário do Google</a>.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="trade" id="fashion-trade">
-    <div class="wrap">
-      <div class="trade-top reveal">
-        <div>
-          <p class="eyebrow">Evento de encerramento</p>
-          <h2>Fashion <em>Trade</em></h2>
-          <p class="lead" style="margin-top:24px">O ponto alto da formação Anne Models: três dias de imersão em São Paulo, com produção de books, composites, catálogos e vídeos publicitários, e um desfile final com grifes, mídia e convidados.</p>
-        </div>
-        <aside>
-          <b>Próxima edição</b>
-          <span>São Paulo, capital. Data a anunciar.</span>
-          <span style="display:block;margin-top:10px">Os convites começam a ser vendidos assim que a data for anunciada.</span>
-        </aside>
-      </div>
-
-      <div class="triptych reveal">
-        <figure><img src="img/trade-passarela.jpg" alt="Desfile com look prateado" loading="lazy"></figure>
-        <figure><img src="img/trade-salao.jpg" alt="Desfile em salão clássico com plateia" loading="lazy"></figure>
-        <figure><img src="img/trade-dourado.jpg" alt="Modelo com vestido dourado na passarela" loading="lazy"></figure>
-      </div>
-
-      <div class="days reveal">
-        <div><small>Dia 1</small><h3>Técnica e expressão</h3><p>Passarela, postura e fotos de book e composite.</p></div>
-        <div><small>Dia 2</small><h3>Editorial e vídeo</h3><p>Catálogo, editorial de moda e vídeo publicitário.</p></div>
-        <div><small>Dia 3</small><h3>O desfile</h3><p>Show de encerramento com grifes, imprensa e celebridades.</p></div>
-      </div>
-
-      <div class="passes reveal" aria-label="Formas de participar">
-        <span>Público</span><span>VIP com lounge e after-party</span><span>Formandos do Método Mac Pherson</span><span>Cantores e dançarinos</span><span>Equipe técnica e fotógrafos</span>
-      </div>
-      <div class="ctas">
-        <a class="btn btn-solid" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Quero%20ser%20avisado(a)%20quando%20abrir%20a%20venda%20de%20convites%20do%20Fashion%20Trade." target="_blank" rel="noopener">Avise-me da venda de convites</a>
-        <a class="btn btn-ghost" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Quero%20participar%20do%20Fashion%20Trade." target="_blank" rel="noopener">Quero participar</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="formacao">
-    <div class="wrap">
-      <div class="metodo-grid">
-        <figure class="metodo-img reveal"><img src="img/metodo-pose.jpg" alt="Modelo de vestido preto em pose de estúdio" loading="lazy"></figure>
-        <div class="reveal">
-          <p class="eyebrow">Formação profissional</p>
-          <h2>Método <em>Mac Pherson</em></h2>
-          <p class="lead">Técnica, comportamento e estética para modelos e manequins. Ao concluir, você recebe o Certificado de Capacitação Técnica (CCT), com o qual tira o registro profissional (RPMT) e passa a assinar contratos dentro da lei.</p>
-          <ul class="workshops">
-            <li>Workshop de modelos e manequins</li>
-            <li>Workshop de atores</li>
-            <li>Recepcionistas de eventos</li>
-            <li>Passarela para concursos de beleza</li>
-            <li>Influenciadores e youtubers</li>
-            <li>Integração profissional e palestras</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <h3 class="reveal">Dúvidas comuns</h3>
-        <div class="reveal">
-          <details>
-            <summary>Como entro para a carreira de modelo ou manequim?</summary>
-            <p>Você passa por avaliação de medidas, teste fotogênico, de passarela e de vídeo comercial. Aprovada, faz a formação profissional, recebe o CCT e é convidada a se agenciar para ser apresentada aos contratantes.</p>
-          </details>
-          <details>
-            <summary>O que é o DRT e como consigo?</summary>
-            <p>No caso de modelos e manequins, o nome correto é RPMT, o registro profissional emitido pelo Ministério do Trabalho. Você leva o CCT do curso com RG, CPF, comprovante de residência e os demais documentos pedidos.</p>
-          </details>
-          <details>
-            <summary>Tem limite de idade?</summary>
-            <p>Não. Agenciamos de 6 meses a 80 anos, de qualquer etnia. A partir de 16 anos é exigido o RPMT; abaixo disso, é preciso autorização do responsável legal.</p>
-          </details>
-          <details>
-            <summary>Por que estar em uma agência?</summary>
-            <p>A agência garante contrato assinado, piso salarial e apoio jurídico junto ao SATED, e apresenta seu perfil às agências de publicidade, produtores e diretores.</p>
-          </details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="catalogo" id="catalogo">
-    <div class="wrap">
-      <div class="cat-head reveal">
-        <div><p class="eyebrow">Catálogo</p><h2>Serviços para a sua <em>carreira</em></h2></div>
-        <p class="lead">Capa de revista, material profissional, avaliação, cursos e eventos. Toque em um serviço para ver o que está incluído e falar com a agência.</p>
-      </div>
-      <div class="cat-filtros" role="group" aria-label="Filtrar serviços">
-        <button type="button" data-f="todos" aria-pressed="true">Todos</button>
-        <button type="button" data-f="capa" aria-pressed="false">Capa e mídia</button>
-        <button type="button" data-f="material" aria-pressed="false">Material profissional</button>
-        <button type="button" data-f="carreira" aria-pressed="false">Avaliação e agenciamento</button>
-        <button type="button" data-f="formacao" aria-pressed="false">Formação</button>
-        <button type="button" data-f="eventos" aria-pressed="false">Eventos</button>
-      </div>
-      <ul class="cat-grid">
-        <li class="cat-card" data-cat="capa">
-          <button class="cat-img cv cv-dark" type="button" data-open="capa-fashion-models" aria-label="Ver detalhes: Capa Fashion Models"><span class="cv-top"><span>Nº 01</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Capa Fashion <em>Models</em></span><span class="cv-foot"><span>Capa e mídia</span><b>R$ 200</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Capa Fashion Models</h3><p class="cat-sum">Sua foto na capa da revista Fashion Models.</p><button class="cat-more" type="button" data-open="capa-fashion-models">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="capa">
-          <button class="cat-img cv cv-dark" type="button" data-open="famosos-em-foco" aria-label="Ver detalhes: Mídia na revista Famosos em Foco"><span class="cv-top"><span>Nº 02</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Mídia na revista Famosos em <em>Foco</em></span><span class="cv-foot"><span>Capa e mídia</span><b>R$ 420</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Mídia na revista Famosos em Foco</h3><p class="cat-sum">Capa da revista virtual, editorial completo e destaque garantido.</p><button class="cat-more" type="button" data-open="famosos-em-foco">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="capa">
-          <button class="cat-img cv cv-dark" type="button" data-open="entrevista-fashion-trade" aria-label="Ver detalhes: Entrevista no Fashion Trade · Tópico do Domingo"><span class="cv-top"><span>Nº 03</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Entrevista no Fashion Trade · Tópico do <em>Domingo</em></span><span class="cv-foot"><span>Capa e mídia</span><b>R$ 750</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Entrevista no Fashion Trade · Tópico do Domingo</h3><p class="cat-sum">Entrevista presencial ou virtual de até 1 hora.</p><button class="cat-more" type="button" data-open="entrevista-fashion-trade">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="material">
-          <button class="cat-img cv cv-light" type="button" data-open="composite" aria-label="Ver detalhes: Composite profissional"><span class="cv-top"><span>Nº 04</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Composite <em>profissional</em></span><span class="cv-foot"><span>Material profissional</span><b>R$ 150</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Composite profissional</h3><p class="cat-sum">PDF com foto de rosto, perfil e corpo inteiro, medidas e contatos.</p><button class="cat-more" type="button" data-open="composite">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="material">
-          <button class="cat-img cv cv-light" type="button" data-open="video-book" aria-label="Ver detalhes: Vídeo book"><span class="cv-top"><span>Nº 05</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Vídeo <em>book</em></span><span class="cv-foot"><span>Material profissional</span><b>R$ 300</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Vídeo book</h3><p class="cat-sum">Vídeo para enviar com propostas de trabalho no mercado publicitário.</p><button class="cat-more" type="button" data-open="video-book">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="material">
-          <button class="cat-img cv cv-light" type="button" data-open="book-fotografico" aria-label="Ver detalhes: Book fotográfico completo"><span class="cv-top"><span>Nº 06</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Book fotográfico <em>completo</em></span><span class="cv-foot"><span>Material profissional</span><b>R$ 1.350</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Book fotográfico completo</h3><p class="cat-sum">Ensaio externo ou interno de 2 horas, com 25 fotos entregues em PDF.</p><button class="cat-more" type="button" data-open="book-fotografico">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="carreira">
-          <button class="cat-img cv cv-dark" type="button" data-open="avaliacao-iniciantes" aria-label="Ver detalhes: Avaliação de perfil para iniciantes"><span class="cv-top"><span>Nº 07</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Avaliação de perfil para <em>iniciantes</em></span><span class="cv-foot"><span>Avaliação e agenciamento</span><b>R$ 380</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Avaliação de perfil para iniciantes</h3><p class="cat-sum">De 20 a 40 minutos, por videochamada ou presencial.</p><button class="cat-more" type="button" data-open="avaliacao-iniciantes">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="carreira">
-          <button class="cat-img cv cv-dark" type="button" data-open="avaliacao-internacional" aria-label="Ver detalhes: Avaliação internacional"><span class="cv-top"><span>Nº 08</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Avaliação <em>internacional</em></span><span class="cv-foot"><span>Avaliação e agenciamento</span><b>R$ 350</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Avaliação internacional</h3><p class="cat-sum">Entrevista, avaliação de medidas e do composite.</p><button class="cat-more" type="button" data-open="avaliacao-internacional">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="carreira">
-          <button class="cat-img cv cv-dark" type="button" data-open="comunidade-cristal" aria-label="Ver detalhes: Agenciamento Comunidade Cristal"><span class="cv-top"><span>Nº 09</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Agenciamento Comunidade <em>Cristal</em></span><span class="cv-foot"><span>Avaliação e agenciamento</span><b>R$ 1.800 por ano</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Agenciamento Comunidade Cristal</h3><p class="cat-sum">Assessoria, encaminhamento para projetos e aviso de castings.</p><button class="cat-more" type="button" data-open="comunidade-cristal">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="formacao">
-          <button class="cat-img cv cv-light" type="button" data-open="workshop-virtual" aria-label="Ver detalhes: Workshop virtual de modelo"><span class="cv-top"><span>Nº 10</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Workshop virtual de <em>modelo</em></span><span class="cv-foot"><span>Formação</span><b>R$ 397</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Workshop virtual de modelo</h3><p class="cat-sum">Formação para modelos, manequins e atores: apostila em PDF, video books e tarefas.</p><button class="cat-more" type="button" data-open="workshop-virtual">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="formacao">
-          <button class="cat-img cv cv-light" type="button" data-open="guia-do-modelo" aria-label="Ver detalhes: Guia definitivo do modelo"><span class="cv-top"><span>Nº 11</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Guia definitivo do <em>modelo</em></span><span class="cv-foot"><span>Formação</span><b>R$ 150 · em breve</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Guia definitivo do modelo</h3><p class="cat-sum">Guia em PDF, com lançamento em breve.</p><button class="cat-more" type="button" data-open="guia-do-modelo">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="formacao">
-          <button class="cat-img cv cv-light" type="button" data-open="metodo-posicionamento" aria-label="Ver detalhes: Método Posicionamento de Vida"><span class="cv-top"><span>Nº 12</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Método Posicionamento de <em>Vida</em></span><span class="cv-foot"><span>Formação</span><b>R$ 2.500</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Método Posicionamento de Vida</h3><p class="cat-sum">Curso virtual e presencial para construir sua imagem profissional, social e familiar.</p><button class="cat-more" type="button" data-open="metodo-posicionamento">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="formacao">
-          <button class="cat-img cv cv-light" type="button" data-open="life-style" aria-label="Ver detalhes: Life Style com Anne Mc"><span class="cv-top"><span>Nº 13</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Life Style com Anne <em>Mc</em></span><span class="cv-foot"><span>Formação</span><b>R$ 1.500 por mês</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Life Style com Anne Mc</h3><p class="cat-sum">Imagem, postura, comunicação, estilo de vida, saúde, beleza, carreira e looks.</p><button class="cat-more" type="button" data-open="life-style">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="formacao">
-          <button class="cat-img cv cv-light" type="button" data-open="workshop-empresas" aria-label="Ver detalhes: Workshop para empresas"><span class="cv-top"><span>Nº 14</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Workshop para <em>empresas</em></span><span class="cv-foot"><span>Formação</span><b>A partir de R$ 5.000</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Workshop para empresas</h3><p class="cat-sum">Grupos de 30 a 50 pessoas.</p><button class="cat-more" type="button" data-open="workshop-empresas">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="eventos">
-          <button class="cat-img cv cv-dark" type="button" data-open="fashion-trade" aria-label="Ver detalhes: Fashion Trade"><span class="cv-top"><span>Nº 15</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Fashion <em>Trade</em></span><span class="cv-foot"><span>Eventos</span><b>R$ 1.500</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Fashion Trade</h3><p class="cat-sum">Inscrição nas edições de BH, SP, RJ, PE e Salvador.</p><button class="cat-more" type="button" data-open="fashion-trade">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="eventos">
-          <button class="cat-img cv cv-dark" type="button" data-open="excursao-tv" aria-label="Ver detalhes: Excursão para figuração e plateia de TV"><span class="cv-top"><span>Nº 16</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Excursão para figuração e plateia de <em>TV</em></span><span class="cv-foot"><span>Eventos</span><b>R$ 3.200</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Excursão para figuração e plateia de TV</h3><p class="cat-sum">Transporte de ida e volta e ingresso para plateia ou figuração.</p><button class="cat-more" type="button" data-open="excursao-tv">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="eventos">
-          <button class="cat-img cv cv-dark" type="button" data-open="apresentadora" aria-label="Ver detalhes: Apresentadora de palco, TV e rádio"><span class="cv-top"><span>Nº 17</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Apresentadora de palco, TV e <em>rádio</em></span><span class="cv-foot"><span>Eventos</span><b>Sob orçamento</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Apresentadora de palco, TV e rádio</h3><p class="cat-sum">Anne Mac Pherson apresenta eventos, programas de TV e rádio, desfiles e leilões.</p><button class="cat-more" type="button" data-open="apresentadora">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="eventos">
-          <button class="cat-img cv cv-dark" type="button" data-open="producao-eventos" aria-label="Ver detalhes: Produção de eventos"><span class="cv-top"><span>Nº 18</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Produção de <em>eventos</em></span><span class="cv-foot"><span>Eventos</span><b>Sob orçamento</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Produção de eventos</h3><p class="cat-sum">Casamentos, aniversários, eventos corporativos e de moda.</p><button class="cat-more" type="button" data-open="producao-eventos">Ver detalhes</button></div>
-        </li>
-        <li class="cat-card" data-cat="eventos">
-          <button class="cat-img cv cv-dark" type="button" data-open="cobertura-midia" aria-label="Ver detalhes: Cobertura de mídia do seu evento"><span class="cv-top"><span>Nº 19</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Cobertura de mídia do seu <em>evento</em></span><span class="cv-foot"><span>Eventos</span><b>R$ 6.000</b></span></button>
-          <div class="cat-meta"><h3 class="sr">Cobertura de mídia do seu evento</h3><p class="cat-sum">Fotos, vídeos, transmissão ao vivo e reportagens.</p><button class="cat-more" type="button" data-open="cobertura-midia">Ver detalhes</button></div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cast" id="cast">
-    <div class="wrap">
-      <div class="cast-head reveal">
-        <p class="eyebrow">Para contratantes</p>
-        <h2>Talentos para a sua <em>marca</em></h2>
-        <p class="lead">A Anne Models faz a ponte entre o talento e o contratante, com contrato e segurança jurídica em cada trabalho. Peça perfis, orçamentos e propostas de cachê. Marque os talentos que procura e envie o pedido pelo WhatsApp.</p>
-      </div>
-      <div class="cast-grid">
-        <article class="cast-card reveal"><img src="img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p><button class="pick" type="button" data-pick="Modelos e manequins" aria-pressed="false">+ Selecionar</button></div></article>
-        <article class="cast-card reveal"><img src="img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p><button class="pick" type="button" data-pick="Atores e atrizes" aria-pressed="false">+ Selecionar</button></div></article>
-        <article class="cast-card reveal"><img src="img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p><button class="pick" type="button" data-pick="Dançarinos" aria-pressed="false">+ Selecionar</button></div></article>
-        <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis, para shows e eventos.</p><button class="pick" type="button" data-pick="Cantores e bandas" aria-pressed="false">+ Selecionar</button></article>
-      </div>
-      <div class="ctas reveal">
-        <a class="btn btn-solid" id="ctaTalentos" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20talentos%20da%20Anne%20Models." target="_blank" rel="noopener">Solicitar talentos</a>
-        <a class="btn btn-ghost btn-mail" style="color:var(--ink)" href="mailto:annymodelsassessoria@gmail.com">annymodelsassessoria@gmail.com</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="fundadora">
-    <div class="wrap founder-grid">
-      <div class="founder-mark reveal"><div><svg aria-hidden="true"><use href="#logo-a"/></svg><span>Anne Models<br>Management</span></div></div>
-      <div class="reveal">
-        <p class="eyebrow">Fundadora e CEO</p>
-        <h2>Anne Mac Pherson <em>Praddo</em></h2>
-        <p class="lead">Fundou a agência em 1995, como Versátil Publicidades. A marca passou a levar o próprio nome e, em 2024, virou o GAP, Grupo Anny Praddo.</p>
-        <p>É a criadora do Método Mac Pherson e produz os concursos e desfiles da agência. Como colunista social, faz a cobertura de eventos no canal Anny TV Fashion Trade.</p>
-        <div class="roles">
-          <span>Agenciadora</span><span>Produtora de eventos de moda</span><span>Ministrante de cursos</span><span>Fotógrafa</span><span>Apresentadora</span><span>Palestrante</span><span>Personal stylist</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contato">
-    <div class="wrap">
-      <p class="eyebrow reveal">Contato</p>
-      <h2 class="reveal">Sua carreira começa com uma <em>conversa</em></h2>
-      <p class="lead reveal">Inscrições, agenciamento, Fashion Trade ou contratação de talentos: fale direto com a agência.</p>
-      <div class="ctas reveal">
-        <a class="btn btn-solid" href="https://wa.me/5531973023077" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        <a class="btn btn-ghost" href="#inscricao">Inscrição gratuita</a>
-      </div>
-      <div class="channels reveal">
-        <a href="https://wa.me/5531973023077" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97302-3077<br>(31) 99658-9729</span></a>
-        <div><small>E-mail</small><span><a href="mailto:annypraddocursos@gmail.com">annypraddocursos@gmail.com</a><br><a href="mailto:annymodelsassessoria@gmail.com">annymodelsassessoria@gmail.com</a></span></div>
-        <a href="https://www.youtube.com/@TVANNYPRADDOEVENTOS" target="_blank" rel="noopener"><small>YouTube</small><span>TV Anny Praddo Eventos</span></a>
-        <a href="https://www.instagram.com/anny_praddo_modeling_career" target="_blank" rel="noopener"><small>Instagram</small><span>@anny_praddo_modeling_career</span></a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-a" viewBox="0 0 100 100"><path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.76 4.88-1.28A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.9.76.78-2.83-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.54 11 11 0 0 0 4.2 3.7c1.56.68 2.18.73 2.96.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 5.5C6.5 4 9.5 4 12 5.5v14c-2.5-1.5-5.5-1.5-8 0zM20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
 </svg>
-
-<nav class="dock" aria-label="Atalhos">
-  <a href="#projetos"><svg aria-hidden="true"><use href="#i-star"/></svg>Projetos</a>
-  <a href="#inscricao"><svg aria-hidden="true"><use href="#i-pen"/></svg>Inscrição</a>
-  <a href="#catalogo"><svg aria-hidden="true"><use href="#i-grid"/></svg>Catálogo</a>
-  <a class="wa" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-</nav>
-<a class="wa-fab" href="https://wa.me/5531973023077?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
-
-<div class="selbar" id="selbar" hidden role="status" aria-live="polite"><p><b id="selCount">0</b> na seleção: <span id="selList"></span></p><a class="btn" id="selSend" href="https://wa.me/5531973023077" target="_blank" rel="noopener">Pedir orçamento</a></div>
-
-<dialog class="cat-dlg" id="catDlg" aria-labelledby="catDlgTitle">
-  <button class="cat-close" type="button" aria-label="Fechar">×</button>
-  <div class="cat-dlg-in">
-    <div class="cat-media"><div class="cv cv-dark cat-big" id="catBig"></div><div class="cat-thumbs" id="catThumbs"></div></div>
-    <div class="cat-txt"><p class="cat-tag" id="catDlgTag"></p><h3 id="catDlgTitle"></h3><p class="cat-price" id="catDlgPrice"></p><ul id="catDlgList"></ul><a class="btn btn-solid" id="catDlgCta" href="https://wa.me/5531996589729" target="_blank" rel="noopener">Quero este serviço</a><p class="note">Atendimento pelo WhatsApp (31) 99658-9729. <a id="catDlgArt" href="#" target="_blank" rel="noopener">Ver a arte original</a></p></div>
-  </div>
-</dialog>
-<script type="application/json" id="catData">{"capa-fashion-models":{"t":"Capa Fashion Models","tag":"Capa e mídia","p":"R$ 200","img":["img/catalogo/01-1.jpg","img/catalogo/01-2.jpg","img/catalogo/01-3.jpg"],"d":["Sua foto na capa da revista Fashion Models.","Cadastro na Anne Models Management e acesso à ficha de inscrição da formação profissional.","Encaminhamento ao mercado publicitário depois do certificado de capacitação técnica."]},"famosos-em-foco":{"t":"Mídia na revista Famosos em Foco","tag":"Capa e mídia","p":"R$ 420","img":["img/catalogo/14-1.jpg"],"d":["Capa da revista virtual, editorial completo e destaque garantido.","Mídia mensal: 30 dias em capa e editoriais."]},"entrevista-fashion-trade":{"t":"Entrevista no Fashion Trade · Tópico do Domingo","tag":"Capa e mídia","p":"R$ 750","img":["img/catalogo/10-1.jpg"],"d":["Entrevista presencial ou virtual de até 1 hora.","Divulgação no canal do YouTube Life Style."]},"composite":{"t":"Composite profissional","tag":"Material profissional","p":"R$ 150","img":["img/catalogo/04-3.jpg","img/catalogo/04-2.jpg","img/catalogo/04-1.jpg"],"d":["PDF com foto de rosto, perfil e corpo inteiro, medidas e contatos.","Pronto para enviar a agências e clientes ou para imprimir."]},"video-book":{"t":"Vídeo book","tag":"Material profissional","p":"R$ 300","img":["img/catalogo/05-1.jpg"],"d":["Vídeo para enviar com propostas de trabalho no mercado publicitário.","Orientação para a gravação, a distância ou presencial."]},"book-fotografico":{"t":"Book fotográfico completo","tag":"Material profissional","p":"R$ 1.350","img":["img/catalogo/15-1.jpg"],"d":["Ensaio externo ou interno de 2 horas, com 25 fotos entregues em PDF.","Maquiagem, cabelo e looks são combinados à parte."]},"avaliacao-iniciantes":{"t":"Avaliação de perfil para iniciantes","tag":"Avaliação e agenciamento","p":"R$ 380","img":["img/catalogo/12-1.jpg"],"d":["De 20 a 40 minutos, por videochamada ou presencial.","Teste de medidas, fotos e passarela."]},"avaliacao-internacional":{"t":"Avaliação internacional","tag":"Avaliação e agenciamento","p":"R$ 350","img":["img/catalogo/07-1.jpg"],"d":["Entrevista, avaliação de medidas e do composite.","Cadastro válido por 1 ano para receber convites de trabalhos internacionais."]},"comunidade-cristal":{"t":"Agenciamento Comunidade Cristal","tag":"Avaliação e agenciamento","p":"R$ 1.800 por ano","img":["img/catalogo/06-1.jpg"],"d":["Assessoria, encaminhamento para projetos e aviso de castings.","Contratos de trabalho com assessoria jurídica. Validade de 1 ano, renovável."]},"workshop-virtual":{"t":"Workshop virtual de modelo","tag":"Formação","p":"R$ 397","img":["img/catalogo/19-1.jpg"],"d":["Formação para modelos, manequins e atores: apostila em PDF, video books e tarefas.","Certificado de conclusão."]},"guia-do-modelo":{"t":"Guia definitivo do modelo","tag":"Formação","p":"R$ 150 · em breve","img":["img/catalogo/11-1.jpg"],"d":["Guia em PDF, com lançamento em breve."]},"metodo-posicionamento":{"t":"Método Posicionamento de Vida","tag":"Formação","p":"R$ 2.500","img":["img/catalogo/09-1.jpg"],"d":["Curso virtual e presencial para construir sua imagem profissional, social e familiar.","Os valores são ajustados aos serviços de que você precisa."]},"life-style":{"t":"Life Style com Anne Mc","tag":"Formação","p":"R$ 1.500 por mês","img":["img/catalogo/08-1.jpg"],"d":["Imagem, postura, comunicação, estilo de vida, saúde, beleza, carreira e looks.","Duração de 3 meses, com 1 encontro por semana."]},"workshop-empresas":{"t":"Workshop para empresas","tag":"Formação","p":"A partir de R$ 5.000","img":["img/catalogo/13-1.jpg"],"d":["Grupos de 30 a 50 pessoas.","Modelos e atores, integração profissional, recepcionistas, personal style, maquiagem e palestras."]},"fashion-trade":{"t":"Fashion Trade","tag":"Eventos","p":"R$ 1.500","img":["img/catalogo/18-1.jpg"],"d":["Inscrição nas edições de BH, SP, RJ, PE e Salvador.","Desfiles, entrega de certificados, mídia e transmissão ao vivo.","Inclui acompanhantes, estadia em hotel, camarim, maquiagem e produção."]},"excursao-tv":{"t":"Excursão para figuração e plateia de TV","tag":"Eventos","p":"R$ 3.200","img":["img/catalogo/17-1.jpg"],"d":["Transporte de ida e volta e ingresso para plateia ou figuração.","Acompanhamento da equipe e assessoria com as produtoras do Rio de Janeiro e de São Paulo."]},"apresentadora":{"t":"Apresentadora de palco, TV e rádio","tag":"Eventos","p":"Sob orçamento","img":["img/catalogo/02-1.jpg"],"d":["Anne Mac Pherson apresenta eventos, programas de TV e rádio, desfiles e leilões.","O roteiro é feito a partir do contrato. Estadia, alimentação e transporte ficam por conta do contratante."]},"producao-eventos":{"t":"Produção de eventos","tag":"Eventos","p":"Sob orçamento","img":["img/catalogo/03-1.jpg"],"d":["Casamentos, aniversários, eventos corporativos e de moda.","Planejamento e execução completos com a equipe da agência."]},"cobertura-midia":{"t":"Cobertura de mídia do seu evento","tag":"Eventos","p":"R$ 6.000","img":["img/catalogo/16-1.jpg"],"d":["Fotos, vídeos, transmissão ao vivo e reportagens.","Equipe de 3 pessoas."]}}</script>
-
-<footer>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="top" id="topo">
   <div class="wrap">
-    <span>© 2026 Anne Models Management</span>
-    <span>Agência de modelos, manequins e atores desde 1995</span>
+    <a class="brand" href="./" aria-label="Anne Models, página inicial"><svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span></a>
+    <nav class="menu" id="menuNav" aria-label="Principal">
+      <a href="a-agencia/">Agência</a><a href="cursos/">Cursos</a><a href="servicos/">Serviços</a><a href="#projetos">Projetos</a><a href="fashion-trade/">Fashion Trade</a><a href="portal-lifestyle/">Lifestyle</a>
+      <a class="menu-util" href="area-do-aluno/">Área do aluno</a>
+      <a class="menu-util" href="contato/">Contato</a>
+    </nav>
+    <div class="top-actions">
+      <a class="btn btn-ghost top-cta" href="#cadastro">Cadastre-se</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuNav"><span></span><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>
+<main id="conteudo">
+
+<section class="hero" aria-label="Apresentação">
+  <img src="img/hero.jpg" alt="Modelo e modelo masculino em retrato preto e branco" fetchpriority="high">
+  <div class="wrap">
+    <h1>ANNE MODELS</h1>
+    <p class="sub">Management · National &amp; International</p>
+    <p class="intro">Formação, imagem e novas possibilidades. Conheça os cursos, serviços e projetos da Anne Models para modelos, artistas e profissionais.</p>
+    <div class="ctas">
+      <a class="btn btn-solid" href="#cadastro">Cadastre-se grátis</a>
+      <a class="btn btn-ghost" href="cursos/">Conheça os cursos</a>
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="A agência em números">
+  <div class="wrap">
+    <div><b>33 anos</b><span>De experiência</span></div>
+    <div><b>6 meses a 80 anos</b><span>Perfis agenciados</span></div>
+    <div><b>SP e capitais</b><span>Eventos</span></div>
+  </div>
+</section>
+
+<section class="sec-founder">
+  <div class="wrap founder-grid">
+    <div class="founder-mark reveal"><div><svg aria-hidden="true"><use href="#logo-a"/></svg><span>Anne Models<br>Management</span></div></div>
+    <div class="reveal">
+      <p class="eyebrow">Fundadora e CEO</p>
+      <h2>Anne Mac Pherson <em>Praddo</em></h2>
+      <p class="lead">33 anos de trajetória na moda. Fundou a agência em 1995, criou o Método Anne Mac Pherson e produz os concursos e desfiles da agência.</p>
+      <div class="ctas"><a class="btn btn-ghost btn-dark" href="a-agencia/">Conheça a agência</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cursos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow">Formação</p><h2>Três cursos, três <em>caminhos</em></h2></div>
+      <p class="lead">Para quem quer ser modelo ou ator, para quem quer transformar a imagem do próprio negócio e para quem quer trabalhar em eventos.</p>
+    </div>
+    <ul class="cursos-grid"><li><a class="curso-card cv-dark" href="cursos/metodo-anne-mac-pherson/">
+  <span class="cv-top"><span>Modelos, manequins e atores</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span>
+  <span class="curso-nome">Método Anne Mac <em>Pherson</em></span>
+  <span class="curso-resumo">Formação profissional completa de modelo, manequim e ator, com todos os módulos para obter o Certificado de Capacitação Técnica (CCT).</span>
+  <span class="curso-link">Conhecer o curso</span>
+</a></li><li><a class="curso-card cv-light" href="cursos/integracao-profissional/">
+  <span class="cv-top"><span>Lojistas, empresas e profissionais</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span>
+  <span class="curso-nome">Integração <em>Profissional</em></span>
+  <span class="curso-resumo">Posicionamento de vida e transformação de imagem: integração profissional, social e familiar para quem quer se destacar no mercado.</span>
+  <span class="curso-link">Conhecer o curso</span>
+</a></li><li><a class="curso-card cv-dark" href="cursos/recepcionistas-de-eventos/">
+  <span class="cv-top"><span>Feiras e eventos</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span>
+  <span class="curso-nome">Recepcionistas de <em>eventos</em></span>
+  <span class="curso-resumo">Treinamento especializado para trabalhar em eventos de moda, feiras e grandes eventos corporativos.</span>
+  <span class="curso-link">Conhecer o curso</span>
+</a></li></ul>
+  </div>
+</section>
+
+<section class="catalogo">
+  <div class="wrap">
+    <div class="cat-head reveal">
+      <div><p class="eyebrow">Serviços</p><h2>Para a sua <em>carreira</em></h2></div>
+      <p class="lead">Capa de revista, material profissional, avaliação e eventos. Veja alguns destaques ou abra o catálogo completo.</p>
+    </div>
+    <ul class="cat-grid"><li class="cat-card" data-cat="capa"><a class="cat-img cv cv-dark" href="servicos/#capa-fashion-models" aria-label="Ver detalhes: Capa Fashion Models"><span class="cv-top"><span>Nº 01</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Capa Fashion <em>Models</em></span><span class="cv-foot"><span>Capa e mídia</span><b>R$ 200</b></span></a><div class="cat-meta"><h3 class="sr">Capa Fashion Models</h3><p class="cat-sum">Sua foto na capa da revista Fashion Models.</p><a class="cat-more" href="servicos/#capa-fashion-models">Ver detalhes</a></div></li><li class="cat-card" data-cat="material"><a class="cat-img cv cv-light" href="servicos/#composite" aria-label="Ver detalhes: Composite profissional"><span class="cv-top"><span>Nº 04</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Composite <em>profissional</em></span><span class="cv-foot"><span>Material profissional</span><b>R$ 150</b></span></a><div class="cat-meta"><h3 class="sr">Composite profissional</h3><p class="cat-sum">PDF com foto de rosto, perfil e corpo inteiro, medidas e contatos.</p><a class="cat-more" href="servicos/#composite">Ver detalhes</a></div></li><li class="cat-card" data-cat="material"><a class="cat-img cv cv-light" href="servicos/#book-fotografico" aria-label="Ver detalhes: Book fotográfico completo"><span class="cv-top"><span>Nº 06</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Book fotográfico <em>completo</em></span><span class="cv-foot"><span>Material profissional</span><b>R$ 1.350</b></span></a><div class="cat-meta"><h3 class="sr">Book fotográfico completo</h3><p class="cat-sum">Ensaio externo ou interno de 2 horas, com 25 fotos entregues em PDF.</p><a class="cat-more" href="servicos/#book-fotografico">Ver detalhes</a></div></li><li class="cat-card" data-cat="carreira"><a class="cat-img cv cv-dark" href="servicos/#avaliacao-iniciantes" aria-label="Ver detalhes: Avaliação de perfil para iniciantes"><span class="cv-top"><span>Nº 07</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Avaliação de perfil para <em>iniciantes</em></span><span class="cv-foot"><span>Avaliação e agenciamento</span><b>R$ 380</b></span></a><div class="cat-meta"><h3 class="sr">Avaliação de perfil para iniciantes</h3><p class="cat-sum">De 20 a 40 minutos, por videochamada ou presencial.</p><a class="cat-more" href="servicos/#avaliacao-iniciantes">Ver detalhes</a></div></li><li class="cat-card" data-cat="formacao"><a class="cat-img cv cv-light" href="servicos/#workshop-virtual" aria-label="Ver detalhes: Workshop virtual de modelo"><span class="cv-top"><span>Nº 10</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Workshop virtual de <em>modelo</em></span><span class="cv-foot"><span>Formação</span><b>R$ 397</b></span></a><div class="cat-meta"><h3 class="sr">Workshop virtual de modelo</h3><p class="cat-sum">Formação para modelos, manequins e atores: apostila em PDF, video books e tarefas.</p><a class="cat-more" href="servicos/#workshop-virtual">Ver detalhes</a></div></li><li class="cat-card" data-cat="eventos"><a class="cat-img cv cv-dark" href="servicos/#fashion-trade" aria-label="Ver detalhes: Fashion Trade"><span class="cv-top"><span>Nº 15</span><svg aria-hidden="true"><use href="#logo-a"/></svg></span><span class="cv-title">Fashion <em>Trade</em></span><span class="cv-foot"><span>Eventos</span><b>R$ 1.500</b></span></a><div class="cat-meta"><h3 class="sr">Fashion Trade</h3><p class="cat-sum">Inscrição nas edições de BH, SP, RJ, PE e Salvador.</p><a class="cat-more" href="servicos/#fashion-trade">Ver detalhes</a></div></li></ul>
+    <div class="ctas center"><a class="btn btn-solid" href="servicos/">Ver todos os serviços</a></div>
+  </div>
+</section>
+
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-top reveal">
+      <div>
+        <p class="eyebrow">Evento</p>
+        <h2>Fashion <em>Trade</em></h2>
+        <p class="lead">Um fim de semana de imersão: books, composites, vídeos, treino de passarela e um desfile final com concursos, troféus e atrações artísticas.</p>
+      </div>
+      <aside><b>Próxima edição</b><span>Data e local a anunciar.</span></aside>
+    </div>
+    <div class="triptych reveal">
+      <figure><img src="img/trade-passarela.jpg" alt="Desfile com look prateado" loading="lazy"></figure>
+      <figure><img src="img/trade-salao.jpg" alt="Desfile em salão clássico com plateia" loading="lazy"></figure>
+      <figure><img src="img/trade-dourado.jpg" alt="Modelo com vestido dourado na passarela" loading="lazy"></figure>
+    </div>
+    <div class="ctas"><a class="btn btn-solid" href="fashion-trade/">Programação e formas de participar</a></div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="proj-head reveal">
+      <div><p class="eyebrow">Projetos</p><h2>Concursos que <em>lançam</em> novos rostos</h2></div>
+      <p class="lead">As quatro categorias desfilam no Fashion Trade. Faça seu cadastro gratuito e marque a que combina com você.</p>
+    </div>
+    <ul class="proj-list proj-2col"><li class="reveal"><h3>Top Model of the Year</h3><span class="tag">Jovens · 16 a 30 anos</span><p>Para jovens, no masculino e no feminino. Talento, beleza e carreira.</p></li><li class="reveal"><h3>Sósias do Brasil</h3><span class="tag">Todas as idades</span><p>Sósias de cantores, dançarinos, atores e influenciadores, e covers. Qualquer artista, qualquer estilo.</p></li><li class="reveal"><h3>ABC do Amanhã</h3><span class="tag">Baby, kids, pré-teen e teen</span><p>Categoria infantil: grandes sonhos começam cedo. Todas as crianças participantes entram para o cast da agência.</p></li><li class="reveal"><h3>Mulher Total</h3><span class="tag">Plus size · 40+</span><p>Beleza, experiência e atitude, sem limite de idade. Toda mulher tem o seu brilho.</p></li></ul>
+    <ul class="proj-links">
+      <li class="reveal"><a href="revista-krystal/"><small>Revista e agenciamento</small><b>Revista Krystal</b><span>Capa, Comunidade Cristal e contratos com Jane Ribeiro.</span></a></li>
+      <li class="reveal"><a href="fashion-models/"><small>Revista e concurso</small><b>Fashion Models</b><span>Seja capa da revista e participe do Garota Fashion Models.</span></a></li>
+      <li class="reveal"><a href="trade-sales/"><small>Curadoria</small><b>Trade Sales</b><span>O que comprar para o book e para os desfiles.</span></a></li>
+      <li class="reveal"><a href="portal-lifestyle/"><small>Portal</small><b>Life Style with Anne Mc</b><span>Notícias, entrevistas e vídeos da agência.</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="insc" id="cadastro">
+  <div class="wrap">
+    <div class="insc-head reveal">
+      <div><p class="eyebrow">Cadastro gratuito</p><h2>Comece pelo <em>celular</em></h2></div>
+      <p class="lead">São três passos rápidos. No final, seus dados chegam ao WhatsApp da agência e você manda as fotos na mesma conversa.</p>
+    </div>
+    <div class="insc-grid">
+      <div class="reveal">
+        <div class="guide">
+          <h3>Como fazer as fotos</h3>
+          <ol>
+            <li><b>Foto 1</b>Corpo inteiro, de frente</li>
+            <li><b>Foto 2</b>Meio corpo</li>
+            <li><b>Foto 3</b>De perfil</li>
+            <li><b>Foto 4</b>Rosto, sério e sorrindo</li>
+          </ol>
+          <p>Fotografe de dia, perto de uma janela e diante de uma parede lisa. Sem filtro e sem óculos escuros. Prefira roupa simples, como camiseta preta ou branca.</p>
+        </div>
+        <div class="qa">
+          <details><summary>O cadastro é pago?</summary><p>Não. O cadastro é gratuito.</p></details>
+          <details><summary>Tem limite de idade?</summary><p>Não. Agenciamos de 6 meses a 80 anos. Quem tem menos de 16 anos se cadastra com o nome de um responsável.</p></details>
+          <details><summary>Preciso ter book profissional?</summary><p>Não. Nesta etapa, fotos de celular bastam.</p></details>
+        </div>
+      </div>
+      <form class="form reveal" id="formInsc">
+        <div class="steps-nav" aria-hidden="true"><span data-s="0" class="on">1 Você</span><span>·</span><span data-s="1">2 Perfil</span><span>·</span><span data-s="2">3 Origem</span></div>
+        <fieldset class="step on" data-step="0">
+          <legend>Sobre você</legend>
+          <label class="field"><span>Nome completo</span><input name="nome" autocomplete="name" required></label>
+          <div class="row2">
+            <label class="field"><span>Idade</span><input name="idade" type="number" inputmode="numeric" min="0" max="99" required></label>
+            <label class="field"><span>Cidade e estado</span><input name="cidade" autocomplete="address-level2" placeholder="Ex.: Belo Horizonte, MG" required></label>
+          </div>
+          <label class="field" id="campoResp" hidden><span>Nome do responsável</span><input name="responsavel" autocomplete="off"></label>
+        </fieldset>
+        <fieldset class="step" data-step="1">
+          <legend>Seu perfil</legend>
+          <div class="field"><span>Quero ser</span><div class="chips">
+            <label><input type="checkbox" name="interesse" value="Modelo ou manequim"><span>Modelo ou manequim</span></label>
+            <label><input type="checkbox" name="interesse" value="Ator ou atriz"><span>Ator ou atriz</span></label>
+            <label><input type="checkbox" name="interesse" value="Recepcionista de eventos"><span>Recepcionista</span></label>
+            <label><input type="checkbox" name="interesse" value="Influenciador"><span>Influenciador</span></label>
+            <label><input type="checkbox" name="interesse" value="Cantor ou dançarino"><span>Cantor ou dançarino</span></label>
+            <label><input type="checkbox" name="interesse" value="Sósia"><span>Sósia</span></label>
+          </div></div>
+          <div class="row2">
+            <label class="field"><span>Curso de interesse</span><select name="curso">
+              <option>Ainda não sei</option><option value="metodo-anne-mac-pherson">Método Anne Mac Pherson</option><option value="integracao-profissional">Integração Profissional</option><option value="recepcionistas-de-eventos">Recepcionistas de eventos</option>
+            </select></label>
+            <label class="field"><span>Concurso de interesse</span><select name="concurso">
+              <option>Ainda não sei</option><option>Top Model of the Year</option><option>Sósias do Brasil</option><option>ABC do Amanhã</option><option>Mulher Total</option><option>Garota Fashion Models</option>
+            </select></label>
+          </div>
+          <div class="row2">
+            <label class="field"><span>Altura (cm)</span><input name="altura" type="number" inputmode="numeric" min="40" max="230" placeholder="Ex.: 172"></label>
+            <label class="field"><span>Instagram ou TikTok</span><input name="redes" placeholder="@seuperfil" autocapitalize="off"></label>
+          </div>
+        </fieldset>
+        <fieldset class="step" data-step="2">
+          <legend>Como você conheceu a Anne?</legend>
+          <div class="chips">
+            <label><input type="radio" name="origem" value="Entrevista na TV" required><span>Entrevista na TV</span></label>
+            <label><input type="radio" name="origem" value="Instagram"><span>Instagram</span></label>
+            <label><input type="radio" name="origem" value="YouTube"><span>YouTube</span></label>
+            <label><input type="radio" name="origem" value="Indicação"><span>Indicação</span></label>
+            <label><input type="radio" name="origem" value="Outro"><span>Outro</span></label>
+          </div>
+          <p class="note">Ao enviar, o WhatsApp abre com seus dados preenchidos. Depois é só mandar as 4 fotos na mesma conversa.</p>
+        </fieldset>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" id="btnVoltar" hidden>Voltar</button>
+          <button type="button" class="btn btn-solid" id="btnSeguir">Continuar</button>
+          <button type="submit" class="btn btn-solid" id="btnEnviar">Enviar pelo WhatsApp</button>
+        </div>
+        <p class="note">Prefere outro caminho? Use o <a href="https://forms.gle/VuQUWbzRoZpm6ykv9" target="_blank" rel="noopener">formulário do Google</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div><a class="brand" href="./"><svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span></a>
+      <p>Agência de modelos, manequins e atores desde 1995.</p></div>
+    <nav aria-label="Rodapé">
+      <a href="a-agencia/">A agência</a><a href="cursos/">Cursos</a><a href="servicos/">Serviços</a><a href="fashion-trade/">Fashion Trade</a>
+      <a href="revista-krystal/">Revista Krystal</a><a href="fashion-models/">Fashion Models</a><a href="trade-sales/">Trade Sales</a><a href="portal-lifestyle/">Portal Lifestyle</a>
+      <a href="area-do-aluno/">Área do aluno</a><a href="contato/">Contato</a>
+    </nav>
+    <p class="foot-copy">© 2026 Anne Models Management</p>
   </div>
 </footer>
+<nav class="dock" aria-label="Atalhos">
+  <a href="cursos/"><svg aria-hidden="true"><use href="#i-book"/></svg>Cursos</a>
+  <a href="servicos/"><svg aria-hidden="true"><use href="#i-grid"/></svg>Serviços</a>
+  <a href="#cadastro"><svg aria-hidden="true"><use href="#i-pen"/></svg>Cadastro</a>
+  <a class="wa" href="https://wa.me/5531973023077?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+</nav>
+<a class="wa-fab" href="https://wa.me/5531973023077?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Anne%20Models." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
-<script>
-(() => {
-  const WA = 'https://wa.me/5531973023077?text=';
-  const bar = document.getElementById('topo');
-  const onScroll = () => bar.classList.toggle('solid', scrollY > innerHeight * 0.75);
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Inscrição em 3 passos
-  const form = document.getElementById('formInsc');
-  if (form) {
-    const steps = [...form.querySelectorAll('.step')];
-    const marks = [...form.querySelectorAll('.steps-nav [data-s]')];
-    const bV = document.getElementById('btnVoltar'), bS = document.getElementById('btnSeguir'), bE = document.getElementById('btnEnviar');
-    let cur = 0;
-    const show = i => {
-      i = Math.max(0, Math.min(steps.length - 1, i)); cur = i;
-      steps.forEach((s, k) => s.classList.toggle('on', k === i));
-      marks.forEach((m, k) => m.classList.toggle('on', k <= i));
-      bV.hidden = i === 0; bS.hidden = i === steps.length - 1; bE.hidden = i !== steps.length - 1;
-    };
-    const ok = i => { for (const el of steps[i].querySelectorAll('input,select')) { if (!el.checkValidity()) { el.reportValidity(); return false; } } return true; };
-    const toForm = () => scrollTo({ top: form.getBoundingClientRect().top + scrollY - 96, behavior: 'smooth' });
-    bS.addEventListener('click', () => { if (ok(cur)) { show(cur + 1); toForm(); } });
-    bV.addEventListener('click', () => { show(cur - 1); toForm(); });
-    const idade = form.elements.idade, resp = document.getElementById('campoResp');
-    idade.addEventListener('input', () => { const menor = idade.value !== '' && +idade.value < 16; resp.hidden = !menor; form.elements.responsavel.required = menor; });
-    const q = new URLSearchParams(location.search);
-    if (q.has('tv') || /tv/i.test(q.get('utm_source') || '')) { const r = form.querySelector('[name=origem][value="Entrevista na TV"]'); if (r) r.checked = true; }
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      for (let i = 0; i < steps.length; i++) { if (!steps[i].querySelectorAll('input,select').length) continue; show(i); if (!ok(i)) return; }
-      const f = form.elements;
-      const quero = [...form.querySelectorAll('[name=interesse]:checked')].map(x => x.value).join(', ') || 'não informado';
-      const l = ['Olá! Quero fazer minha inscrição na Anne Models.', 'Nome: ' + f.nome.value, 'Idade: ' + f.idade.value, 'Cidade: ' + f.cidade.value];
-      if (f.responsavel.value) l.push('Responsável: ' + f.responsavel.value);
-      l.push('Quero ser: ' + quero, 'Concurso: ' + f.concurso.value);
-      if (f.altura.value) l.push('Altura: ' + f.altura.value + ' cm');
-      if (f.redes.value) l.push('Redes: ' + f.redes.value);
-      l.push('Como conheci: ' + (form.querySelector('[name=origem]:checked') || {}).value, 'Vou enviar minhas 4 fotos nesta conversa.');
-      window.open(WA + encodeURIComponent(l.join('\n')), '_blank', 'noopener');
-    });
-    show(0);
-  }
-
-  // Seleção de talentos para contratantes
-  const sel = new Set();
-  const sb = document.getElementById('selbar'), cnt = document.getElementById('selCount'), list = document.getElementById('selList');
-  const send = document.getElementById('selSend'), cta = document.getElementById('ctaTalentos');
-  const upd = () => {
-    const a = [...sel];
-    const href = WA + encodeURIComponent('Olá! Gostaria de solicitar talentos da Anne Models.' + (a.length ? '\nSeleção: ' + a.join(', ') + '.' : ''));
-    send.href = href; cta.href = href;
-    cta.textContent = a.length ? 'Solicitar talentos (' + a.length + ')' : 'Solicitar talentos';
-    cnt.textContent = a.length; list.textContent = a.join(', '); sb.hidden = !a.length;
-  };
-  document.querySelectorAll('.pick').forEach(b => b.addEventListener('click', () => {
-    const v = b.dataset.pick, on = !sel.has(v);
-    on ? sel.add(v) : sel.delete(v);
-    b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ Selecionado' : '+ Selecionar';
-    upd();
-  }));
-
-  // Catálogo: filtros e detalhes
-  const catData = JSON.parse(document.getElementById('catData').textContent);
-  const fbtns = document.querySelectorAll('.cat-filtros button'), ccards = document.querySelectorAll('.cat-card');
-  fbtns.forEach(b => b.addEventListener('click', () => {
-    fbtns.forEach(x => x.setAttribute('aria-pressed', x === b));
-    ccards.forEach(c => { c.hidden = !(b.dataset.f === 'todos' || c.dataset.cat === b.dataset.f); });
-  }));
-  const dlg = document.getElementById('catDlg'), big = document.getElementById('catBig');
-  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => {
-    const it = catData[b.dataset.open]; if (!it) return;
-    const cover = b.closest('.cat-card').querySelector('.cv');
-    big.className = 'cv cat-big ' + (cover.classList.contains('cv-light') ? 'cv-light' : 'cv-dark');
-    big.innerHTML = cover.innerHTML;
-    document.getElementById('catDlgTag').textContent = it.tag;
-    document.getElementById('catDlgTitle').textContent = it.t;
-    document.getElementById('catDlgPrice').textContent = it.p;
-    document.getElementById('catDlgList').innerHTML = it.d.map(x => '<li>' + x + '</li>').join('');
-    document.getElementById('catDlgCta').href = 'https://wa.me/5531996589729?text=' + encodeURIComponent('Olá! Tenho interesse no serviço "' + it.t + '" do catálogo da Anne Models.');
-    document.getElementById('catDlgArt').href = it.img[0];
-    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
-  }));
-  dlg.querySelector('.cat-close').addEventListener('click', () => dlg.close());
-  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-})();
-</script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
