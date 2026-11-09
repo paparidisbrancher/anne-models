@@ -367,7 +367,7 @@ def home():
 
 <section class="sec-founder">
   <div class="wrap founder-grid">
-    <div class="founder-mark reveal"><div><svg aria-hidden="true"><use href="#logo-a"/></svg><span>Anne Models<br>Management</span></div></div>
+    <figure class="founder-photo reveal"><img src="img/anne-fundadora.jpg" alt="Retrato de Anne Mac Pherson Praddo, fundadora e CEO da Anne Models" loading="lazy" width="600" height="800"></figure>
     <div class="reveal">
       <p class="eyebrow">Fundadora e CEO</p>
       <h2>Anne Mac Pherson <em>Praddo</em></h2>
@@ -444,7 +444,7 @@ def agencia():
                   "Agência de modelos, manequins e atores fundada em 1995. Formação, agenciamento e eventos de moda em São Paulo e outras capitais.") + """
 <section class="sec-tight">
   <div class="wrap founder-grid">
-    <figure class="founder-photo reveal"><img src="{P}img/metodo-pose.jpg" alt="Modelo de vestido preto em pose de estúdio" loading="lazy"></figure>
+    <figure class="founder-photo reveal"><img src="{P}img/anne-fundadora.jpg" alt="Retrato de Anne Mac Pherson Praddo, fundadora e CEO da Anne Models" loading="lazy" width="600" height="800"></figure>
     <div class="reveal">
       <p class="eyebrow">Fundadora e CEO</p>
       <h2>Anne Mac Pherson <em>Praddo</em></h2>
