@@ -114,7 +114,7 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
     <nav aria-label="Rodapé">
       <a href="{p}a-agencia/">A agência</a><a href="{p}cursos/">Cursos</a><a href="{p}servicos/">Serviços</a><a href="{p}fashion-trade/">Fashion Trade</a>
       <a href="{p}revista-krystal/">Revista Krystal</a><a href="{p}fashion-models/">Fashion Models</a><a href="{p}trade-sales/">Trade Sales</a><a href="{p}portal-lifestyle/">Portal Lifestyle</a>
-      <a href="{p}area-do-aluno/">Área do aluno</a><a href="{p}contato/">Contato</a>
+      <a href="{p}a-agencia/#parceiros">Parceiros</a><a href="{p}area-do-aluno/">Área do aluno</a><a href="{p}contato/">Contato</a>
     </nav>
     <p class="foot-copy">© 2026 Anne Models Management</p>
   </div>
@@ -468,6 +468,19 @@ def agencia():
     </div>
     <div class="ctas reveal">
       <a class="btn btn-solid" id="ctaTalentos" href="WA_TALENTOS" target="_blank" rel="noopener">Solicitar talentos</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-tight sec-white" id="parceiros">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><p class="eyebrow">Parceiros e afiliados</p><h2>Quem caminha <em>com a gente</em></h2></div></div>
+    <div class="duo">
+      <article class="bloco reveal">
+        <p class="eyebrow">Jornalismo e mídia</p><h3 class="h3">Vadú Braga</h3>
+        <p>Jornalista à frente dos portais TV Notícias e Edição Fofoca dos Famosos e Celebridades, e da revista Fashion Modus.</p>
+        <a class="btn btn-ghost btn-dark" href="https://www.instagram.com/tvnoticiasvadubraga?utm_source=qr&amp;mdxt=MXZibDc5bmYybmdiYg%3D%3D" target="_blank" rel="noopener">TV Notícias - Vadú Braga</a>
+      </article>
     </div>
   </div>
 </section>
