@@ -114,9 +114,9 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
     <nav aria-label="Rodapé">
       <a href="{p}a-agencia/">A agência</a><a href="{p}cursos/">Cursos</a><a href="{p}servicos/">Serviços</a><a href="{p}fashion-trade/">Fashion Trade</a>
       <a href="{p}revista-krystal/">Revista Krystal</a><a href="{p}fashion-models/">Fashion Models</a><a href="{p}trade-sales/">Trade Sales</a><a href="{p}portal-lifestyle/">Portal Lifestyle</a>
-      <a href="{p}a-agencia/#parceiros">Parceiros</a><a href="{p}area-do-aluno/">Área do aluno</a><a href="{p}contato/">Contato</a>
+      <a href="{p}imersao-milao/">Imersão em Milão</a><a href="{p}filiacao/">Seja filiado</a><a href="{p}a-agencia/#parceiros">Parceiros</a><a href="{p}area-do-aluno/">Área do aluno</a><a href="{p}contato/">Contato</a>
     </nav>
-    <p class="foot-copy">© 2026 Anne Models Management</p>
+    <p class="foot-copy">© 2026 Anne Models Management · Anne Mac Pherson Ltda. · CNPJ 49.330.189/0001-70 · Av. Governador Valadares, 443, Centro, Alpinópolis/MG</p>
   </div>
 </footer>
 <nav class="dock" aria-label="Atalhos">
@@ -428,6 +428,8 @@ def home():
       <li class="reveal"><a href="revista-krystal/"><small>Revista e agenciamento</small><b>Revista Krystal</b><span>Capa, Comunidade Cristal e contratos com Jane Ribeiro.</span></a></li>
       <li class="reveal"><a href="fashion-models/"><small>Revista e concurso</small><b>Fashion Models</b><span>Seja capa da revista e participe do Garota Fashion Models.</span></a></li>
       <li class="reveal"><a href="trade-sales/"><small>Curadoria</small><b>Trade Sales</b><span>O que comprar para o book e para os desfiles.</span></a></li>
+      <li class="reveal"><a href="imersao-milao/"><small>Outubro de 2027</small><b>Imersão em Milão</b><span>Intercâmbio de modelos na Itália. 15 vagas.</span></a></li>
+      <li class="reveal"><a href="filiacao/"><small>Parceria</small><b>Seja filiado</b><span>Indique os serviços da agência e receba comissão.</span></a></li>
       <li class="reveal"><a href="portal-lifestyle/"><small>Portal</small><b>Life Style with Anne Mc</b><span>Notícias, entrevistas e vídeos da agência.</span></a></li>
     </ul>
   </div>
@@ -722,11 +724,43 @@ def contato():
   <div class="channels light reveal">
     <a href="https://wa.me/{CONFIG['wa_agencia']}" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97302-3077</span></a>
     <a href="https://wa.me/{CONFIG['wa_catalogo']}" target="_blank" rel="noopener"><small>WhatsApp do catálogo</small><span>(31) 99658-9729</span></a>
+    <a href="mailto:annemacphersonceomodels@gmail.com"><small>E-mail · CEO</small><span>annemacphersonceomodels@gmail.com</span></a>
     <a href="mailto:{CONFIG['email_cursos']}"><small>E-mail · cursos</small><span>{CONFIG['email_cursos']}</span></a>
     <a href="mailto:{CONFIG['email_assessoria']}"><small>E-mail · assessoria</small><span>{CONFIG['email_assessoria']}</span></a>
     <a href="{CONFIG['youtube_eventos']}" target="_blank" rel="noopener"><small>YouTube</small><span>TV Anny Praddo Eventos</span></a>
     <a href="{CONFIG['instagram']}" target="_blank" rel="noopener"><small>Instagram</small><span>@anny_praddo_modeling_career</span></a>
   </div>
+</div></section>"""
+
+
+def milao():
+    itens = ["Viagem organizada", "Convites em até 3 agências de modelos", "Visita a um Salão de Retiro e a uma boutique ou desfile de grife",
+             "Participação em até 3 eventos de moda em Milão", "Visitas a desfiles de moda", "Acesso a eventos culturais gratuitos ou de baixo custo",
+             "Aulas de italiano na prática", "Networking com profissionais do mercado"]
+    return cabeca("Intercâmbio de modelos", "Imersão em <em>Milão</em>",
+                  "Um fim de semana de moda, cultura, networking e desenvolvimento profissional na Itália, em outubro de 2027, com coordenação de Anne Mac Pherson.",
+                  ext(wa("Olá! Quero saber mais sobre a Imersão em Milão 2027."), "Quero participar")) + f"""
+<section class="sec-tight"><div class="wrap curso-grid">
+  <figure class="milao-foto reveal"><img src="../img/milao-2027.jpg" alt="Anne Mac Pherson diante da Catedral de Milão, em cartaz da Imersão e Intercâmbio de Modelos 2027" loading="lazy"></figure>
+  <div class="curso-info reveal">
+    <ul class="fatos"><li><b>Outubro de 2027</b><span>Milão, Itália</span></li><li><b>15 vagas</b><span>Feminino e masculino</span></li><li><b>A partir de 21 anos</b><span>Idade mínima</span></li><li><b>30/01/2027</b><span>Prazo para inscrição e pagamento</span></li></ul>
+    <h2 class="h3">O que está previsto</h2>
+    <ul class="check">{''.join(f'<li>{i}</li>' for i in itens)}</ul>
+    <p class="note">Programa preliminar: datas, custos, reservas, convites e visitas estão sujeitos a confirmação.</p>
+  </div>
+</div></section>"""
+
+
+def filiacao():
+    return cabeca("Filiação e parceria", "Seja um <em>filiado</em>",
+                  "Profissionais e colaboradores independentes podem divulgar os serviços da Anne Models e receber comissão pelos negócios fechados, numa parceria sem exclusividade.",
+                  ext(wa("Olá! Quero ser filiado(a) da Anne Models e receber o contrato de filiação."), "Quero ser filiado")) + """
+<section class="sec-tight"><div class="wrap duo">
+  <article class="bloco reveal"><p class="eyebrow">Como funciona</p><h2 class="h3">Parceria comercial</h2>
+    <ul class="check"><li>Comissão de 10% a 30% sobre os serviços da agência que você indicar e fechar</li><li>Você continua livre para fechar seus próprios trabalhos</li><li>Perfil profissional no site da agência, quando houver espaço</li><li>Credencial individual de filiado, válida durante a filiação</li></ul></article>
+  <article class="bloco reveal"><p class="eyebrow">Como entrar</p><h2 class="h3">Contrato de filiação</h2>
+    <p>A agência envia o contrato de filiação e parceria comercial para você ler, preencher seus dados e assinar. O percentual de cada serviço é combinado na ficha de cada negócio.</p>
+    <p>A filiação não cria vínculo de emprego nem garante renda mínima ou quantidade de trabalhos.</p></article>
 </div></section>"""
 
 
@@ -749,6 +783,8 @@ PAGINAS = [
     ("trade-sales/", "Trade Sales", "Curadoria de produtos para book, desfiles e trabalho de modelos e artistas.", trade_sales, False, ""),
     ("portal-lifestyle/", "Portal Lifestyle", "Notícias, entrevistas e vídeos da Anne Models.", lifestyle, False, ""),
     ("area-do-aluno/", "Área do aluno", "Acesso às aulas, apostilas, tarefas e certificados dos cursos da Anne Models.", area_aluno, False, ""),
+    ("imersao-milao/", "Imersão em Milão 2027", "Intercâmbio de modelos em Milão, Itália, em outubro de 2027. 15 vagas, a partir de 21 anos.", milao, False, ""),
+    ("filiacao/", "Filiação", "Seja filiado da Anne Models: parceria comercial com comissão sobre os serviços indicados.", filiacao, False, ""),
     ("contato/", "Contato", "WhatsApp, e-mails e redes da Anne Models Management.", contato, False, ""),
 ]
 for c in CURSOS:
