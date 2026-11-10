@@ -1,6 +1,6 @@
 # Anne Models: pendências
 
-Protótipo com 14 páginas, gerado por `python gerar.py`. Textos, contatos e links ficam em `gerar.py` (CONFIG no topo) e em `assets/servicos.json`. Onde falta informação, o botão leva ao WhatsApp da agência com uma mensagem específica, sem link falso.
+Protótipo com 16 páginas, gerado por `python gerar.py`. Textos, contatos e links ficam em `gerar.py` (CONFIG no topo) e em `assets/servicos.json`. Onde falta informação, o botão leva ao WhatsApp da agência com uma mensagem específica, sem link falso.
 
 ## Confirmar com a Anne
 - **Nomes:** "Anne Mac Pherson" (site e artes) ou "Anny Mac" / "Anne McPherson"? O site usa "Método Anne Mac Pherson". A transcrição traz "Anny Mact First", que parece erro de transcrição.
@@ -9,6 +9,14 @@ Protótipo com 14 páginas, gerado por `python gerar.py`. Textos, contatos e lin
 - **Preços do catálogo:** vêm das artes do catálogo do WhatsApp. O briefing recomenda tirá-los até ela confirmar que estão valendo.
 - **Concursos:** o site mostra Top Model of the Year, Sósias do Brasil, ABC do Amanhã e Mulher Total (artes do WhatsApp). Saíram Top Fashion Star e Luxo no Lixo como concurso; Luxo no Lixo agora aparece como desfile do Fashion Trade.
 - **Método:** o cartaz fala em 17 módulos, mas as artes mostram 11. O site lista os 11.
+
+- **Tempo de carreira:** o site diz "33 anos" (4 vezes) e "1995" (4 vezes); o cartaz de Milão diz "há 30 anos".
+- **WhatsApp principal:** o site usa (31) 97302-3077 como número da agência. No contrato de filiação, esse é o "Life Style" e o da Anne Models é (31) 99658-9729.
+- **E-mail oficial:** há três (CEO, cursos e assessoria). Falta dizer qual vai no rodapé.
+- **Portal:** "Life Style with Anne Mc", "Life Style com Anne Mc" e "Portal Lifestyle" aparecem para a mesma coisa.
+- **Parceiro:** "Vadú Braga" (pedido do Erick) ou "Vadu Braga" (sites antigos); revista "Fashion Modus" ou "Fashion Models".
+- **Revisão jurídica:** textos sobre idade mínima, RPMT, CCT, autorização de responsável, contratos e comissão não foram alterados e precisam de revisão de um advogado.
+- **noindex:** todas as páginas estão fora dos buscadores. Tirar só quando ela aprovar o site.
 
 ## Ela precisa enviar
 - WhatsApp e e-mail da Jane Ribeiro (`wa_jane`).

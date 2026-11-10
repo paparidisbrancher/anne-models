@@ -35,7 +35,7 @@
       bV.hidden = i === 0; bS.hidden = i === steps.length - 1; bE.hidden = i !== steps.length - 1;
     };
     const ok = i => { for (const el of steps[i].querySelectorAll('input,select')) { if (!el.checkValidity()) { el.reportValidity(); return false; } } return true; };
-    const toForm = () => scrollTo({ top: form.getBoundingClientRect().top + scrollY - 96, behavior: 'smooth' });
+    const toForm = () => scrollTo({ top: form.getBoundingClientRect().top + scrollY - 96, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     bS.addEventListener('click', () => { if (ok(cur)) { show(cur + 1); toForm(); } });
     bV.addEventListener('click', () => { show(cur - 1); toForm(); });
     const idade = form.elements.idade, resp = $('campoResp');
@@ -73,7 +73,7 @@
     document.querySelectorAll('.pick').forEach(b => b.addEventListener('click', () => {
       const v = b.dataset.pick, on = !sel.has(v);
       on ? sel.add(v) : sel.delete(v);
-      b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ Selecionado' : '+ Selecionar';
+      b.setAttribute('aria-pressed', on); b.textContent = on ? 'Selecionado' : 'Selecionar';
       upd();
     }));
   }
