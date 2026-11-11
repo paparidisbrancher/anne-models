@@ -23,6 +23,7 @@ CONFIG = {
     "comunidade_cristal": None,
     "youtube_eventos": "https://www.youtube.com/@TVANNYPRADDOEVENTOS",
     "youtube_fashion_trade": "https://www.youtube.com/@ANNYTVFashiontrade",
+    "youtube_lifestyle": "https://www.youtube.com/@ANNYTVFashiontrade",  # a confirmar: canal "Lifestyle with Anne Mac Pherson"
     "instagram": "https://www.instagram.com/anny_praddo_modeling_career",
     "site_url": "https://paparidisbrancher.github.io/anne-models/",
 }
@@ -40,16 +41,17 @@ def ext(href, txt, cls="btn btn-solid"):
 
 NAV = [
     ("a-agencia/", "Agência"),
-    ("a-agencia/#contratantes", "Contratantes"),
-    ("cursos/", "Cursos"),
     ("servicos/", "Serviços"),
-    ("#projetos", "Projetos"),
+    ("cursos/", "Cursos"),
+    ("castings/", "Castings"),
     ("fashion-trade/", "Fashion Trade"),
-    ("portal-lifestyle/", "Lifestyle"),
+    ("contato/", "Contatos"),
 ]
 
 ICONES = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="logo-a" viewBox="0 0 100 100"><path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z"/></symbol>
+  <!-- provisório: monograma A+N até a Anne enviar a logo oficial -->
+  <symbol id="logo-an" viewBox="0 0 140 100"><path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z M89 4 L101 4 L130 78 L130 4 L134 4 L134 96 L129 96 L93 7 L93 96 L89 96 Z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.76 4.88-1.28A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.9.76.78-2.83-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.54 11 11 0 0 0 4.2 3.7c1.56.68 2.18.73 2.96.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 5.5C6.5 4 9.5 4 12 5.5v14c-2.5-1.5-5.5-1.5-8 0zM20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></symbol>
@@ -94,14 +96,13 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top" id="topo">
   <div class="wrap">
-    <a class="brand" href="{p or './'}" aria-label="Anne Models, página inicial"><svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span></a>
+    <a class="brand" href="{p or './'}" aria-label="Anne Models, página inicial"><svg class="logo-an" aria-hidden="true"><use href="#logo-an"/></svg><span>ANNE MODELS</span></a>
     <nav class="menu" id="menuNav" aria-label="Principal">
       {nav_links}
       <a class="menu-util" href="{p}area-do-aluno/">Área do aluno</a>
-      <a class="menu-util" href="{p}contato/">Contato</a>
     </nav>
     <div class="top-actions">
-      <a class="btn btn-ghost top-cta" href="{p}#cadastro">Cadastre-se</a>
+      <a class="btn btn-ghost top-cta" href="{p}#cadastro">Cadastre-se grátis</a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuNav"><span></span><span class="sr">Menu</span></button>
     </div>
   </div>
@@ -111,22 +112,7 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
 </main>
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="{p or './'}"><svg aria-hidden="true"><use href="#logo-a"/></svg><span>ANNE MODELS</span></a>
-        <p>Agência de modelos, manequins e atores desde 1995.</p>
-        <a class="foot-wa" href="{wa_geral}" target="_blank" rel="noopener">Falar com a agência no WhatsApp</a>
-      </div>
-      <nav class="foot-nav" aria-label="Rodapé">
-        <div><h2 class="foot-h">Agência</h2>
-          <a href="{p}a-agencia/">A agência</a><a href="{p}a-agencia/#contratantes">Contratantes</a><a href="{p}a-agencia/#parceiros">Parceiros</a><a href="{p}filiacao/">Seja filiado</a><a href="{p}contato/">Contato</a></div>
-        <div><h2 class="foot-h">Formação e serviços</h2>
-          <a href="{p}cursos/">Cursos</a><a href="{p}servicos/">Serviços</a><a href="{p}area-do-aluno/">Área do aluno</a><a href="{p}trade-sales/">Trade Sales</a></div>
-        <div><h2 class="foot-h">Projetos</h2>
-          <a href="{p}fashion-trade/">Fashion Trade</a><a href="{p}revista-krystal/">Revista Krystal</a><a href="{p}fashion-models/">Fashion Models</a><a href="{p}imersao-milao/">Imersão em Milão</a><a href="{p}portal-lifestyle/">Portal Lifestyle</a></div>
-      </nav>
-    </div>
-    <p class="foot-copy"><span>© 2026 Anne Models Management</span><span>Anne Mac Pherson Ltda., CNPJ 49.330.189/0001-70</span><span>Av. Governador Valadares, 443, Centro, Alpinópolis/MG</span></p>
+    <p class="foot-copy"><span>Anne Models Management</span><span>CNPJ 49.330.189/0001-70</span><span>Direitos autorais reservados de acordo com a Lei 9.610</span></p>
   </div>
 </footer>
 <nav class="dock" aria-label="Atalhos">
@@ -181,6 +167,7 @@ CURSOS = [
         "publico": "Lojistas, empresários, equipes e profissionais que atendem clientes e querem melhorar a própria imagem e a da empresa.",
         "objetivo": "Desenvolver imagem, comportamento, ética e colaboração na equipe, para conquistar e manter clientes.",
         "inclui": ["Aulas virtuais e presenciais", "Plano de ação personalizado", "Prova de avaliação", "Certificado de capacitação técnica"],
+        "milao": True,
         "modulos": [
             ("Mente e vida", ["Autoconhecimento", "Saúde física e mental", "Ansiedade e equilíbrio emocional", "Vida pessoal e familiar", "Propósito e motivação"]),
             ("Estética e imagem pessoal", ["Corte de cabelo, cor e estilo", "Paleta de cores e looks", "Maquiagem e cuidados pessoais", "Saúde e bem-estar", "Personalidade e hobbies"]),
@@ -208,11 +195,12 @@ CURSOS = [
     },
 ]
 
-CONCURSOS = [
-    ("Top Model of the Year", "Jovens · 16 a 30 anos", "Para jovens, no masculino e no feminino. Talento, beleza e carreira."),
-    ("Sósias do Brasil", "Todas as idades", "Sósias de cantores, dançarinos, atores e influenciadores, e covers. Qualquer artista, qualquer estilo."),
-    ("ABC do Amanhã", "Baby, kids, pré-teen e teen", "Categoria infantil: grandes sonhos começam cedo. Todas as crianças participantes entram para o cast da agência."),
-    ("Mulher Total", "Plus size · 40+", "Beleza, experiência e atitude, sem limite de idade. Toda mulher tem o seu brilho."),
+# Categorias de avaliação e premiação (não são concursos)
+CATEGORIAS = [
+    ("Top Model of the Year", "jovens de 16 a 30 anos"),
+    ("Sósias do Brasil", "covers e youtubers"),
+    ("ABC do Amanhã", "baby, kids, pré-teen e teen"),
+    ("Mulher Total", "plus size e 40+"),
 ]
 
 # Agrupamento do catálogo
@@ -312,14 +300,12 @@ FORM_CADASTRO = f"""<section class="insc" id="cadastro">
             <label><input type="checkbox" name="interesse" value="Cantor ou dançarino"><span>Cantor ou dançarino</span></label>
             <label><input type="checkbox" name="interesse" value="Sósia"><span>Sósia</span></label>
           </div></div>
-          <div class="row2">
-            <label class="field"><span>Curso de interesse</span><select name="curso">
-              <option>Ainda não sei</option>{''.join(f'<option value="{c["slug"]}">{c["nome_txt"]}</option>' for c in CURSOS)}
-            </select></label>
-            <label class="field"><span>Concurso de interesse</span><select name="concurso">
-              <option>Ainda não sei</option>{''.join(f'<option>{n}</option>' for n, *_ in CONCURSOS)}<option>Garota Fashion Models</option>
-            </select></label>
-          </div>
+          <label class="field"><span>Formação de interesse</span><select name="curso">
+            <option>Ainda não sei</option>{''.join(f'<option value="{c["slug"]}">{c["nome_txt"]}</option>' for c in CURSOS)}
+          </select></label>
+          <div class="field"><span>Categoria de avaliação e premiação</span><div class="chips">
+            {''.join(f'<label><input type="checkbox" name="categoria" value="{n}"><span>{n} <small>({t})</small></span></label>' for n, t in CATEGORIAS)}
+          </div></div>
           <div class="row2">
             <label class="field"><span>Altura (cm)</span><input name="altura" type="number" inputmode="numeric" min="40" max="230" placeholder="Ex.: 172"></label>
             <label class="field"><span>Instagram ou TikTok</span><input name="redes" placeholder="@seuperfil" autocapitalize="off"></label>
@@ -350,20 +336,29 @@ FORM_CADASTRO = f"""<section class="insc" id="cadastro">
 
 # ---------------------------------------------------------------- páginas
 
+PILARES = [
+    ("servicos/#formacao", "Formação", "Formação profissional", "As três formações da agência e o acesso à área do aluno."),
+    ("castings/", "Casting", "Banco de talentos", "Modelos, atores, dançarinos e cantores para contratantes."),
+    ("servicos/#working", "Working", "Trabalhos divulgados", "Oportunidades de trabalho para modelos e agenciados."),
+    ("trade-sales/", "Trade Sales", "Loja virtual", "Produtos e convites."),
+]
+
+
+def pilares():
+    return '<ul class="proj-links cols4">' + "".join(
+        f'<li class="reveal"><a href="{{P}}{h}"><small>{s}</small><b>{t}</b><span>{d}</span></a></li>' for h, s, t, d in PILARES) + "</ul>"
+
+
 def home():
-    destaque = ["capa-fashion-models", "composite", "book-fotografico", "avaliacao-iniciantes", "workshop-virtual", "fashion-trade"]
-    concursos = "".join(f'<li class="reveal"><h3>{n}</h3><span class="tag">{t}</span><p>{d}</p></li>' for n, t, d in CONCURSOS)
     return f"""
 <section class="hero" aria-label="Apresentação">
   <img src="img/hero.jpg" alt="Modelo e modelo masculino em retrato preto e branco" fetchpriority="high">
   <div class="wrap">
     <h1>ANNE MODELS</h1>
-    <p class="sub">Management, National &amp; International</p>
-    <p class="intro">Formação, imagem e novas possibilidades. Conheça os cursos, serviços e projetos da Anne Models para modelos, artistas e profissionais.</p>
-    <div class="ctas">
-      <a class="btn btn-solid" href="#cadastro">Cadastre-se grátis</a>
-      <a class="btn btn-ghost" href="cursos/">Conheça os cursos</a>
-    </div>
+    <p class="sub">Management</p>
+    <p class="sub sub2"><span>National</span><span>International</span></p>
+    <p class="intro">Formação profissional técnica artística.<br>Projeções de profissionais artistas nacionais e internacionais.</p>
+    <div class="ctas"><a class="btn btn-solid" href="#cadastro">Cadastre-se grátis</a></div>
   </div>
 </section>
 
@@ -375,51 +370,10 @@ def home():
   </div>
 </section>
 
-<section class="sec-founder">
-  <div class="wrap founder-grid">
-    <figure class="founder-photo reveal"><img src="img/anne-fundadora.jpg" alt="Retrato de Anne Mac Pherson Praddo, fundadora e CEO da Anne Models" loading="lazy" width="360" height="480"></figure>
-    <div class="reveal">
-      <p class="eyebrow">Fundadora e CEO</p>
-      <h2>Anne Mac Pherson <em>Praddo</em></h2>
-      <p class="lead">33 anos de trajetória na moda. Fundou a agência em 1995, criou o Método Anne Mac Pherson e produz os concursos e desfiles da agência.</p>
-      <div class="ctas"><a class="btn btn-ghost btn-dark" href="a-agencia/">Conheça a agência</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec-tight sec-white" id="empresas">
+<section class="sec-tight sec-white" id="servicos">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="eyebrow">Para empresas</p><h2>Soluções para <em>contratantes</em></h2></div>
-      <p class="lead">Contratação de talentos e treinamento de equipes para marcas, lojas e eventos.</p>
-    </div>
-    <ul class="proj-links cols4">
-      <li class="reveal"><a href="a-agencia/#contratantes"><small>Talentos</small><b>Solicitar talentos</b><span>Modelos, atores, dançarinos e cantores para a sua marca.</span></a></li>
-      <li class="reveal"><a href="cursos/integracao-profissional/"><small>Equipes</small><b>Integração Profissional</b><span>Imagem, comportamento e atendimento para lojistas, empresas e equipes.</span></a></li>
-      <li class="reveal"><a href="cursos/recepcionistas-de-eventos/"><small>Eventos</small><b>Recepcionistas de eventos</b><span>Treinamento para feiras, eventos de moda e eventos corporativos.</span></a></li>
-      <li class="reveal"><a href="servicos/#workshop-empresas"><small>Treinamento</small><b>Workshop para empresas</b><span>Grupos de 30 a 50 pessoas.</span></a></li>
-    </ul>
-  </div>
-</section>
-
-<section class="sec-cursos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="eyebrow">Formação</p><h2>Três cursos, três <em>caminhos</em></h2></div>
-      <p class="lead">Para quem quer ser modelo ou ator, para quem quer transformar a imagem do próprio negócio e para quem quer trabalhar em eventos.</p>
-    </div>
-    {lista_cursos()}
-  </div>
-</section>
-
-<section class="catalogo">
-  <div class="wrap">
-    <div class="cat-head reveal">
-      <div><p class="eyebrow">Serviços</p><h2>Para a sua <em>carreira</em></h2></div>
-      <p class="lead">Capa de revista, material profissional, avaliação e eventos. Veja alguns destaques ou abra o catálogo completo.</p>
-    </div>
-    {cards_servicos(destaque, link=True)}
-    <div class="ctas center"><a class="btn btn-solid" href="servicos/">Ver todos os serviços</a></div>
+    <div class="sec-head reveal"><div><h2>Serviços e <em>projetos</em></h2></div></div>
+    {pilares()}
   </div>
 </section>
 
@@ -429,7 +383,7 @@ def home():
       <div>
         <p class="eyebrow">Evento</p>
         <h2>Fashion <em>Trade</em></h2>
-        <p class="lead">Um fim de semana de imersão: books, composites, vídeos, treino de passarela e um desfile final com concursos, troféus e atrações artísticas.</p>
+        <p class="lead">Um fim de semana de imersão: books, composites, vídeos, treino de passarela e um desfile final com as categorias de avaliação e premiação, troféus e atrações artísticas.</p>
       </div>
       <aside><b>Próxima edição</b><span>Data e local a anunciar.</span></aside>
     </div>
@@ -438,25 +392,6 @@ def home():
       <figure><img src="img/trade-salao.jpg" alt="Desfile em salão clássico com plateia" loading="lazy"></figure>
       <figure><img src="img/trade-dourado.jpg" alt="Modelo com vestido dourado na passarela" loading="lazy"></figure>
     </div>
-    <div class="ctas"><a class="btn btn-solid" href="fashion-trade/">Programação e formas de participar</a></div>
-  </div>
-</section>
-
-<section id="projetos">
-  <div class="wrap">
-    <div class="proj-head reveal">
-      <div><p class="eyebrow">Projetos</p><h2>Concursos que <em>lançam</em> novos rostos</h2></div>
-      <p class="lead">As quatro categorias desfilam no Fashion Trade. Faça seu cadastro gratuito e marque a que combina com você.</p>
-    </div>
-    <ul class="proj-list proj-2col">{concursos}</ul>
-    <ul class="proj-links">
-      <li class="reveal"><a href="revista-krystal/"><small>Revista e agenciamento</small><b>Revista Krystal</b><span>Capa, Comunidade Cristal e contratos com Jane Ribeiro.</span></a></li>
-      <li class="reveal"><a href="fashion-models/"><small>Revista e concurso</small><b>Fashion Models</b><span>Seja capa da revista e participe do Garota Fashion Models.</span></a></li>
-      <li class="reveal"><a href="trade-sales/"><small>Curadoria</small><b>Trade Sales</b><span>O que comprar para o book e para os desfiles.</span></a></li>
-      <li class="reveal"><a href="imersao-milao/"><small>Outubro de 2027</small><b>Imersão em Milão</b><span>Intercâmbio de modelos na Itália. 15 vagas.</span></a></li>
-      <li class="reveal"><a href="filiacao/"><small>Parceria</small><b>Seja filiado</b><span>Indique os serviços da agência e receba comissão.</span></a></li>
-      <li class="reveal"><a href="portal-lifestyle/"><small>Portal</small><b>Life Style with Anne Mc</b><span>Notícias, entrevistas e vídeos da agência.</span></a></li>
-    </ul>
   </div>
 </section>
 
@@ -469,39 +404,20 @@ def agencia():
                   "Agência de modelos, manequins e atores fundada em 1995. Formação, agenciamento e eventos de moda em São Paulo e outras capitais.") + """
 <section class="sec-tight">
   <div class="wrap founder-grid">
-    <figure class="founder-photo reveal"><img src="{P}img/anne-fundadora.jpg" alt="Retrato de Anne Mac Pherson Praddo, fundadora e CEO da Anne Models" loading="lazy" width="360" height="480"></figure>
+    <figure class="founder-photo reveal"><img src="{P}img/anne-fundadora.jpg" alt="Retrato de Anne Mac Pherson, fundadora e CEO da Anne Models" loading="lazy" width="360" height="480"></figure>
     <div class="reveal">
       <p class="eyebrow">Fundadora e CEO</p>
-      <h2>Anne Mac Pherson <em>Praddo</em></h2>
-      <p class="lead">33 anos de experiência na moda. Fundou a agência em 1995, como Versátil Publicidades. A marca passou a levar o próprio nome e, em 2024, virou o GAP, Grupo Anny Praddo.</p>
-      <p>É a criadora do Método Anne Mac Pherson e produz os concursos e desfiles da agência. Como colunista social, faz a cobertura de eventos no canal Anny TV Fashion Trade.</p>
+      <h2>Anne Mac <em>Pherson</em></h2>
+      <p class="lead">33 anos de experiência na moda. Fundou a agência em 1995 e atende perfis de 6 meses a 80 anos.</p>
+      <p>É a criadora do Método Anne Mac Pherson. Como colunista social, faz a cobertura de eventos no canal Lifestyle with Anne Mac Pherson.</p>
       <div class="roles"><span>Agenciadora</span><span>Produtora de eventos de moda</span><span>Ministrante de cursos</span><span>Fotógrafa</span><span>Apresentadora</span><span>Palestrante</span><span>Personal stylist</span></div>
     </div>
   </div>
 </section>
 
-<section class="cast" id="contratantes">
+<section class="sec-tight sec-white" id="staff">
   <div class="wrap">
-    <div class="cast-head reveal">
-      <p class="eyebrow">Para contratantes</p>
-      <h2>Talentos para a sua <em>marca</em></h2>
-      <p class="lead">A Anne Models faz a ponte entre o talento e o contratante, com contrato e segurança jurídica em cada trabalho. Marque os perfis que procura e envie o pedido pelo WhatsApp.</p>
-    </div>
-    <div class="cast-grid">
-      <article class="cast-card reveal"><img src="{P}img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p><button class="pick" type="button" data-pick="Modelos e manequins" aria-pressed="false">Selecionar</button></div></article>
-      <article class="cast-card reveal"><img src="{P}img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p><button class="pick" type="button" data-pick="Atores e atrizes" aria-pressed="false">Selecionar</button></div></article>
-      <article class="cast-card reveal"><img src="{P}img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p><button class="pick" type="button" data-pick="Dançarinos" aria-pressed="false">Selecionar</button></div></article>
-      <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis.</p><button class="pick" type="button" data-pick="Cantores e bandas" aria-pressed="false">Selecionar</button></article>
-    </div>
-    <div class="ctas reveal">
-      <a class="btn btn-solid" id="ctaTalentos" href="WA_TALENTOS" target="_blank" rel="noopener">Solicitar talentos</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec-tight sec-white" id="parceiros">
-  <div class="wrap">
-    <div class="sec-head reveal"><div><p class="eyebrow">Parceiros e afiliados</p><h2>Quem caminha <em>com a gente</em></h2></div></div>
+    <div class="sec-head reveal"><div><p class="eyebrow">Staff</p><h2>Nossa <em>equipe</em></h2></div></div>
     <div class="duo">
       <article class="bloco reveal">
         <p class="eyebrow">Jornalismo e mídia</p><h3 class="h3">Vadú Braga</h3>
@@ -520,6 +436,24 @@ def agencia():
       <details><summary>O que é o DRT e como consigo?</summary><p>No caso de modelos e manequins, o nome correto é RPMT, o registro profissional emitido pelo Ministério do Trabalho. Você leva o CCT do curso com RG, CPF, comprovante de residência e os demais documentos pedidos.</p></details>
       <details><summary>Tem limite de idade?</summary><p>Não. Agenciamos de 6 meses a 80 anos, de qualquer etnia. A partir de 16 anos é exigido o RPMT; abaixo disso, é preciso autorização do responsável legal.</p></details>
       <details><summary>Por que estar em uma agência?</summary><p>A agência cuida do contrato assinado, do piso salarial e do apoio jurídico junto ao SATED, e apresenta seu perfil às agências de publicidade, produtores e diretores.</p></details>
+    </div>
+  </div>
+</section>"""
+
+
+def castings():
+    return cabeca("Para contratantes e publicitários", "<em>Castings</em>",
+                  "A Anne Models faz a ponte entre o talento e o contratante, com contrato e segurança jurídica em cada trabalho. Marque os perfis que procura e envie o pedido pelo WhatsApp.") + """
+<section class="cast" id="contratantes">
+  <div class="wrap">
+    <div class="cast-grid">
+      <article class="cast-card reveal"><img src="{P}img/cast-modelo.jpg" alt="Modelo sentada em cadeira, vestido preto" loading="lazy"><div class="cap"><h3>Modelos e manequins</h3><p>Perfis comerciais e de passarela.</p><button class="pick" type="button" data-pick="Modelos e manequins" aria-pressed="false">Selecionar</button></div></article>
+      <article class="cast-card reveal"><img src="{P}img/cast-ator.jpg" alt="Artista em cena no palco" loading="lazy"><div class="cap"><h3>Atores e atrizes</h3><p>TV, cinema e publicidade.</p><button class="pick" type="button" data-pick="Atores e atrizes" aria-pressed="false">Selecionar</button></div></article>
+      <article class="cast-card reveal"><img src="{P}img/cast-danca.jpg" alt="Dançarino em movimento no estúdio" loading="lazy"><div class="cap"><h3>Dançarinos</h3><p>Coreógrafos e intérpretes.</p><button class="pick" type="button" data-pick="Dançarinos" aria-pressed="false">Selecionar</button></div></article>
+      <article class="cast-card text reveal"><svg aria-hidden="true"><use href="#logo-a"/></svg><h3>Cantores e bandas</h3><p>Artistas de vários estilos, adultos e infantis.</p><button class="pick" type="button" data-pick="Cantores e bandas" aria-pressed="false">Selecionar</button></article>
+    </div>
+    <div class="ctas reveal">
+      <a class="btn btn-solid" id="ctaTalentos" href="WA_TALENTOS" target="_blank" rel="noopener">Solicitar talentos</a>
     </div>
   </div>
 </section>""".replace("WA_TALENTOS", wa("Olá! Gostaria de solicitar talentos da Anne Models."))
@@ -568,6 +502,7 @@ def curso(c):
   </div>
   {modulos}
 </div></section>
+{milao_modulo() if c.get("milao") else ""}
 <section class="cta-band"><div class="wrap">
   <h2>Pronto para começar?</h2>
   <div class="ctas">{ext(wa(msg), "Falar sobre a inscrição")}<a class="btn btn-ghost" href="../">Ver os outros cursos</a></div>
@@ -578,11 +513,29 @@ def servicos():
     data = json.dumps(SERVICOS, ensure_ascii=False)
     filtros = '<button type="button" data-f="todos" aria-pressed="true">Todos</button>' + "".join(
         f'<button type="button" data-f="{v[0]}" aria-pressed="false">{k}</button>' for k, v in GRUPOS.items())
-    return cabeca("Serviços", "Serviços para a sua <em>carreira</em>",
-                  "Capa de revista, material profissional, avaliação, cursos e eventos. Toque em um serviço para ver o que está incluído e falar com a agência.") + f"""
-<section class="catalogo sec-tight"><div class="wrap">
+    return cabeca("Serviços", "Serviços e <em>projetos</em>",
+                  "Formação profissional, casting, trabalhos e loja virtual da Anne Models.") + f"""
+<section class="sec-tight sec-white"><div class="wrap">{pilares()}</div></section>
+<section class="sec-tight" id="formacao"><div class="wrap">
+  <div class="sec-head reveal"><div><p class="eyebrow">Formação profissional</p><h2>Três <em>formações</em></h2></div></div>
+  {lista_cursos()}
+  <div class="ctas center"><a class="btn btn-ghost btn-dark" href="../area-do-aluno/">Área do aluno</a></div>
+</div></section>
+<section class="sec-tight sec-white" id="working"><div class="wrap">
+  <div class="sec-head reveal"><div><p class="eyebrow">Working</p><h2>Trabalhos <em>divulgados</em></h2></div>
+    <p class="lead">Os trabalhos abertos para modelos e agenciados serão publicados aqui.</p></div>
+  <div class="ctas">{ext(wa("Olá! Sou modelo/agenciado(a) e quero receber os trabalhos divulgados pela Anne Models."), "Quero receber os trabalhos", "btn btn-ghost btn-dark")}</div>
+</div></section>
+<section class="catalogo sec-tight" id="catalogo"><div class="wrap">
+  <div class="sec-head reveal"><div><p class="eyebrow">Catálogo do WhatsApp Business</p><h2>Catálogo de <em>serviços</em></h2></div>
+    <p class="lead">Toque em um serviço para ver o que está incluído e falar com a agência.</p></div>
   <div class="cat-filtros" role="group" aria-label="Filtrar serviços">{filtros}</div>
   {cards_servicos()}
+</div></section>
+<section class="sec-tight sec-white" id="documentos"><div class="wrap">
+  <div class="sec-head reveal"><div><p class="eyebrow">Contratação</p><h2>Documentos de <em>contratação</em></h2></div>
+    <p class="lead">Os documentos de contratação serão publicados aqui. Enquanto isso, peça pelo WhatsApp.</p></div>
+  <div class="ctas">{ext(wa("Olá! Gostaria de receber os documentos de contratação da Anne Models."), "Pedir os documentos", "btn btn-ghost btn-dark")}</div>
 </div></section>
 <script type="application/json" id="catData" data-base="../" data-wa="{CONFIG['wa_catalogo']}">{data}</script>"""
 
@@ -602,7 +555,7 @@ def fashion_trade():
         ("Sábado", "8h às 14h", "Material profissional", "Books, composites e vídeos de comerciais de TV."),
         ("Sábado", "15h às 21h", "Treinamento", "Passarela e coreografias."),
         ("Domingo", "Manhã", "Produção", "Cabelo, maquiagem e camarim."),
-        ("Domingo", "A partir das 14h", "O desfile", "Desfiles, concursos, troféus e leilão de looks."),
+        ("Domingo", "A partir das 14h", "O desfile", "Desfiles, categorias de avaliação e premiação, troféus e leilão de looks."),
     ]
     linhas = "".join(f'<li><span class="dia">{d}<small>{h}</small></span><div><b>{t}</b><p>{x}</p></div></li>' for d, h, t, x in prog)
     modos = [
@@ -616,7 +569,7 @@ def fashion_trade():
     ]
     cards = "".join(f'<li><h3>{t}</h3><p>{d}</p>{ext(wa("Olá! " + m), "Quero este", "btn btn-ghost")}</li>' for t, d, m in modos)
     atracoes = ["Desfile Luxo no Lixo, com looks de materiais reciclados", "Desfile oficial da agência, com jeans e escarpim",
-                "Categorias ABC do Amanhã, Top Model of the Year, Sósias do Brasil e Mulher Total 40+",
+                "Categorias de avaliação e premiação: ABC do Amanhã, Top Model of the Year, Sósias do Brasil e Mulher Total 40+",
                 "Troféus para os alunos que mais se destacaram", "Leilão de looks ao vivo no palco",
                 "Espaço para cantores, dançarinos e artistas nos intervalos"]
     return f"""<section class="trade page-dark">
@@ -646,55 +599,6 @@ def fashion_trade():
 </div></section>"""
 
 
-def krystal():
-    jane = CONFIG["wa_jane"] or CONFIG["wa_agencia"]
-    return cabeca("Revista e agenciamento", "Revista <em>Krystal</em>",
-                  "Moda, beleza e talentos. A Revista Krystal Casting e a Comunidade Cristal são coordenadas por Jane Ribeiro, responsável pelos contratos e pelo agenciamento.",
-                  ext(wa("Olá! Quero falar com a Jane Ribeiro sobre a Revista Krystal.", jane), "Falar com a Jane")) + f"""
-<section class="sec-tight"><div class="wrap duo">
-  <article class="bloco reveal">
-    <p class="eyebrow">Capa</p><h2 class="h3">Seja capa da Krystal</h2>
-    <p>Sua foto na capa da revista, com cadastro na Anne Models Management.</p>
-    {ext(wa("Olá! Quero ser capa da Revista Krystal.", jane), "Quero ser capa", "btn btn-ghost btn-dark")}
-  </article>
-  <article class="bloco reveal">
-    <p class="eyebrow">Agenciamento</p><h2 class="h3">Comunidade Cristal</h2>
-    <ul class="check"><li>Assessoria e encaminhamento para projetos</li><li>Aviso de castings</li><li>Contratos de trabalho com assessoria jurídica</li><li>Validade de 1 ano, renovável</li></ul>
-    {ext(wa("Olá! Quero entrar na Comunidade Cristal. Ainda não sou agenciado(a).", jane), "Quero entrar na comunidade", "btn btn-ghost btn-dark")}
-  </article>
-  <article class="bloco reveal">
-    <p class="eyebrow">Contrato</p><h2 class="h3">Contrato de agenciamento</h2>
-    <p>Peça o contrato à Jane. Ela envia o documento e tira suas dúvidas antes da assinatura.</p>
-    {ext(wa("Olá! Gostaria de receber o contrato de agenciamento.", jane), "Pedir o contrato", "btn btn-ghost btn-dark")}
-  </article>
-  <article class="bloco reveal">
-    <p class="eyebrow">Já é agenciado?</p><h2 class="h3">Grupo dos agenciados</h2>
-    <p>O grupo dos agenciados é exclusivo. Confirme seu vínculo com a Jane para receber o acesso.</p>
-    {ext(wa("Olá! Sou agenciado(a) e quero acesso ao grupo da Comunidade Cristal.", jane), "Confirmar vínculo", "btn btn-ghost btn-dark")}
-  </article>
-</div>
-<p class="note center reveal">Quer se formar antes? Conheça os <a href="../cursos/">cursos da agência</a>.</p>
-</div></section>"""
-
-
-def fashion_models():
-    return cabeca("Revista e concurso", "Fashion <em>Models</em>",
-                  "Comece sendo capa e conquiste seu espaço na moda. A revista Fashion Models e o concurso Garota Fashion Models abrem a porta da agência para novos rostos.",
-                  ext(wa("Olá! Quero me inscrever no concurso Garota Fashion Models."), "Inscrever-se no concurso")) + f"""
-<section class="sec-tight"><div class="wrap duo">
-  <article class="bloco reveal">
-    <p class="eyebrow">Concurso</p><h2 class="h3">Garota Fashion Models</h2>
-    <p>Todas as participantes ganham o cadastro gratuito na Anne Models Management. O regulamento e o calendário serão publicados aqui.</p>
-    {ext(wa("Olá! Quero me inscrever no concurso Garota Fashion Models."), "Quero participar", "btn btn-ghost btn-dark")}
-  </article>
-  <article class="bloco reveal">
-    <p class="eyebrow">Capa</p><h2 class="h3">Capa da revista Fashion Models</h2>
-    <ul class="check"><li>Sua foto na capa da revista</li><li>Cadastro na Anne Models Management</li><li>Acesso à ficha de inscrição da formação profissional</li><li>Encaminhamento ao mercado publicitário depois do certificado</li></ul>
-    <a class="btn btn-ghost btn-dark" href="../servicos/#capa-fashion-models">Ver no catálogo</a>
-  </article>
-</div></section>"""
-
-
 def trade_sales():
     cats = [
         ("Calçados", "Escarpim para desfiles e books."),
@@ -705,25 +609,12 @@ def trade_sales():
         ("Maquiagem", "Maletas e acessórios de maquiagem."),
     ]
     itens = "".join(f'<li class="reveal"><h3>{t}</h3><p>{d}</p></li>' for t, d in cats)
-    return cabeca("Curadoria", "Trade <em>Sales</em>",
-                  "Os itens que você vai precisar para o book, os desfiles e o dia a dia de trabalho, escolhidos pela agência. A compra é feita direto na loja de cada fornecedor.",
-                  ext(wa("Olá! Quero indicações de compra da Trade Sales."), "Pedir indicações")) + f"""
+    return cabeca("Loja virtual", "Trade <em>Sales</em>",
+                  "Loja virtual da agência: produtos para o book, os desfiles e o dia a dia de trabalho, e convites para os eventos. A loja está em preparação; enquanto isso, peça pelo WhatsApp.",
+                  ext(wa("Olá! Quero indicações de compra da Trade Sales."), "Pedir pelo WhatsApp")) + f"""
 <section class="sec-tight"><div class="wrap">
   <ul class="cats">{itens}</ul>
   <p class="note center">Os links dos fornecedores serão publicados aqui. Enquanto isso, peça a lista pelo WhatsApp.</p>
-</div></section>"""
-
-
-def lifestyle():
-    return cabeca("Portal", "Life Style with <em>Anne Mc</em>",
-                  "Notícias da agência, entrevistas, premiações, eventos e vídeos. As primeiras publicações chegam em breve.") + f"""
-<section class="sec-tight"><div class="wrap">
-  <div class="duo">
-    <article class="bloco reveal"><p class="eyebrow">YouTube</p><h2 class="h3">TV Anny Praddo Eventos</h2><p>Coberturas de eventos, desfiles e apresentações.</p>{ext(CONFIG['youtube_eventos'], "Assistir", "btn btn-ghost btn-dark")}</article>
-    <article class="bloco reveal"><p class="eyebrow">YouTube</p><h2 class="h3">Anny TV Fashion Trade</h2><p>Entrevistas e o mercado da moda.</p>{ext(CONFIG['youtube_fashion_trade'], "Assistir", "btn btn-ghost btn-dark")}</article>
-    <article class="bloco reveal"><p class="eyebrow">Instagram</p><h2 class="h3">@anny_praddo_modeling_career</h2><p>Novidades do dia a dia da agência.</p>{ext(CONFIG['instagram'], "Seguir", "btn btn-ghost btn-dark")}</article>
-    <article class="bloco reveal"><p class="eyebrow">Entrevista</p><h2 class="h3">Tópico do Domingo</h2><p>Entrevista presencial ou virtual no canal Life Style.</p><a class="btn btn-ghost btn-dark" href="../servicos/#entrevista-fashion-trade">Ver no catálogo</a></article>
-  </div>
 </div></section>"""
 
 
@@ -742,9 +633,9 @@ def area_aluno():
 
 
 def contato():
-    return cabeca("Contato", "Fale com a <em>agência</em>",
-                  "Cadastro, cursos, agenciamento, Fashion Trade ou contratação de talentos: fale direto com a Anne Models.",
-                  ext(wa("Olá! Vim pelo site da Anne Models."), "Falar no WhatsApp") + '<a class="btn btn-ghost btn-dark" href="../a-agencia/#contratantes">Solicitar talentos</a><a class="btn btn-ghost btn-dark" href="../#cadastro">Cadastro gratuito</a>') + f"""
+    end = "Av. Governador Valadares, 443, Centro, Alpinópolis/MG"
+    return cabeca("Contatos", "Fale com a <em>agência</em>",
+                  "Endereço, WhatsApp, e-mails e redes sociais da Anne Models Management.") + f"""
 <section class="sec-tight"><div class="wrap">
   <div class="channels reveal">
     <a href="https://wa.me/{CONFIG['wa_agencia']}" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97302-3077</span></a>
@@ -752,40 +643,51 @@ def contato():
     <a href="mailto:{CONFIG['email_ceo']}"><small>E-mail da CEO</small><span>{CONFIG['email_ceo']}</span></a>
     <a href="mailto:{CONFIG['email_cursos']}"><small>E-mail dos cursos</small><span>{CONFIG['email_cursos']}</span></a>
     <a href="mailto:{CONFIG['email_assessoria']}"><small>E-mail da assessoria</small><span>{CONFIG['email_assessoria']}</span></a>
+    <a href="{CONFIG['youtube_lifestyle']}" target="_blank" rel="noopener"><small>YouTube</small><span>Lifestyle with Anne Mac Pherson</span></a>
     <a href="{CONFIG['youtube_eventos']}" target="_blank" rel="noopener"><small>YouTube</small><span>TV Anny Praddo Eventos</span></a>
     <a href="{CONFIG['instagram']}" target="_blank" rel="noopener"><small>Instagram</small><span>@anny_praddo_modeling_career</span></a>
   </div>
+</div></section>
+<section class="sec-tight sec-white"><div class="wrap duo">
+  <div class="reveal">
+    <h2 class="h3">Endereço</h2>
+    <p>{end}</p>
+    <iframe class="mapa" title="Mapa: {end}" src="https://www.google.com/maps?q={quote(end)}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <form class="form reveal" id="formMsg">
+    <h2 class="h3">Envie sua mensagem</h2>
+    <label class="field"><span>Nome ou apelido artístico</span><input name="nome" autocomplete="name" required></label>
+    <div class="row2">
+      <label class="field"><span>Idade</span><input name="idade" type="number" inputmode="numeric" min="0" max="120" required></label>
+      <label class="field"><span>Cidade e estado</span><input name="cidade" autocomplete="address-level2" required></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="field"><span>WhatsApp</span><input name="whats" type="tel" inputmode="tel" autocomplete="tel" required></label>
+    </div>
+    <label class="field"><span>O que mais gostou no nosso site?</span><textarea name="gostou" rows="3" required></textarea></label>
+    <label class="field"><span>Despertou interesse em algum de nossos serviços ou produtos?</span><textarea name="interesse" rows="3" required></textarea></label>
+    <div class="form-actions"><button type="submit" class="btn btn-solid">Enviar pelo WhatsApp</button></div>
+    <p class="note">Ao enviar, o WhatsApp abre com a sua mensagem preenchida.</p>
+  </form>
 </div></section>"""
 
 
-def milao():
+def milao_modulo():
     itens = ["Viagem organizada", "Convites em até 3 agências de modelos", "Visita a um Salão de Retiro e a uma boutique ou desfile de grife",
              "Participação em até 3 eventos de moda em Milão", "Visitas a desfiles de moda", "Acesso a eventos culturais gratuitos ou de baixo custo",
              "Aulas de italiano na prática", "Networking com profissionais do mercado"]
-    return cabeca("Intercâmbio de modelos", "Imersão em <em>Milão</em>",
-                  "Um fim de semana de moda, cultura, networking e desenvolvimento profissional na Itália, em outubro de 2027, com coordenação de Anne Mac Pherson.",
-                  ext(wa("Olá! Quero saber mais sobre a Imersão em Milão 2027."), "Quero participar")) + f"""
-<section class="sec-tight"><div class="wrap curso-grid">
-  <figure class="milao-foto reveal"><img src="../img/milao-2027.jpg" alt="Anne Mac Pherson diante da Catedral de Milão, em cartaz da Imersão e Intercâmbio de Modelos 2027" loading="lazy"></figure>
+    return f"""<section class="sec-tight sec-white" id="milao"><div class="wrap curso-grid">
+  <figure class="milao-foto reveal"><img src="../../img/milao-2027.jpg" alt="Anne Mac Pherson diante da Catedral de Milão, em cartaz da Imersão e Intercâmbio de Modelos 2027" loading="lazy"></figure>
   <div class="curso-info reveal">
+    <p class="eyebrow">Módulo Expansão profissional</p>
+    <h2 class="h3">Imersão em Milão</h2>
+    <p>Parte do curso de Integração Profissional: um fim de semana de moda, cultura, networking e desenvolvimento profissional na Itália, com coordenação de Anne Mac Pherson.</p>
     <ul class="fatos"><li><b>Outubro de 2027</b><span>Milão, Itália</span></li><li><b>15 vagas</b><span>Feminino e masculino</span></li><li><b>A partir de 21 anos</b><span>Idade mínima</span></li><li><b>30/01/2027</b><span>Prazo para inscrição e pagamento</span></li></ul>
-    <h2 class="h3">O que está previsto</h2>
+    <h3 class="h3">O que está previsto</h3>
     <ul class="check">{''.join(f'<li>{i}</li>' for i in itens)}</ul>
     <p class="note">Programa preliminar: datas, custos, reservas, convites e visitas estão sujeitos a confirmação.</p>
   </div>
-</div></section>"""
-
-
-def filiacao():
-    return cabeca("Filiação e parceria", "Seja um <em>filiado</em>",
-                  "Profissionais e colaboradores independentes podem divulgar os serviços da Anne Models e receber comissão pelos negócios fechados, numa parceria sem exclusividade.",
-                  ext(wa("Olá! Quero ser filiado(a) da Anne Models e receber o contrato de filiação."), "Quero ser filiado")) + """
-<section class="sec-tight"><div class="wrap duo">
-  <article class="bloco reveal"><p class="eyebrow">Como funciona</p><h2 class="h3">Parceria comercial</h2>
-    <ul class="check"><li>Comissão de 10% a 30% sobre os serviços da agência que você indicar e fechar</li><li>Você continua livre para fechar seus próprios trabalhos</li><li>Perfil profissional no site da agência, quando houver espaço</li><li>Credencial individual de filiado, válida durante a filiação</li></ul></article>
-  <article class="bloco reveal"><p class="eyebrow">Como entrar</p><h2 class="h3">Contrato de filiação</h2>
-    <p>A agência envia o contrato de filiação e parceria comercial para você ler, preencher seus dados e assinar. O percentual de cada serviço é combinado na ficha de cada negócio.</p>
-    <p>A filiação não cria vínculo de emprego nem garante renda mínima ou quantidade de trabalhos.</p></article>
 </div></section>"""
 
 
@@ -798,18 +700,14 @@ def nao_encontrada():
 # ---------------------------------------------------------------- saída
 
 PAGINAS = [
-    ("", "Início", "Agência de modelos, manequins e atores há 33 anos. Cursos, serviços, concursos e o Fashion Trade.", home, True, ""),
-    ("a-agencia/", "A agência", "História da Anne Models Management e da fundadora Anne Mac Pherson Praddo.", agencia, False, EXTRA_TALENTOS),
+    ("", "Início", "Agência de modelos, manequins e atores há 33 anos. Formação profissional, castings, serviços e o Fashion Trade.", home, True, ""),
+    ("a-agencia/", "A agência", "História da Anne Models Management e da fundadora Anne Mac Pherson.", agencia, False, ""),
+    ("castings/", "Castings", "Modelos, atores, dançarinos e cantores para contratantes e publicitários.", castings, False, EXTRA_TALENTOS),
     ("cursos/", "Cursos", "Método Anne Mac Pherson, Integração Profissional e Recepcionistas de eventos.", cursos_idx, False, ""),
-    ("servicos/", "Serviços", "Capa de revista, composite, book, avaliações, cursos e eventos da Anne Models.", servicos, False, EXTRA_SERVICOS),
+    ("servicos/", "Serviços", "Formação profissional, casting, trabalhos, loja virtual e catálogo de serviços da Anne Models.", servicos, False, EXTRA_SERVICOS),
     ("fashion-trade/", "Fashion Trade", "Programação e formas de participar do Fashion Trade, evento anual da Anne Models.", fashion_trade, True, ""),
-    ("revista-krystal/", "Revista Krystal", "Revista Krystal Casting, Comunidade Cristal e contrato de agenciamento com Jane Ribeiro.", krystal, False, ""),
-    ("fashion-models/", "Fashion Models", "Revista Fashion Models e concurso Garota Fashion Models.", fashion_models, False, ""),
     ("trade-sales/", "Trade Sales", "Curadoria de produtos para book, desfiles e trabalho de modelos e artistas.", trade_sales, False, ""),
-    ("portal-lifestyle/", "Portal Lifestyle", "Notícias, entrevistas e vídeos da Anne Models.", lifestyle, False, ""),
     ("area-do-aluno/", "Área do aluno", "Acesso às aulas, apostilas, tarefas e certificados dos cursos da Anne Models.", area_aluno, False, ""),
-    ("imersao-milao/", "Imersão em Milão 2027", "Intercâmbio de modelos em Milão, Itália, em outubro de 2027. 15 vagas, a partir de 21 anos.", milao, False, ""),
-    ("filiacao/", "Filiação", "Seja filiado da Anne Models: parceria comercial com comissão sobre os serviços indicados.", filiacao, False, ""),
     ("contato/", "Contato", "WhatsApp, e-mails e redes da Anne Models Management.", contato, False, ""),
 ]
 for c in CURSOS:

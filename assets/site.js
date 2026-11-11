@@ -50,7 +50,8 @@
       const quero = [...form.querySelectorAll('[name=interesse]:checked')].map(x => x.value).join(', ') || 'não informado';
       const l = ['Olá! Quero fazer meu cadastro gratuito na Anne Models.', 'Nome: ' + f.nome.value, 'Idade: ' + f.idade.value, 'Cidade: ' + f.cidade.value];
       if (f.responsavel.value) l.push('Responsável: ' + f.responsavel.value);
-      l.push('Quero ser: ' + quero, 'Curso de interesse: ' + f.curso.value, 'Concurso: ' + f.concurso.value);
+      const cats = [...form.querySelectorAll('[name=categoria]:checked')].map(x => x.value).join(', ') || 'nenhuma';
+      l.push('Quero ser: ' + quero, 'Formação de interesse: ' + f.curso.value, 'Categoria: ' + cats);
       if (f.altura.value) l.push('Altura: ' + f.altura.value + ' cm');
       if (f.redes.value) l.push('Redes: ' + f.redes.value);
       l.push('Como conheci: ' + (form.querySelector('[name=origem]:checked') || {}).value, 'Vou enviar minhas 4 fotos nesta conversa.');
@@ -58,6 +59,16 @@
     });
     show(0);
   }
+
+  // Formulário "Envie sua mensagem", enviado pelo WhatsApp
+  const fm = $('formMsg');
+  if (fm) fm.addEventListener('submit', e => {
+    e.preventDefault();
+    const f = fm.elements;
+    const l = ['Olá! Mensagem enviada pelo site da Anne Models.', 'Nome: ' + f.nome.value, 'Idade: ' + f.idade.value, 'Cidade: ' + f.cidade.value,
+      'E-mail: ' + f.email.value, 'WhatsApp: ' + f.whats.value, 'O que mais gostei no site: ' + f.gostou.value, 'Interesse: ' + f.interesse.value];
+    window.open(WA + encodeURIComponent(l.join('\n')), '_blank', 'noopener');
+  });
 
   // Seleção de talentos para contratantes
   const sb = $('selbar');
