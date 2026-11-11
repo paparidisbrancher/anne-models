@@ -25,6 +25,7 @@ CONFIG = {
     "youtube_fashion_trade": "https://www.youtube.com/@ANNYTVFashiontrade",
     "youtube_lifestyle": "https://www.youtube.com/@ANNYTVFashiontrade",  # a confirmar: canal "Lifestyle with Anne Mac Pherson"
     "instagram": "https://www.instagram.com/anny_praddo_modeling_career",
+    "catalogo_whatsapp": "https://wa.me/c/553173023077",
     "site_url": "https://paparidisbrancher.github.io/anne-models/",
 }
 
@@ -527,6 +528,7 @@ def servicos():
 <section class="catalogo sec-tight" id="catalogo"><div class="wrap">
   <div class="sec-head reveal"><div><p class="eyebrow">Catálogo do WhatsApp Business</p><h2>Catálogo de <em>serviços</em></h2></div>
     <p class="lead">Toque em um serviço para ver o que está incluído e falar com a agência.</p></div>
+  <div class="ctas">{ext(CONFIG['catalogo_whatsapp'], "Abrir o catálogo no WhatsApp", "btn btn-ghost btn-dark")}</div>
   <div class="cat-filtros" role="group" aria-label="Filtrar serviços">{filtros}</div>
   {cards_servicos()}
 </div></section>
