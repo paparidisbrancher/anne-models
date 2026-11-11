@@ -556,3 +556,23 @@ html:not(.js) .pick{display:none}
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
 }
+.brand span small{font-size:.62em;letter-spacing:.28em;margin-left:.4em;opacity:.85}
+@media (max-width:420px){.brand span small{display:none}}
+/* Método Anne Mac Pherson: capas dos módulos, ficha e apostila (branco e dourado) */
+.mod-capas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.mod-capas img{display:block;width:100%;height:auto;border:1px solid #e8dcc0}
+.ficha{max-width:760px;background:#fff;border:1px solid var(--gold-soft);padding:clamp(24px,5vw,48px)}
+.ficha-valor{font:500 clamp(30px,6vw,44px)/1.1 var(--serif,serif);color:var(--gold-ink);margin:8px 0 20px}
+.check.cols2{columns:2 260px;column-gap:32px}
+.check.cols2 li{break-inside:avoid}
+.apostila{background:#fff;color:#3a3a3a;padding:48px 0 80px}
+.ap-sumario ol{list-style:none;margin:0 0 48px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px 24px;border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft);padding-block:20px}
+.ap-sumario a{display:flex;gap:12px;align-items:baseline;min-height:44px;color:inherit;text-decoration:none}
+.ap-sumario span{color:var(--gold-ink);font-variant-numeric:tabular-nums}
+.ap-mod{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(24px,5vw,56px);padding:48px 0;border-bottom:1px solid #ece3cc;scroll-margin-top:96px}
+.ap-mod img{width:100%;height:auto;position:sticky;top:96px}
+.ap-txt{max-width:66ch}
+.ap-txt h2{color:var(--gold-ink);margin:4px 0 20px}
+.ap-txt h3{color:var(--gold-ink);font-size:1.05rem;letter-spacing:.04em;margin:28px 0 8px}
+.ap-txt p{line-height:1.7;margin:0 0 14px}
+@media (max-width:720px){.ap-mod{grid-template-columns:1fr}.ap-mod img{position:static;max-width:360px}}

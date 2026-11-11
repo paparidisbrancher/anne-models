@@ -4,6 +4,7 @@ Uso: python gerar.py
 Edite os textos aqui (ou em assets/servicos.json) e rode de novo.
 Em cada página, {P} vira o caminho relativo até a raiz.
 """
+import html
 import json
 from pathlib import Path
 from urllib.parse import quote
@@ -12,8 +13,9 @@ RAIZ = Path(__file__).parent
 
 # Contatos e links. None = ainda não recebido (ver PENDENCIAS.md).
 CONFIG = {
-    "wa_agencia": "5531973023077",
-    "wa_catalogo": "5531996589729",  # número que aparece nos cartazes do catálogo
+    "wa_agencia": "5531996589729",  # WhatsApp Business Anne Models Management (principal)
+    "wa_lifestyle": "5531973023077",  # WhatsApp Business do canal Lifestyle with Anne Mac Pherson
+    "wa_assessoria": "5535999516720",  # Assessoria Anne Mac Pherson (staff)
     "wa_jane": None,
     "email_ceo": "annemacphersonceomodels@gmail.com",  # e-mail que consta no contrato de filiação
     "email_cursos": "annypraddocursos@gmail.com",
@@ -25,7 +27,6 @@ CONFIG = {
     "youtube_fashion_trade": "https://www.youtube.com/@ANNYTVFashiontrade",
     "youtube_lifestyle": "https://www.youtube.com/@ANNYTVFashiontrade",  # a confirmar: canal "Lifestyle with Anne Mac Pherson"
     "instagram": "https://www.instagram.com/anny_praddo_modeling_career",
-    "catalogo_whatsapp": "https://wa.me/c/553173023077",
     "site_url": "https://paparidisbrancher.github.io/anne-models/",
 }
 
@@ -95,7 +96,7 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top" id="topo">
   <div class="wrap">
-    <a class="brand" href="{p or './'}" aria-label="Anne Models, página inicial"><span class="logo-an" aria-hidden="true"></span><span>ANNE MODELS</span></a>
+    <a class="brand" href="{p or './'}" aria-label="Anne Models, página inicial"><span class="logo-an" aria-hidden="true"></span><span>ANNE MODELS <small>Management</small></span></a>
     <nav class="menu" id="menuNav" aria-label="Principal">
       {nav_links}
       <a class="menu-util" href="{p}area-do-aluno/">Área do aluno</a>
@@ -150,6 +151,15 @@ CURSOS = [
         "publico": "Quem quer trabalhar como modelo, manequim ou ator, de crianças a adultos. Menores de 16 anos participam com autorização do responsável.",
         "objetivo": "Preparar para o mercado da moda e da publicidade e chegar ao CCT, documento usado para tirar o registro profissional (RPMT) e assinar contratos dentro da lei.",
         "inclui": ["Formação completa", "Desfiles de moda", "Book profissional", "Certificado de capacitação"],
+        "apostila": True,
+        # Lido da arte "Ficha de inscrição" (WA0404), que veio com erros de digitação: conferir com a Anne.
+        "valor": "R$ 5.500,00",
+        "ficha": ["Apostila em PDF e impressa", "Videoaulas com acesso vitalício", "Áudios complementares",
+                  "Página exclusiva do aluno, vitalícia", "Portfólio / composite profissional", "Produção de book fotográfico",
+                  "Treinamento prático no Fashion Trade", "Treinamento prático de jeans e look para o desfile",
+                  "Desfile de encerramento no Fashion Trade", "Certificado em PDF e impresso",
+                  "Encaminhamento por 1 ano à equipe de bookers nacional e internacional"],
+        "ficha_aviso": "Transporte, estadia e alimentação do aluno e de 1 acompanhante são pagos à parte.",
         "modulos": [
             ("Auto maquiagem", None), ("Etiqueta social e profissional", None), ("Cuidados físicos e postura", None),
             ("Passarela", None), ("Expressões faciais e corporais", None), ("História da moda", None),
@@ -364,7 +374,6 @@ def home():
 <section class="facts" aria-label="A agência em números">
   <div class="wrap">
     <div><b>33 anos</b><span>De experiência</span></div>
-    <div><b>6 meses a 80 anos</b><span>Perfis agenciados</span></div>
     <div><b>SP e capitais</b><span>Eventos</span></div>
   </div>
 </section>
@@ -407,7 +416,7 @@ def agencia():
     <div class="reveal">
       <p class="eyebrow">Fundadora e CEO</p>
       <h2>Anne Mac <em>Pherson</em></h2>
-      <p class="lead">33 anos de experiência na moda. Fundou a agência em 1995 e atende perfis de 6 meses a 80 anos.</p>
+      <p class="lead">33 anos de experiência na moda. Fundou a agência em 1995.</p>
       <p>É a criadora do Método Anne Mac Pherson. Como colunista social, faz a cobertura de eventos no canal Lifestyle with Anne Mac Pherson.</p>
       <div class="roles"><span>Agenciadora</span><span>Produtora de eventos de moda</span><span>Ministrante de cursos</span><span>Fotógrafa</span><span>Apresentadora</span><span>Palestrante</span><span>Personal stylist</span></div>
     </div>
@@ -490,6 +499,27 @@ def curso(c):
         modulos = f'<div class="modulos reveal"><h2 class="h3">Programa</h2>{"".join(itens)}</div>'
     else:
         modulos = '<div class="modulos reveal"><h2 class="h3">Programa</h2><p>O programa completo é enviado na inscrição. Fale com a agência para receber.</p></div>'
+    if c.get("apostila"):
+        capas = "".join(f'<li class="reveal"><a href="apostila/#m{i}"><img src="../../img/metodo/m{i:02d}.jpg" alt="Módulo {i}: {n}" loading="lazy" width="896" height="1120"></a></li>'
+                        for i, (n, _) in enumerate(c["modulos"], 1))
+        modulos = f'<div class="modulos reveal"><h2 class="h3">Programa</h2>{"".join(itens)}<div class="ctas"><a class="btn btn-solid" href="apostila/">Ler a apostila</a></div></div>'
+        extra_curso = f"""
+<section class="sec-tight sec-white"><div class="wrap">
+  <div class="sec-head reveal"><div><p class="eyebrow">Apostila virtual</p><h2>Os {len(c['modulos'])} <em>módulos</em></h2></div>
+    <p class="lead">Leia a apostila aqui no site, módulo por módulo. A versão em PDF para baixar e imprimir chega em breve.</p></div>
+  <ul class="mod-capas">{capas}</ul>
+</div></section>
+<section class="sec-tight" id="inscricao"><div class="wrap ficha reveal">
+  <p class="eyebrow">Ficha de inscrição</p>
+  <h2>Formação profissional de <em>modelos</em></h2>
+  <p class="ficha-valor">{c['valor']}</p>
+  <ul class="check cols2">{"".join(f"<li>{x}</li>" for x in c['ficha'])}</ul>
+  <p class="note">{c['ficha_aviso']}</p>
+  <p class="note">Formas de pagamento e contrato com assinatura digital: em preparação. Por enquanto, a inscrição é feita pelo WhatsApp.</p>
+  <div class="ctas">{ext(wa(msg), "Quero me inscrever")}</div>
+</div></section>"""
+    else:
+        extra_curso = ""
     inclui = "".join(f"<li>{x}</li>" for x in c["inclui"])
     return cabeca(c["tag"], c["nome"], c["resumo"], acoes) + f"""
 <section class="sec-tight"><div class="wrap curso-grid">
@@ -501,10 +531,31 @@ def curso(c):
   </div>
   {modulos}
 </div></section>
+{extra_curso}
 {milao_modulo() if c.get("milao") else ""}
 <section class="cta-band"><div class="wrap">
   <h2>Pronto para começar?</h2>
   <div class="ctas">{ext(wa(msg), "Falar sobre a inscrição")}<a class="btn btn-ghost" href="../">Ver os outros cursos</a></div>
+</div></section>"""
+
+
+APOSTILA = json.loads((RAIZ / "dados" / "apostila.json").read_text(encoding="utf-8"))
+
+
+def apostila():
+    c = CURSOS[0]
+    partes = []
+    for i, (nome, _) in enumerate(c["modulos"], 1):
+        blocos = APOSTILA.get(str(i))
+        corpo = "".join(f"<h3>{html.escape(t)}</h3>" if k == "h" else f"<p>{html.escape(t)}</p>" for k, t in blocos) if blocos             else '<p class="note">Texto deste módulo em atualização.</p>'
+        partes.append(f'<article class="ap-mod" id="m{i}"><img src="../../../img/metodo/m{i:02d}.jpg" alt="Módulo {i}: {nome}" loading="lazy" width="896" height="1120"><div class="ap-txt"><p class="eyebrow">Módulo {i}</p><h2>{nome}</h2>{corpo}</div></article>')
+    sumario = "".join(f'<li><a href="#m{i}"><span>{i:02d}</span>{n}</a></li>' for i, (n, _) in enumerate(c["modulos"], 1))
+    return cabeca("Método Anne Mac Pherson", "Apostila <em>virtual</em>",
+                  "O guia da formação profissional de modelos e manequins. Leia aqui, módulo por módulo.",
+                  '<a class="btn btn-ghost btn-dark" href="../#inscricao">Ficha de inscrição</a>') + f"""
+<section class="apostila"><div class="wrap">
+  <nav class="ap-sumario" aria-label="Sumário"><ol>{sumario}</ol></nav>
+  {"".join(partes)}
 </div></section>"""
 
 
@@ -528,7 +579,6 @@ def servicos():
 <section class="catalogo sec-tight" id="catalogo"><div class="wrap">
   <div class="sec-head reveal"><div><p class="eyebrow">Catálogo do WhatsApp Business</p><h2>Catálogo de <em>serviços</em></h2></div>
     <p class="lead">Toque em um serviço para ver o que está incluído e falar com a agência.</p></div>
-  <div class="ctas">{ext(CONFIG['catalogo_whatsapp'], "Abrir o catálogo no WhatsApp", "btn btn-ghost btn-dark")}</div>
   <div class="cat-filtros" role="group" aria-label="Filtrar serviços">{filtros}</div>
   {cards_servicos()}
 </div></section>
@@ -537,7 +587,7 @@ def servicos():
     <p class="lead">Os documentos de contratação serão publicados aqui. Enquanto isso, peça pelo WhatsApp.</p></div>
   <div class="ctas">{ext(wa("Olá! Gostaria de receber os documentos de contratação da Anne Models."), "Pedir os documentos", "btn btn-ghost btn-dark")}</div>
 </div></section>
-<script type="application/json" id="catData" data-base="../" data-wa="{CONFIG['wa_catalogo']}">{data}</script>"""
+<script type="application/json" id="catData" data-base="../" data-wa="{CONFIG['wa_agencia']}">{data}</script>"""
 
 
 EXTRA_SERVICOS = f"""<dialog class="cat-dlg" id="catDlg" aria-labelledby="catDlgTitle">
@@ -638,8 +688,9 @@ def contato():
                   "Endereço, WhatsApp, e-mails e redes sociais da Anne Models Management.") + f"""
 <section class="sec-tight"><div class="wrap">
   <div class="channels reveal">
-    <a href="https://wa.me/{CONFIG['wa_agencia']}" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97302-3077</span></a>
-    <a href="https://wa.me/{CONFIG['wa_catalogo']}" target="_blank" rel="noopener"><small>WhatsApp do catálogo</small><span>(31) 99658-9729</span></a>
+    <a href="https://wa.me/{CONFIG['wa_agencia']}" target="_blank" rel="noopener"><small>WhatsApp Anne Models Management</small><span>(31) 99658-9729</span></a>
+    <a href="https://wa.me/{CONFIG['wa_lifestyle']}" target="_blank" rel="noopener"><small>WhatsApp canal Lifestyle</small><span>(31) 97302-3077</span></a>
+    <a href="https://wa.me/{CONFIG['wa_assessoria']}" target="_blank" rel="noopener"><small>Assessoria Anne Mac Pherson</small><span>(35) 99951-6720</span></a>
     <a href="mailto:{CONFIG['email_ceo']}"><small>E-mail da CEO</small><span>{CONFIG['email_ceo']}</span></a>
     <a href="mailto:{CONFIG['email_cursos']}"><small>E-mail dos cursos</small><span>{CONFIG['email_cursos']}</span></a>
     <a href="mailto:{CONFIG['email_assessoria']}"><small>E-mail da assessoria</small><span>{CONFIG['email_assessoria']}</span></a>
@@ -712,6 +763,7 @@ PAGINAS = [
 ]
 for c in CURSOS:
     PAGINAS.append((f"cursos/{c['slug']}/", c["nome_txt"], c["resumo"], lambda c=c: curso(c), False, ""))
+PAGINAS.append(("cursos/metodo-anne-mac-pherson/apostila/", "Apostila virtual", "Apostila da formação profissional de modelos do Método Anne Mac Pherson.", apostila, False, ""))
 
 
 def main():
