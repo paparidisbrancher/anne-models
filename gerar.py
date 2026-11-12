@@ -17,7 +17,7 @@ CONFIG = {
     "wa_lifestyle": "5531973023077",  # WhatsApp Business do canal Lifestyle with Anne Mac Pherson
     "wa_assessoria": "5535999516720",  # Assessoria Anne Mac Pherson (staff)
     "wa_jane": None,
-    "email_ceo": "annemacphersonceomodels@gmail.com",  # e-mail que consta no contrato de filiação
+    "email_ceo": "annemacphersonceomodels@gmail.com",  # único e-mail do site e da rede social nova (áudio de 11/11/2026)
     "email_cursos": "annypraddocursos@gmail.com",
     "email_assessoria": "annymodelsassessoria@gmail.com",
     "form_cadastro": "https://forms.gle/VuQUWbzRoZpm6ykv9",
@@ -154,11 +154,17 @@ CURSOS = [
         "apostila": True,
         # Lido da arte "Ficha de inscrição" (WA0404), que veio com erros de digitação: conferir com a Anne.
         "valor": "R$ 5.500,00",
-        "ficha": ["Apostila em PDF e impressa", "Videoaulas com acesso vitalício", "Áudios complementares",
-                  "Página exclusiva do aluno, vitalícia", "Portfólio / composite profissional", "Produção de book fotográfico",
-                  "Treinamento prático no Fashion Trade", "Treinamento prático de jeans e look para o desfile",
-                  "Desfile de encerramento no Fashion Trade", "Certificado em PDF e impresso",
-                  "Encaminhamento por 1 ano à equipe de bookers nacional e internacional"],
+        # Conforme áudios da Anne de 11/11/2026 (o portfólio NÃO entra: o modelo monta depois, com os trabalhos).
+        "ficha": ["Camiseta da agência (uniforme)", "Book fotográfico", "Composite em PDF e em imagem",
+                  "Apostila em PDF e impressa", "Áudios complementares em podcast",
+                  "Acesso vitalício à página do aluno, com videoaulas e todo o material",
+                  "Participação no Fashion Trade, o encerramento da formação", "Certificado em PDF e impresso",
+                  "1 ano de agenciamento na mesa de bookers nacional e internacional"],
+        "encerramento": [("Sexta-feira", "Encontro, entrega das camisetas da agência, entrosamento e apresentações."),
+                         ("Sábado de manhã", "Produção do book e do composite."),
+                         ("Sábado à tarde", "Coreografias, técnicas de passarela e vídeos comerciais."),
+                         ("Domingo de manhã", "Produção no camarim."),
+                         ("Domingo, das 14h às 18h", "Desfiles: apresentação com a camiseta da agência e jeans; desfile \"Luxo no Lixo\", em homenagem aos estilistas da história da moda; traje de estilista ou grife; e, por último, os terninhos básicos de casting, com a entrega do certificado impresso. Também há venda de looks ao vivo.")],
         "ficha_aviso": "Transporte, estadia e alimentação do aluno e de 1 acompanhante são pagos à parte.",
         "modulos": [
             ("Auto maquiagem", None), ("Etiqueta social e profissional", None), ("Cuidados físicos e postura", None),
@@ -515,6 +521,9 @@ def curso(c):
   <p class="ficha-valor">{c['valor']}</p>
   <ul class="check cols2">{"".join(f"<li>{x}</li>" for x in c['ficha'])}</ul>
   <p class="note">{c['ficha_aviso']}</p>
+  <h3 class="h3">Encerramento no Fashion Trade</h3>
+  <p>A formação é feita de forma virtual, de 3 a 6 meses, e termina com um fim de semana no Fashion Trade.</p>
+  <dl class="agenda">{"".join(f"<dt>{d}</dt><dd>{t}</dd>" for d, t in c['encerramento'])}</dl>
   <p class="note">Formas de pagamento e contrato com assinatura digital: em preparação. Por enquanto, a inscrição é feita pelo WhatsApp.</p>
   <div class="ctas">{ext(wa(msg), "Quero me inscrever")}</div>
 </div></section>"""
@@ -691,9 +700,7 @@ def contato():
     <a href="https://wa.me/{CONFIG['wa_agencia']}" target="_blank" rel="noopener"><small>WhatsApp Anne Models Management</small><span>(31) 99658-9729</span></a>
     <a href="https://wa.me/{CONFIG['wa_lifestyle']}" target="_blank" rel="noopener"><small>WhatsApp canal Lifestyle</small><span>(31) 97302-3077</span></a>
     <a href="https://wa.me/{CONFIG['wa_assessoria']}" target="_blank" rel="noopener"><small>Assessoria Anne Mac Pherson</small><span>(35) 99951-6720</span></a>
-    <a href="mailto:{CONFIG['email_ceo']}"><small>E-mail da CEO</small><span>{CONFIG['email_ceo']}</span></a>
-    <a href="mailto:{CONFIG['email_cursos']}"><small>E-mail dos cursos</small><span>{CONFIG['email_cursos']}</span></a>
-    <a href="mailto:{CONFIG['email_assessoria']}"><small>E-mail da assessoria</small><span>{CONFIG['email_assessoria']}</span></a>
+    <a href="mailto:{CONFIG['email_ceo']}"><small>E-mail</small><span>{CONFIG['email_ceo']}</span></a>
     <a href="{CONFIG['youtube_lifestyle']}" target="_blank" rel="noopener"><small>YouTube</small><span>Lifestyle with Anne Mac Pherson</span></a>
     <a href="{CONFIG['youtube_eventos']}" target="_blank" rel="noopener"><small>YouTube</small><span>TV Anny Praddo Eventos</span></a>
     <a href="{CONFIG['instagram']}" target="_blank" rel="noopener"><small>Instagram</small><span>@anny_praddo_modeling_career</span></a>

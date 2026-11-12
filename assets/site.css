@@ -576,3 +576,7 @@ html:not(.js) .pick{display:none}
 .ap-txt h3{color:var(--gold-ink);font-size:1.05rem;letter-spacing:.04em;margin:28px 0 8px}
 .ap-txt p{line-height:1.7;margin:0 0 14px}
 @media (max-width:720px){.ap-mod{grid-template-columns:1fr}.ap-mod img{position:static;max-width:360px}}
+.agenda{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:10px 24px;margin:16px 0 24px}
+.agenda dt{color:var(--gold-ink);font-weight:500}
+.agenda dd{margin:0}
+@media (max-width:560px){.agenda{grid-template-columns:1fr}.agenda dd{margin-bottom:8px}}
