@@ -21,43 +21,32 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Cadastro em 3 passos, enviado pelo WhatsApp
+  // Inscrição (modelo Ford), enviada pelo WhatsApp
   const form = $('formInsc');
   if (form) {
-    const steps = [...form.querySelectorAll('.step')];
-    const marks = [...form.querySelectorAll('.steps-nav [data-s]')];
-    const bV = $('btnVoltar'), bS = $('btnSeguir'), bE = $('btnEnviar');
-    let cur = 0;
-    const show = i => {
-      i = Math.max(0, Math.min(steps.length - 1, i)); cur = i;
-      steps.forEach((s, k) => s.classList.toggle('on', k === i));
-      marks.forEach((m, k) => m.classList.toggle('on', k <= i));
-      bV.hidden = i === 0; bS.hidden = i === steps.length - 1; bE.hidden = i !== steps.length - 1;
-    };
-    const ok = i => { for (const el of steps[i].querySelectorAll('input,select')) { if (!el.checkValidity()) { el.reportValidity(); return false; } } return true; };
-    const toForm = () => scrollTo({ top: form.getBoundingClientRect().top + scrollY - 96, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    bS.addEventListener('click', () => { if (ok(cur)) { show(cur + 1); toForm(); } });
-    bV.addEventListener('click', () => { show(cur - 1); toForm(); });
-    const idade = form.elements.idade, resp = $('campoResp');
-    idade.addEventListener('input', () => { const menor = idade.value !== '' && +idade.value < 16; resp.hidden = !menor; form.elements.responsavel.required = menor; });
+    const f = form.elements, resp = $('campoResp');
+    const idade = () => { const d = new Date(f.nascimento.value); if (isNaN(d)) return null; const n = new Date(); let a = n.getFullYear() - d.getFullYear(); if (n < new Date(n.getFullYear(), d.getMonth(), d.getDate())) a--; return a; };
+    f.nascimento.addEventListener('change', () => { const a = idade(), menor = a !== null && a < 16; resp.hidden = !menor; f.responsavel.required = menor; });
     const q = new URLSearchParams(location.search);
-    if (q.has('tv') || /tv/i.test(q.get('utm_source') || '')) { const r = form.querySelector('[name=origem][value="Entrevista na TV"]'); if (r) r.checked = true; }
-    const pre = q.get('curso'); if (pre && form.elements.curso) form.elements.curso.value = pre;
+    if (q.has('tv') || /tv/i.test(q.get('utm_source') || '')) f.origem.value = 'Entrevista na TV';
+    const pre = q.get('curso'); if (pre) f.curso.value = pre;
+    const marcados = n => [...form.querySelectorAll('[name=' + n + ']:checked')].map(x => x.value).join(', ');
     form.addEventListener('submit', e => {
       e.preventDefault();
-      for (let i = 0; i < steps.length; i++) { show(i); if (!ok(i)) return; }
-      const f = form.elements;
-      const quero = [...form.querySelectorAll('[name=interesse]:checked')].map(x => x.value).join(', ') || 'não informado';
-      const l = ['Olá! Quero fazer meu cadastro gratuito na Anne Models.', 'Nome: ' + f.nome.value, 'Idade: ' + f.idade.value, 'Cidade: ' + f.cidade.value];
-      if (f.responsavel.value) l.push('Responsável: ' + f.responsavel.value);
-      const cats = [...form.querySelectorAll('[name=categoria]:checked')].map(x => x.value).join(', ') || 'nenhuma';
-      l.push('Quero ser: ' + quero, 'Formação de interesse: ' + f.curso.value, 'Categoria: ' + cats);
-      if (f.altura.value) l.push('Altura: ' + f.altura.value + ' cm');
-      if (f.redes.value) l.push('Redes: ' + f.redes.value);
-      l.push('Como conheci: ' + (form.querySelector('[name=origem]:checked') || {}).value, 'Vou enviar minhas 4 fotos nesta conversa.');
+      const l = ['Olá! Quero fazer minha inscrição gratuita na Anne Models.'];
+      const add = (r, v) => { if (v) l.push(r + ': ' + v); };
+      add('Gênero', marcados('genero')); add('Nome', f.nome.value); add('E-mail', f.email.value);
+      add('Nascimento', f.nascimento.value.split('-').reverse().join('/') + ' (' + idade() + ' anos)');
+      add('Responsável', f.responsavel.value); add('Cidade', f.cidade.value + ' - ' + f.estado.value); add('Telefone', f.telefone.value);
+      add('Instagram', f.instagram.value); add('TikTok', f.tiktok.value);
+      add('Altura', f.altura.value && f.altura.value + ' cm'); add('Cintura', f.cintura.value && f.cintura.value + ' cm');
+      add('Quadril', f.quadril.value && f.quadril.value + ' cm'); add('Busto/Tórax', f.busto.value && f.busto.value + ' cm');
+      add('Sapato', f.sapato.value); add('Olhos', f.olhos.value); add('Cabelo', f.cabelo.value);
+      add('Quero ser', marcados('interesse')); add('Formação de interesse', f.curso.value); add('Categoria', marcados('categoria'));
+      add('Como conheci', f.origem.value);
+      l.push('Vou enviar minhas 4 fotos nesta conversa: rosto, corpo inteiro, meio corpo e perfil.');
       window.open(WA + encodeURIComponent(l.join('\n')), '_blank', 'noopener');
     });
-    show(0);
   }
 
   // Formulário "Envie sua mensagem", enviado pelo WhatsApp

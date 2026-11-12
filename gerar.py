@@ -53,6 +53,10 @@ NAV = [
 ICONES = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="logo-a" viewBox="0 0 100 100"><path fill="currentColor" d="M50 4 L53 4 L96 96 L84 96 Z M50 4 L47.5 4 L6 96 L9 96 Z M30 84 L50 74 L70 84 L66 86 L50 79 L34 86 Z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.76 4.88-1.28A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.9.76.78-2.83-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.54 11 11 0 0 0 4.2 3.7c1.56.68 2.18.73 2.96.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="sil-rosto" viewBox="0 0 100 125"><path fill="currentColor" d="M50 18c-17 0-27 13-27 31 0 13 5 25 13 31v10c-16 4-30 12-36 35h100c-6-23-20-31-36-35V80c8-6 13-18 13-31 0-18-10-31-27-31Z"/></symbol>
+  <symbol id="sil-corpo" viewBox="0 0 100 125"><path fill="currentColor" d="M50 6a9 10 0 1 0 0 20 9 10 0 1 0 0-20Zm-13 24c-4 0-7 3-8 7l-6 32 6 2 7-28 2 30-4 52h8l6-44h4l6 44h8l-4-52 2-30 7 28 6-2-6-32c-1-4-4-7-8-7Z"/></symbol>
+  <symbol id="sil-meio" viewBox="0 0 100 125"><path fill="currentColor" d="M50 14a15 17 0 1 0 0 34 15 17 0 1 0 0-34Zm-22 42c-8 2-13 9-14 18l-4 51h80l-4-51c-1-9-6-16-14-18Z"/></symbol>
+  <symbol id="sil-perfil" viewBox="0 0 100 125"><path fill="currentColor" d="M47 16c-15 0-24 12-24 28 0 10 4 19 10 24v12c-12 4-21 14-25 45h80c-3-22-10-34-21-40V70c4 0 9-2 10-6l1-9 6-2-5-9c0-16-11-28-32-28Z"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 5.5C6.5 4 9.5 4 12 5.5v14c-2.5-1.5-5.5-1.5-8 0zM20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
@@ -270,81 +274,73 @@ def lista_cursos():
     return '<ul class="cursos-grid">' + "".join(card_curso(c, e) for c, e in zip(CURSOS, estilos)) + "</ul>"
 
 
+UFS = "AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split()
+OLHOS = ["Castanhos", "Pretos", "Mel", "Verdes", "Azuis", "Outro"]
+CABELO = ["Preto", "Castanho", "Loiro", "Ruivo", "Grisalho", "Outro"]
+FOTOS = [("rosto", "Rosto, de frente"), ("corpo", "Corpo inteiro, de frente"), ("meio", "Meio corpo"), ("perfil", "De perfil")]
+
+
+def _sel(nome, rotulo, opcoes, req=True):
+    return (f'<label class="field"><span>{rotulo}{" *" if req else ""}</span><select name="{nome}"{" required" if req else ""}><option value=""></option>'
+            + "".join(f"<option>{o}</option>" for o in opcoes) + "</select></label>")
+
+
+def _num(nome, rotulo, ph, req=False):
+    return f'<label class="field"><span>{rotulo}{" *" if req else ""}</span><input name="{nome}" type="number" inputmode="numeric" min="0" max="250" placeholder="{ph}"{" required" if req else ""}></label>'
+
+
 FORM_CADASTRO = f"""<section class="insc" id="cadastro">
   <div class="wrap">
-    <div class="insc-head reveal">
-      <div><p class="eyebrow">Cadastro gratuito</p><h2>Comece pelo <em>celular</em></h2></div>
-      <p class="lead">São três passos rápidos. No final, seus dados chegam ao WhatsApp da agência e você manda as fotos na mesma conversa.</p>
+    <div class="insc-head reveal center">
+      <h2>Inscrição</h2>
+      <p class="lead">Preencha o formulário e envie o seu cadastro gratuito para a Anne Models Management.</p>
     </div>
-    <div class="insc-grid">
-      <div class="reveal">
-        <div class="guide">
-          <h3>Como fazer as fotos</h3>
-          <ol>
-            <li><b>Foto 1</b>Corpo inteiro, de frente</li>
-            <li><b>Foto 2</b>Meio corpo</li>
-            <li><b>Foto 3</b>De perfil</li>
-            <li><b>Foto 4</b>Rosto, sério e sorrindo</li>
-          </ol>
-          <p>Fotografe de dia, perto de uma janela e diante de uma parede lisa. Sem filtro e sem óculos escuros. Prefira roupa simples, como camiseta preta ou branca.</p>
-        </div>
-        <div class="qa">
-          <details><summary>O cadastro é pago?</summary><p>Não. O cadastro é gratuito.</p></details>
-          <details><summary>Tem limite de idade?</summary><p>Não. Agenciamos de 6 meses a 80 anos. Quem tem menos de 16 anos se cadastra com o nome de um responsável.</p></details>
-          <details><summary>Preciso ter book profissional?</summary><p>Não. Nesta etapa, fotos de celular bastam.</p></details>
-        </div>
+    <form class="form form-insc reveal" id="formInsc">
+      <div class="chips" role="radiogroup" aria-label="Gênero">
+        <label><input type="radio" name="genero" value="Feminino"><span>Feminino</span></label>
+        <label><input type="radio" name="genero" value="Masculino"><span>Masculino</span></label>
+        <label><input type="radio" name="genero" value="Não binário"><span>Não binário</span></label>
       </div>
-      <form class="form reveal" id="formInsc">
-        <div class="steps-nav" aria-hidden="true"><span data-s="0" class="on">1 Você</span><span data-s="1">2 Perfil</span><span data-s="2">3 Origem</span></div>
-        <fieldset class="step on" data-step="0">
-          <legend>Sobre você</legend>
-          <label class="field"><span>Nome completo</span><input name="nome" autocomplete="name" required></label>
-          <div class="row2">
-            <label class="field"><span>Idade</span><input name="idade" type="number" inputmode="numeric" min="0" max="99" required></label>
-            <label class="field"><span>Cidade e estado</span><input name="cidade" autocomplete="address-level2" placeholder="Ex.: Belo Horizonte, MG" required></label>
-          </div>
-          <label class="field" id="campoResp" hidden><span>Nome do responsável</span><input name="responsavel" autocomplete="off"></label>
-        </fieldset>
-        <fieldset class="step" data-step="1">
-          <legend>Seu perfil</legend>
-          <div class="field"><span>Quero ser</span><div class="chips">
-            <label><input type="checkbox" name="interesse" value="Modelo ou manequim"><span>Modelo ou manequim</span></label>
-            <label><input type="checkbox" name="interesse" value="Ator ou atriz"><span>Ator ou atriz</span></label>
-            <label><input type="checkbox" name="interesse" value="Recepcionista de eventos"><span>Recepcionista</span></label>
-            <label><input type="checkbox" name="interesse" value="Influenciador"><span>Influenciador</span></label>
-            <label><input type="checkbox" name="interesse" value="Cantor ou dançarino"><span>Cantor ou dançarino</span></label>
-            <label><input type="checkbox" name="interesse" value="Sósia"><span>Sósia</span></label>
-          </div></div>
-          <label class="field"><span>Formação de interesse</span><select name="curso">
-            <option>Ainda não sei</option>{''.join(f'<option value="{c["slug"]}">{c["nome_txt"]}</option>' for c in CURSOS)}
-          </select></label>
-          <div class="field"><span>Categoria de avaliação e premiação</span><div class="chips">
-            {''.join(f'<label><input type="checkbox" name="categoria" value="{n}"><span>{n} <small>({t})</small></span></label>' for n, t in CATEGORIAS)}
-          </div></div>
-          <div class="row2">
-            <label class="field"><span>Altura (cm)</span><input name="altura" type="number" inputmode="numeric" min="40" max="230" placeholder="Ex.: 172"></label>
-            <label class="field"><span>Instagram ou TikTok</span><input name="redes" placeholder="@seuperfil" autocapitalize="off"></label>
-          </div>
-        </fieldset>
-        <fieldset class="step" data-step="2">
-          <legend>Como você conheceu a Anne?</legend>
-          <div class="chips">
-            <label><input type="radio" name="origem" value="Entrevista na TV" required><span>Entrevista na TV</span></label>
-            <label><input type="radio" name="origem" value="Instagram"><span>Instagram</span></label>
-            <label><input type="radio" name="origem" value="YouTube"><span>YouTube</span></label>
-            <label><input type="radio" name="origem" value="Indicação"><span>Indicação</span></label>
-            <label><input type="radio" name="origem" value="Outro"><span>Outro</span></label>
-          </div>
-          <p class="note">Ao enviar, o WhatsApp abre com seus dados preenchidos. Depois é só mandar as 4 fotos na mesma conversa.</p>
-        </fieldset>
-        <div class="form-actions">
-          <button type="button" class="btn btn-ghost" id="btnVoltar" hidden>Voltar</button>
-          <button type="button" class="btn btn-solid" id="btnSeguir">Continuar</button>
-          <button type="submit" class="btn btn-solid" id="btnEnviar">Enviar pelo WhatsApp</button>
-        </div>
-        <p class="note">Prefere outro caminho? Use o <a href="{CONFIG['form_cadastro']}" target="_blank" rel="noopener">formulário do Google</a>.</p>
-      </form>
-    </div>
+      <div class="grid3">
+        <label class="field"><span>Nome *</span><input name="nome" autocomplete="name" required></label>
+        <label class="field"><span>E-mail *</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="field"><span>Nascimento *</span><input name="nascimento" type="date" required></label>
+        <label class="field"><span>Cidade *</span><input name="cidade" autocomplete="address-level2" required></label>
+        {_sel("estado", "Estado", UFS)}
+        <label class="field"><span>Telefone *</span><input name="telefone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+        <label class="field"><span>Instagram</span><input name="instagram" placeholder="@seuperfil" autocapitalize="off"></label>
+        <label class="field"><span>TikTok</span><input name="tiktok" placeholder="@seuperfil" autocapitalize="off"></label>
+        <label class="field" id="campoResp" hidden><span>Nome do responsável *</span><input name="responsavel" autocomplete="off"></label>
+      </div>
+      <div class="grid4">
+        {_num("altura", "Altura (cm)", "Ex.: 172", True)}{_num("cintura", "Cintura (cm)", "")}{_num("quadril", "Quadril (cm)", "")}{_num("busto", "Busto / Tórax (cm)", "")}
+      </div>
+      <div class="grid3">
+        {_num("sapato", "Sapato", "Ex.: 37")}{_sel("olhos", "Olhos", OLHOS)}{_sel("cabelo", "Cabelo", CABELO)}
+      </div>
+      <div class="field"><span>Quero ser</span><div class="chips">
+        <label><input type="checkbox" name="interesse" value="Modelo ou manequim"><span>Modelo ou manequim</span></label>
+        <label><input type="checkbox" name="interesse" value="Ator ou atriz"><span>Ator ou atriz</span></label>
+        <label><input type="checkbox" name="interesse" value="Recepcionista de eventos"><span>Recepcionista</span></label>
+        <label><input type="checkbox" name="interesse" value="Influenciador"><span>Influenciador</span></label>
+        <label><input type="checkbox" name="interesse" value="Cantor ou dançarino"><span>Cantor ou dançarino</span></label>
+        <label><input type="checkbox" name="interesse" value="Sósia"><span>Sósia</span></label>
+      </div></div>
+      <div class="grid3">
+        <label class="field"><span>Formação de interesse</span><select name="curso">
+          <option>Ainda não sei</option>{''.join(f'<option value="{c["slug"]}">{c["nome_txt"]}</option>' for c in CURSOS)}
+        </select></label>
+        {_sel("origem", "Como conheceu a Anne", ["Entrevista na TV", "Instagram", "YouTube", "Indicação", "Outro"], False)}
+      </div>
+      <div class="field"><span>Categoria de avaliação e premiação</span><div class="chips">
+        {''.join(f'<label><input type="checkbox" name="categoria" value="{n}"><span>{n} <small>({t})</small></span></label>' for n, t in CATEGORIAS)}
+      </div></div>
+      <h3 class="h3">Fotos</h3>
+      <p class="note">Fotografe de dia, perto de uma janela e diante de uma parede lisa. Sem filtro, sem óculos escuros, com roupa simples. Você manda as 4 fotos na conversa do WhatsApp que abre ao enviar.</p>
+      <ul class="fotos-guia">{''.join(f'<li><svg aria-hidden="true"><use href="#sil-{k}"/></svg><span>{t}</span></li>' for k, t in FOTOS)}</ul>
+      <details class="qa"><summary>Tem limite de idade?</summary><p>Não. Agenciamos de 6 meses a 80 anos. Quem tem menos de 16 anos se cadastra com o nome de um responsável.</p></details>
+      <div class="form-actions"><button type="submit" class="btn btn-solid">Enviar pelo WhatsApp</button></div>
+    </form>
   </div>
 </section>"""
 
