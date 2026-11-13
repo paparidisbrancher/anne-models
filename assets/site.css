@@ -576,6 +576,28 @@ html:not(.js) .pick{display:none}
 .ap-txt h3{color:var(--gold-ink);font-size:1.05rem;letter-spacing:.04em;margin:28px 0 8px}
 .ap-txt p{line-height:1.7;margin:0 0 14px}
 @media (max-width:720px){.ap-mod{grid-template-columns:1fr}.ap-mod img{position:static;max-width:360px}}
+.ap-txt .ap-destaque{border-left:2px solid var(--gold-ink);padding:12px 0 12px 18px;margin:24px 0;font:400 1.1rem/1.6 var(--serif);color:#2b2b2b}
+.ap-capa{display:none}
+.ap-fim{padding-top:40px;text-align:center;display:grid;gap:4px;color:#555}
+/* PDF da apostila: o Chrome imprime a própria página em A4 (branco, dourado e cinza-escuro) */
+@media print{
+  @page{size:A4;margin:16mm 16mm 18mm}
+  .top,.foot,.wa-fab,.dock,.selbar,.page-head{display:none !important}
+  body,.apostila{background:#fff;color:#333;padding:0}
+  .reveal{opacity:1 !important;transform:none !important}
+  .wrap{max-width:none;padding:0}
+  .ap-capa{display:block;width:auto;height:255mm;margin:0 auto;break-after:page}
+  .ap-sumario{break-after:page}
+  .ap-sumario ol{grid-template-columns:1fr;gap:0}
+  .ap-sumario a{min-height:0;padding:6px 0;font-size:13pt}
+  .ap-mod{display:block;padding:0;border:0;break-before:page}
+  .ap-mod > img{position:static;display:block;width:auto;max-width:100%;height:240mm;object-fit:contain;margin:0 auto;break-after:page}
+  .ap-txt{max-width:none;font-size:11pt}
+  .ap-txt h3,.ap-destaque{break-after:avoid}
+  .ap-txt p{orphans:3;widows:3}
+  .ap-fim{break-before:page;padding-top:90mm}
+  a{color:inherit;text-decoration:none}
+}
 .agenda{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:10px 24px;margin:16px 0 24px}
 .agenda dt{color:var(--gold-ink);font-weight:500}
 .agenda dd{margin:0}

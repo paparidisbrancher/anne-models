@@ -18,6 +18,12 @@ Protótipo com 16 páginas, gerado por `python gerar.py`. Textos, contatos e lin
 - **Revisão jurídica:** textos sobre idade mínima, RPMT, CCT, autorização de responsável, contratos e comissão não foram alterados e precisam de revisão de um advogado.
 - **noindex:** todas as páginas estão fora dos buscadores. Tirar só quando ela aprovar o site.
 
+## Apostila do Método (12/11/2026)
+- Texto dos 11 módulos vem do PDF de 2018 (`3 Anny Prado - Curso de Modelo.pdf`), com erros de digitação óbvios corrigidos e sem o site/contato antigo. Quando ela mandar o Word atualizado, trocar `dados/apostila.json` e regerar o PDF (comando no `gerar.py`).
+- Módulo 11 (Certificado) não tem texto no original: usei um parágrafo com o que já está na ficha.
+- As capas dos módulos têm a marca d'água "Dola AI" no canto: pedir as artes sem marca ou refazer.
+- Conteúdo sensível herdado do original (medidas "perfeitas", dietas, DRT/SIMREV, natação) precisa da revisão dela antes de vender o curso.
+
 ## Ela precisa enviar
 - WhatsApp e e-mail da Jane Ribeiro (`wa_jane`).
 - Contrato de agenciamento (`contrato_agenciamento`) e link da Comunidade Cristal para não agenciados (`comunidade_cristal`).

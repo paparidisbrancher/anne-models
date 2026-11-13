@@ -508,7 +508,7 @@ def curso(c):
         extra_curso = f"""
 <section class="sec-tight sec-white"><div class="wrap">
   <div class="sec-head reveal"><div><p class="eyebrow">Apostila virtual</p><h2>Os {len(c['modulos'])} <em>módulos</em></h2></div>
-    <p class="lead">Leia a apostila aqui no site, módulo por módulo. A versão em PDF para baixar e imprimir chega em breve.</p></div>
+    <p class="lead">Leia a apostila aqui no site, módulo por módulo, ou <a href="apostila/{APOSTILA_PDF}" download>baixe o PDF</a> para imprimir.</p></div>
   <ul class="mod-capas">{capas}</ul>
 </div></section>
 <section class="sec-tight" id="inscricao"><div class="wrap ficha reveal">
@@ -545,6 +545,9 @@ def curso(c):
 
 
 APOSTILA = json.loads((RAIZ / "dados" / "apostila.json").read_text(encoding="utf-8"))
+# PDF = a própria página impressa pelo Chrome (CSS @media print). Depois de `python gerar.py`, na pasta da apostila:
+#   chrome --headless=new --no-pdf-header-footer --virtual-time-budget=15000 --print-to-pdf=<este arquivo> index.html
+APOSTILA_PDF = "apostila-metodo-anne-mac-pherson.pdf"
 
 
 def apostila():
@@ -552,15 +555,24 @@ def apostila():
     partes = []
     for i, (nome, _) in enumerate(c["modulos"], 1):
         blocos = APOSTILA.get(str(i))
-        corpo = "".join(f"<h3>{html.escape(t)}</h3>" if k == "h" else f"<p>{html.escape(t)}</p>" for k, t in blocos) if blocos             else '<p class="note">Texto deste módulo em atualização.</p>'
+        tag = {"h": "<h3>{}</h3>", "c": '<p class="ap-destaque">{}</p>'}
+        corpo = "".join(tag.get(k, "<p>{}</p>").format(html.escape(t)) for k, t in blocos) if blocos \
+            else '<p class="note">Texto deste módulo em atualização.</p>'
         partes.append(f'<article class="ap-mod" id="m{i}"><img src="../../../img/metodo/m{i:02d}.jpg" alt="Módulo {i}: {nome}" loading="lazy" width="896" height="1120"><div class="ap-txt"><p class="eyebrow">Módulo {i}</p><h2>{nome}</h2>{corpo}</div></article>')
     sumario = "".join(f'<li><a href="#m{i}"><span>{i:02d}</span>{n}</a></li>' for i, (n, _) in enumerate(c["modulos"], 1))
     return cabeca("Método Anne Mac Pherson", "Apostila <em>virtual</em>",
                   "O guia da formação profissional de modelos e manequins. Leia aqui, módulo por módulo.",
+                  f'<a class="btn btn-solid" href="{APOSTILA_PDF}" download>Baixar em PDF</a>'
                   '<a class="btn btn-ghost btn-dark" href="../#inscricao">Ficha de inscrição</a>') + f"""
 <section class="apostila"><div class="wrap">
-  <nav class="ap-sumario" aria-label="Sumário"><ol>{sumario}</ol></nav>
+  <img class="ap-capa" src="../../../img/metodo/capa.jpg" alt="" width="435" height="853">
+  <nav class="ap-sumario" aria-label="Sumário"><p class="eyebrow">Sumário</p><ol>{sumario}</ol></nav>
   {"".join(partes)}
+  <footer class="ap-fim"><p class="eyebrow">Anne Models Management</p>
+    <p>Formação profissional de modelos e manequins · Método Anne Mac Pherson</p>
+    <p>WhatsApp (31) 99658-9729 · {CONFIG['email_ceo']}</p>
+    <p>{CONFIG['site_url'].removeprefix('https://').rstrip('/')}</p>
+    <p class="note">Direitos reservados conforme a Lei 9.610/98. Proibida a reprodução sem autorização.</p></footer>
 </div></section>"""
 
 
