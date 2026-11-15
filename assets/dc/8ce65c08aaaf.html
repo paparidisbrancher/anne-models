@@ -21,7 +21,7 @@
       </nav>
     </sc-if>
     <div style="display:flex;align-items:center;gap:8px;flex:0 0 auto">
-      <a href="#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#0d0d0c;color:#f7f5f0;text-decoration:none;font:500 14px/1.2 Jost,sans-serif" style-hover="background:#b08d57;color:#0d0d0c">Cadastre-se grátis</a>
+      <a href="#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#0d0d0c;color:#f7f5f0;text-decoration:none;font:500 14px/1.2 Jost,sans-serif" style-hover="background:#b08d57;color:#0d0d0c">{{ cta }}</a>
       <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
         <button type="button" onClick="{{ toggle }}" aria-expanded="{{ aberto }}" style="min-height:44px;min-width:44px;padding:10px 12px;border:1px solid #0d0d0c;background:transparent;color:#0d0d0c;font:500 14px/1 Jost,sans-serif;cursor:pointer">{{ rotulo }}</button>
       </sc-if>
@@ -40,15 +40,15 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;atual&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;agencia&quot;,&quot;servicos&quot;,&quot;cursos&quot;,&quot;castings&quot;,&quot;trade&quot;,&quot;contato&quot;,&quot;aluno&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;64px&quot;}}">
 class Component extends DCLogic {
-  state = { wide: window.innerWidth >= 1080, aberto: false };
-  componentDidMount() { this.onR = () => this.setState({ wide: window.innerWidth >= 1080 }); window.addEventListener('resize', this.onR); }
+  state = { wide: window.innerWidth >= 1080, curto: window.innerWidth < 440, aberto: false };
+  componentDidMount() { this.onR = () => this.setState({ wide: window.innerWidth >= 1080, curto: window.innerWidth < 440 }); window.addEventListener('resize', this.onR); }
   componentWillUnmount() { window.removeEventListener('resize', this.onR); }
   renderVals() {
     const a = this.props.atual;
-    const links = [['agencia', 'Agência', 'Agencia.dc.html'], ['servicos', 'Serviços', 'Servicos.dc.html'], ['cursos', 'Cursos', 'Cursos.dc.html'], ['castings', 'Castings', 'Castings.dc.html'], ['trade', 'Fashion Trade', 'FashionTrade.dc.html'], ['contato', 'Contatos', 'Contato.dc.html'], ['aluno', 'Área do aluno', 'AreaDoAluno.dc.html']]
+    const links = [['agencia', 'Agência', 'a-agencia/'], ['servicos', 'Serviços', 'servicos/'], ['cursos', 'Cursos', 'cursos/'], ['castings', 'Castings', 'castings/'], ['trade', 'Fashion Trade', 'fashion-trade/'], ['contato', 'Contatos', 'contato/'], ['aluno', 'Área do aluno', 'area-do-aluno/']]
       .map(([k, t, h]) => ({ t, h, cor: k === a ? '#80622a' : '#0d0d0c', bd: k === a ? '#b08d57' : 'transparent', cur: k === a ? 'page' : undefined }));
     const { wide, aberto } = this.state;
-    return { links, wide, narrow: !wide, painel: !wide && aberto, aberto, rotulo: aberto ? 'Fechar' : 'Menu', toggle: () => this.setState(s => ({ aberto: !s.aberto })) };
+    return { cta: this.state.curto ? 'Cadastro' : 'Cadastre-se grátis', links, wide, narrow: !wide, painel: !wide && aberto, aberto, rotulo: aberto ? 'Fechar' : 'Menu', toggle: () => this.setState(s => ({ aberto: !s.aberto })) };
   }
 }
 </script>

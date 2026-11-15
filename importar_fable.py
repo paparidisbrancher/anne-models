@@ -50,6 +50,16 @@ AJUSTES = {
     "AreaDoAluno": [(r'(?s)<a href="https://hotmart\.com"[^>]*>Entrar na Hotmart</a>', "")],
 }
 
+# cabeçalho: no celular (< 440 px) "Cadastre-se grátis" vira "Cadastro" para o botão Menu caber na tela
+AJUSTES_COMPONENTES = [
+    ("state = { wide: window.innerWidth >= 1080, aberto: false };",
+     "state = { wide: window.innerWidth >= 1080, curto: window.innerWidth < 440, aberto: false };"),
+    ("this.setState({ wide: window.innerWidth >= 1080 })",
+     "this.setState({ wide: window.innerWidth >= 1080, curto: window.innerWidth < 440 })"),
+    ("return { links, wide,", "return { cta: this.state.curto ? 'Cadastro' : 'Cadastre-se grátis', links, wide,"),
+    (">Cadastre-se grátis</a>", ">{{ cta }}</a>"),
+]
+
 EXT = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/svg+xml": "svg",
        "font/woff2": "woff2", "font/woff": "woff", "text/html": "html", "text/css": "css",
        "application/javascript": "js", "text/javascript": "js"}
@@ -71,7 +81,10 @@ def link(href, rota):
 
 
 def arruma_links(txt, rota):
-    return re.sub(r'href="([^"{]*)"', lambda m: f'href="{html.escape(link(html.unescape(m.group(1)), rota), quote=True)}"', txt)
+    txt = re.sub(r'href="([^"{]*)"', lambda m: f'href="{html.escape(link(html.unescape(m.group(1)), rota), quote=True)}"', txt)
+    # links montados no JavaScript dos componentes ('Agencia.dc.html', 'Integracao.dc.html#milao')
+    nomes = "|".join(re.escape(n) for n in sorted(ROTA, key=len, reverse=True))
+    return re.sub(rf"(?<![\w./])({nomes})", lambda m: ROTA[m.group(1)], txt)
 
 
 def grava(dados, mime):
@@ -93,7 +106,10 @@ def importa(arq, rota, titulo, desc):
     for r in ext:
         dados, mime = caminhos.pop(r["uuid"])
         if r["id"].endswith(".dc.html"):
-            dados = arruma_links(dados.decode("utf-8"), "").encode("utf-8")
+            txt = arruma_links(dados.decode("utf-8"), "")
+            for velho, novo in AJUSTES_COMPONENTES:
+                txt = txt.replace(velho, novo)
+            dados = txt.encode("utf-8")
         recursos[r["id"]] = grava(dados, mime)
     for uuid, (dados, mime) in caminhos.items():
         tpl = tpl.replace(uuid, grava(dados, mime))
