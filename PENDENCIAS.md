@@ -41,3 +41,12 @@ Protótipo com 16 páginas, gerado por `python gerar.py`. Textos, contatos e lin
 
 ## Fora do site
 - Organização do notebook e dos e-mails pessoais (pedido nos áudios).
+
+## Redesign do Fable (14/11/2026)
+
+- As 15 páginas vêm do ZIP "Avaliação de design da agência Anne" (Fable), importadas com `python importar_fable.py <pasta dos .dc.html>`.
+  O `gerar.py` agora só refaz a apostila (e o sitemap). Para mudar texto ou preço de uma página, editar o `index.html` dela
+  (o HTML fica legível dentro de `<x-dc>`) ou pedir nova versão ao Fable e reimportar; os ajustes ficam em `AJUSTES`.
+- Escondido até ter material: "Quem passou por aqui" (3 depoimentos com foto e autorização de imagem).
+- Tirado: botão "Entrar na Hotmart" da Área do aluno (link de exemplo; ela não informou plataforma de aulas).
+- Páginas novas: Portal Lifestyle, Revista Fashion Models e Revista Krystal (em /servicos/), conferir textos com a Anne.

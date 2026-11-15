@@ -781,15 +781,22 @@ for c in CURSOS:
 PAGINAS.append(("cursos/metodo-anne-mac-pherson/apostila/", "Apostila virtual", "Apostila da formação profissional de modelos do Método Anne Mac Pherson.", apostila, False, ""))
 
 
+# Desde 14/11/2026 as demais páginas vêm do redesign do Fable (importar_fable.py); aqui só a apostila.
+GERADAS_AQUI = {"cursos/metodo-anne-mac-pherson/apostila/"}
+
+
 def main():
     for rota, titulo, desc, fn, hero, extra in PAGINAS:
+        if rota not in GERADAS_AQUI:
+            continue
         destino = RAIZ / rota / "index.html"
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(layout(rota, titulo, desc, fn(), hero=hero, extra=extra), encoding="utf-8", newline="\n")
     (RAIZ / "404.html").write_text(
         layout("404/", "Página não encontrada", "Página não encontrada.", nao_encontrada()).replace('"../', '"/anne-models/'),
         encoding="utf-8", newline="\n")
-    urls = "".join(f"<url><loc>{CONFIG['site_url']}{r}</loc></url>" for r, *_ in PAGINAS)
+    rotas = [r for r, *_ in PAGINAS] + ["servicos/lifestyle/", "servicos/revista-fashion-models/", "servicos/revista-krystal/"]
+    urls = "".join(f"<url><loc>{CONFIG['site_url']}{r}</loc></url>" for r in rotas)
     (RAIZ / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
     print(len(PAGINAS), "páginas geradas")
 

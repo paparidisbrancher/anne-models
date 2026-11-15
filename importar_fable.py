@@ -1,0 +1,147 @@
+"""Importa as páginas do Fable (.dc.html empacotadas) para o site estático.
+
+Cada .dc.html do Fable traz tudo dentro: o HTML (template), e fontes, imagens,
+React, support.js, cabeçalho e rodapé num "manifest" em base64. Este script
+desempacota isso em arquivos normais (assets/dc/), grava cada página na rota
+que ela já tinha no site e corrige links e o <head> (SEO, noindex).
+
+Uso: python importar_fable.py <pasta com os .dc.html>
+Depois: python gerar.py (só refaz a apostila e o 404).
+"""
+import base64, gzip, hashlib, html, json, re, sys
+from pathlib import Path
+
+RAIZ = Path(__file__).parent
+SAIDA = RAIZ / "assets" / "dc"
+SITE_URL = "https://paparidisbrancher.github.io/anne-models/"
+
+# arquivo do Fable -> (rota no site, título, descrição)
+PAGINAS = {
+    "Home Anne Models": ("", "Anne Models Management", "Agência de modelos, manequins e atores desde 1995. Formação profissional, castings, serviços e o Fashion Trade."),
+    "Agencia": ("a-agencia/", "A agência", "História da Anne Models Management e da fundadora Anne Mac Pherson."),
+    "Castings": ("castings/", "Castings", "Modelos, atores, dançarinos e cantores para marcas, produtoras e eventos."),
+    "Cursos": ("cursos/", "Cursos", "Método Anne Mac Pherson, Integração Profissional e Recepcionistas de eventos."),
+    "Metodo": ("cursos/metodo-anne-mac-pherson/", "Método Anne Mac Pherson", "Formação profissional completa de modelo, manequim e ator, com certificado de capacitação técnica."),
+    "Integracao": ("cursos/integracao-profissional/", "Integração Profissional", "Imagem, atendimento e liderança para lojistas e profissionais."),
+    "Recepcionistas": ("cursos/recepcionistas-de-eventos/", "Recepcionistas de eventos", "Postura, etiqueta e comunicação para trabalhar em grandes eventos."),
+    "Servicos": ("servicos/", "Serviços", "Catálogo de serviços e preços da Anne Models Management."),
+    "Lifestyle": ("servicos/lifestyle/", "Portal Lifestyle", "Programa Lifestyle da Anne Models no YouTube."),
+    "RevistaFashionModels": ("servicos/revista-fashion-models/", "Revista Fashion Models", "Publicação em parceria com a Revista Fashion Models."),
+    "RevistaKrystal": ("servicos/revista-krystal/", "Revista Krystal", "Publicação em parceria com a Revista Krystal."),
+    "FashionTrade": ("fashion-trade/", "Fashion Trade", "Programação e formas de participar do Fashion Trade, evento anual da Anne Models."),
+    "TradeSales": ("trade-sales/", "Trade Sales", "Curadoria de produtos para book, desfiles e trabalho de modelos e artistas."),
+    "AreaDoAluno": ("area-do-aluno/", "Área do aluno", "Acesso às aulas, apostilas, tarefas e certificados dos cursos da Anne Models."),
+    "Contato": ("contato/", "Contato", "WhatsApp, e-mails e redes da Anne Models Management."),
+}
+ROTA = {f"{k}.dc.html": v[0] for k, v in PAGINAS.items()}
+ROTA["Home%20Anne%20Models.dc.html"] = ""
+
+# Ajustes sobre o que veio do Fable (texto exato -> substituto), reaplicados a cada importação.
+AJUSTES = {
+    # a apostila de leitura + PDF já existe (gerar.py); o botão do Fable só pedia por WhatsApp
+    "Metodo": [
+        ('href="https://wa.me/5531996589729?text=Ol%C3%A1!%20Quero%20receber%20a%20apostila%20do%20M%C3%A9todo%20Anne%20Mac%20Pherson." target="_blank" rel="noopener"',
+         'href="cursos/metodo-anne-mac-pherson/apostila/"'),
+        ("Pedir a apostila em PDF", "Ler a apostila"),
+    ],
+    # depoimentos ainda são caixas vazias: escondidos até a Anne mandar fotos e falas autorizadas
+    "Home Anne Models": [(r"(?s)<section[^>]*>(?:(?!</section>).)*?Quem passou(?:(?!</section>).)*</section>", "")],
+    # a Anne ainda não informou plataforma de aulas; o link era um exemplo
+    "AreaDoAluno": [(r'(?s)<a href="https://hotmart\.com"[^>]*>Entrar na Hotmart</a>', "")],
+}
+
+EXT = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/svg+xml": "svg",
+       "font/woff2": "woff2", "font/woff": "woff", "text/html": "html", "text/css": "css",
+       "application/javascript": "js", "text/javascript": "js"}
+
+
+def blocos(s):
+    pega = lambda t: re.search(rf'<script type="__bundler/{t}">(.*?)</script>', s, re.S).group(1)
+    return json.loads(pega("manifest")), json.loads(pega("template")), json.loads(pega("ext_resources"))
+
+
+def link(href, rota):
+    """Link do Fable -> link relativo à raiz do site (a página tem <base> apontando para a raiz)."""
+    if href.startswith("#"):
+        return rota + href
+    nome, _, ancora = href.partition("#")
+    if nome in ROTA:
+        return ROTA[nome] + ("#" + ancora if ancora else "")
+    return href
+
+
+def arruma_links(txt, rota):
+    return re.sub(r'href="([^"{]*)"', lambda m: f'href="{html.escape(link(html.unescape(m.group(1)), rota), quote=True)}"', txt)
+
+
+def grava(dados, mime):
+    nome = hashlib.sha256(dados).hexdigest()[:12] + "." + EXT.get(mime.split(";")[0], "bin")
+    (SAIDA / nome).write_bytes(dados)
+    return "assets/dc/" + nome
+
+
+def importa(arq, rota, titulo, desc):
+    manifest, tpl, ext = blocos(arq.read_text(encoding="utf-8"))
+    caminhos = {}
+    for uuid, e in manifest.items():
+        dados = base64.b64decode(e["data"])
+        if e.get("compressed"):
+            dados = gzip.decompress(dados)
+        caminhos[uuid] = (dados, e["mime"])
+    # cabeçalho/rodapé (.dc.html) e React vêm por window.__resources; o support.js busca por esses nomes
+    recursos = {}
+    for r in ext:
+        dados, mime = caminhos.pop(r["uuid"])
+        if r["id"].endswith(".dc.html"):
+            dados = arruma_links(dados.decode("utf-8"), "").encode("utf-8")
+        recursos[r["id"]] = grava(dados, mime)
+    for uuid, (dados, mime) in caminhos.items():
+        tpl = tpl.replace(uuid, grava(dados, mime))
+    tpl = arruma_links(tpl, rota)
+    for velho, novo in AJUSTES.get(arq.name.removesuffix(".dc.html"), []):
+        tpl, n = re.subn(velho if velho.startswith("(?") else re.escape(velho), novo, tpl, count=1)
+        assert n == 1, (arq.name, velho[:60])
+
+    base = "../" * rota.count("/") or "./"
+    canon = SITE_URL + rota
+    head = f"""<base href="{base}">
+<title>{html.escape(titulo + ("" if not rota else " · Anne Models Management"))}</title>
+<meta name="description" content="{html.escape(desc)}">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="{canon}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anne Models Management">
+<meta property="og:title" content="{html.escape(titulo)}">
+<meta property="og:description" content="{html.escape(desc)}">
+<meta property="og:url" content="{canon}">
+<meta property="og:image" content="{SITE_URL}img/anne-fundadora.jpg">
+<meta property="og:locale" content="pt_BR">
+<script>window.__resources = {json.dumps(recursos)};</script>
+"""
+    tpl, n = re.subn(r'(<meta name="viewport"[^>]*>)', lambda m: m.group(1) + "\n" + head, tpl, count=1)
+    assert n == 1, arq.name
+    destino = RAIZ / rota / "index.html"
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_text(tpl, encoding="utf-8", newline="\n")
+    print(f"{arq.name:32} -> /{rota}")
+
+
+def main(pasta):
+    pasta = Path(pasta)
+    SAIDA.mkdir(parents=True, exist_ok=True)
+    for velho in SAIDA.iterdir():
+        velho.unlink()
+    for nome, (rota, titulo, desc) in PAGINAS.items():
+        importa(pasta / f"{nome}.dc.html", rota, titulo, desc)
+    imgs = pasta / "img"
+    if imgs.is_dir():
+        for f in imgs.rglob("*"):
+            if f.is_file():
+                alvo = RAIZ / "img" / f.relative_to(imgs)
+                alvo.parent.mkdir(parents=True, exist_ok=True)
+                alvo.write_bytes(f.read_bytes())
+
+
+if __name__ == "__main__":
+    main(sys.argv[1])
