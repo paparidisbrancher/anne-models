@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<header style="background:rgba(247,245,240,.96);backdrop-filter:blur(10px);border-bottom:1px solid #dcd8cf">
+<header style="background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #dcd8cf">
   <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px">
     <a href="" aria-label="Anne Models Management, início" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto">
       <img src="img/logo-an.png" alt="" style="width:40px;height:auto;display:block">
@@ -21,14 +21,14 @@
       </nav>
     </sc-if>
     <div style="display:flex;align-items:center;gap:8px;flex:0 0 auto">
-      <a href="./#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#0d0d0c;color:#f7f5f0;text-decoration:none;font:500 14px/1.2 Jost,sans-serif" style-hover="background:#b08d57;color:#0d0d0c">{{ cta }}</a>
+      <a href="./#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#80622a;color:#ffffff;text-decoration:none;font:500 14px/1.2 Jost,sans-serif" style-hover="background:#b08d57;color:#3b3a37">{{ cta }}</a>
       <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
-        <button type="button" onClick="{{ toggle }}" aria-expanded="{{ aberto }}" style="min-height:44px;min-width:44px;padding:10px 12px;border:1px solid #0d0d0c;background:transparent;color:#0d0d0c;font:500 14px/1 Jost,sans-serif;cursor:pointer">{{ rotulo }}</button>
+        <button type="button" onClick="{{ toggle }}" aria-expanded="{{ aberto }}" style="min-height:44px;min-width:44px;padding:10px 12px;border:1px solid #3b3a37;background:transparent;color:#3b3a37;font:500 14px/1 Jost,sans-serif;cursor:pointer">{{ rotulo }}</button>
       </sc-if>
     </div>
   </div>
   <sc-if value="{{ painel }}" hint-placeholder-val="{{ false }}">
-    <nav aria-label="Principal" style="border-top:1px solid #dcd8cf;background:#f7f5f0">
+    <nav aria-label="Principal" style="border-top:1px solid #dcd8cf;background:#ffffff">
       <ul style="width:min(1240px, calc(100% - 40px));margin:0 auto;list-style:none;padding:8px 0 16px">
         <sc-for list="{{ links }}" as="l" hint-placeholder-count="7">
           <li style="border-bottom:1px solid #e9e5dc"><a href="{{ l.h }}" aria-current="{{ l.cur }}" style="display:flex;align-items:center;min-height:52px;font:400 26px/1.1 'Bodoni Moda',serif;text-decoration:none;color:{{ l.cor }}">{{ l.t }}</a></li>
@@ -46,7 +46,7 @@ class Component extends DCLogic {
   renderVals() {
     const a = this.props.atual;
     const links = [['agencia', 'Agência', 'a-agencia/'], ['servicos', 'Serviços', 'servicos/'], ['cursos', 'Cursos', 'cursos/'], ['castings', 'Castings', 'castings/'], ['trade', 'Fashion Trade', 'fashion-trade/'], ['contato', 'Contatos', 'contato/'], ['aluno', 'Área do aluno', 'area-do-aluno/']]
-      .map(([k, t, h]) => ({ t, h, cor: k === a ? '#80622a' : '#0d0d0c', bd: k === a ? '#b08d57' : 'transparent', cur: k === a ? 'page' : undefined }));
+      .map(([k, t, h]) => ({ t, h, cor: k === a ? '#80622a' : '#3b3a37', bd: k === a ? '#b08d57' : 'transparent', cur: k === a ? 'page' : undefined }));
     const { wide, aberto } = this.state;
     return { cta: this.state.curto ? 'Cadastro' : 'Cadastre-se grátis', links, wide, narrow: !wide, painel: !wide && aberto, aberto, rotulo: aberto ? 'Fechar' : 'Menu', toggle: () => this.setState(s => ({ aberto: !s.aberto })) };
   }

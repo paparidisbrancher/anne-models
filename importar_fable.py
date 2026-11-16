@@ -63,6 +63,10 @@ AJUSTES = {
     "Home Anne Models": [
         (r"(?s)<section[^>]*>(?:(?!</section>).)*?Quem passou(?:(?!</section>).)*</section>", ""),
         ("Menores de 16 anos se cadastram com um responsável", "Menores de 18 anos se cadastram com um responsável"),
+        # cartão do Fashion Trade na home: mesmas cidades e meses da página do evento (Anne, 15/11)
+        (r"(?s)\n\s*<span[^>]*>(?:Belo Horizonte|Rio de Janeiro|Pernambuco)</span>", ""),
+        (">Próxima edição<", ">Próximas edições<"),
+        (">Data a anunciar<", ">São Paulo, outubro<br>Salvador, novembro<"),
     ],
     # a Anne ainda não informou plataforma de aulas; o link era um exemplo
     "AreaDoAluno": [(r'(?s)<a href="https://hotmart\.com"[^>]*>Entrar na Hotmart</a>', "")],
@@ -175,6 +179,8 @@ def main(pasta):
                 alvo = RAIZ / "img" / f.relative_to(imgs)
                 alvo.parent.mkdir(parents=True, exist_ok=True)
                 alvo.write_bytes(f.read_bytes())
+    import paleta_branca
+    paleta_branca.main()  # site branco e dourado (Anne, 15/11)
 
 
 if __name__ == "__main__":
