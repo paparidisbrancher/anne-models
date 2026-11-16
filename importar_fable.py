@@ -43,9 +43,27 @@ AJUSTES = {
         ('href="https://wa.me/5531996589729?text=Ol%C3%A1!%20Quero%20receber%20a%20apostila%20do%20M%C3%A9todo%20Anne%20Mac%20Pherson." target="_blank" rel="noopener"',
          'href="cursos/metodo-anne-mac-pherson/apostila/"'),
         ("Pedir a apostila em PDF", "Ler a apostila"),
+        # respostas da Anne em 15/11: menor de 18 vai com o responsável; sexta das 19h às 22h
+        ("Menores de 16 anos participam com autorização do responsável.",
+         "Menores de 18 anos participam com um responsável, que acompanha todas as etapas."),
+        ("Sexta-feira</span>", "Sexta-feira, 19h às 22h</span>"),
+    ],
+    "Cursos": [("Menores de 16 anos com autorização do responsável.", "Menores de 18 anos com um responsável presente.")],
+    # Anne em 15/11: só SP (outubro) e Salvador (novembro); dia e local saem para quem concluir o curso
+    "FashionTrade": [
+        (r"(?s)<li[^>]*>(?:Belo Horizonte|Rio de Janeiro|Pernambuco)</li>", ""),
+        ("Próxima edição", "Próximas edições"),
+        ("Data e local a anunciar", "São Paulo, outubro<br>Salvador, novembro"),
+        ("Deixe seu WhatsApp e avisamos assim que a data sair.",
+         "Dia, local e programação completa são enviados a quem concluir o curso online. Hotel, alimentação e transporte ficam à parte."),
+        ("Sexta · 18h às 22h", "Sexta · 19h às 22h"),
+        ("Mulher Total 40+", "Plenitude 40+"),  # nome unissex sugerido; falta a Anne aprovar
     ],
     # depoimentos ainda são caixas vazias: escondidos até a Anne mandar fotos e falas autorizadas
-    "Home Anne Models": [(r"(?s)<section[^>]*>(?:(?!</section>).)*?Quem passou(?:(?!</section>).)*</section>", "")],
+    "Home Anne Models": [
+        (r"(?s)<section[^>]*>(?:(?!</section>).)*?Quem passou(?:(?!</section>).)*</section>", ""),
+        ("Menores de 16 anos se cadastram com um responsável", "Menores de 18 anos se cadastram com um responsável"),
+    ],
     # a Anne ainda não informou plataforma de aulas; o link era um exemplo
     "AreaDoAluno": [(r'(?s)<a href="https://hotmart\.com"[^>]*>Entrar na Hotmart</a>', "")],
 }
@@ -115,8 +133,8 @@ def importa(arq, rota, titulo, desc):
         tpl = tpl.replace(uuid, grava(dados, mime))
     tpl = arruma_links(tpl, rota)
     for velho, novo in AJUSTES.get(arq.name.removesuffix(".dc.html"), []):
-        tpl, n = re.subn(velho if velho.startswith("(?") else re.escape(velho), novo, tpl, count=1)
-        assert n == 1, (arq.name, velho[:60])
+        tpl, n = re.subn(velho if velho.startswith("(?") else re.escape(velho), novo, tpl)
+        assert n >= 1, (arq.name, velho[:60])
 
     base = "../" * rota.count("/") or "./"
     canon = SITE_URL + rota
