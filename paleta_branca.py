@@ -72,7 +72,24 @@ def aplica(txt):
     return tokens(txt)
 
 
+def logo():
+    """AN da logo oficial (aprovado em 15/11) no lugar do AN antigo do Fable: mesmos nomes de arquivo + favicon."""
+    import re as _re, shutil
+    png = RAIZ / "assets" / "an-oficial.png"
+    for destino in ("img/logo-an.png", "assets/logo-an.png", "assets/dc/f7058975b634.png"):
+        if (RAIZ / destino).exists():
+            shutil.copyfile(png, RAIZ / destino)
+    svg = (RAIZ / "assets" / "an-oficial.svg").read_text(encoding="utf-8")
+    vb = _re.search(r'viewBox="([^"]+)"', svg).group(1)
+    d = _re.search(r' d="([^"]+)"', svg).group(1)
+    (RAIZ / "assets" / "favicon.svg").write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="16" fill="#ffffff"/>'
+        f'<svg x="9" y="14" width="82" height="72" viewBox="{vb}"><path fill="#b08d57" fill-rule="evenodd" d="{d}"/></svg></svg>',
+        encoding="utf-8")
+
+
 def main():
+    logo()
     arquivos = [p for p in RAIZ.rglob("*.html") if "_fonte" not in p.parts]
     for p in arquivos:
         velho = p.read_text(encoding="utf-8")
