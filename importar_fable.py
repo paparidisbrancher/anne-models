@@ -49,6 +49,10 @@ AJUSTES = {
         ("Sexta-feira</span>", "Sexta-feira, 19h às 22h</span>"),
     ],
     "Cursos": [("Menores de 16 anos com autorização do responsável.", "Menores de 18 anos com um responsável presente.")],
+    "Contato": [  # perfil novo decidido em 15/11 (publicar só depois de criado)
+        ('<a href="contato/#" style="display:grid;gap:2px;padding:14px 0;text-decoration:none" style-hover="color:#80622a"><span style="font-size:13px;letter-spacing:.06em;color:#6b6862">Instagram</span><span style="font-size:17px;font-weight:500;overflow-wrap:anywhere">@anny_praddo_modeling_career',
+         '<a href="https://www.instagram.com/annemodelsmanagement/" target="_blank" rel="noopener" style="display:grid;gap:2px;padding:14px 0;text-decoration:none" style-hover="color:#80622a"><span style="font-size:13px;letter-spacing:.06em;color:#6b6862">Instagram</span><span style="font-size:17px;font-weight:500;overflow-wrap:anywhere">@annemodelsmanagement'),
+    ],
     # Anne em 15/11: só SP (outubro) e Salvador (novembro); dia e local saem para quem concluir o curso
     "FashionTrade": [
         (r"(?s)<li[^>]*>(?:Belo Horizonte|Rio de Janeiro|Pernambuco)</li>", ""),
