@@ -27,7 +27,7 @@ CONFIG = {
     "youtube_fashion_trade": "https://www.youtube.com/@ANNYTVFashiontrade",
     "youtube_lifestyle": "https://www.youtube.com/@ANNYTVFashiontrade",  # a confirmar: canal "Lifestyle with Anne Mac Pherson"
     "instagram": "https://www.instagram.com/anny_praddo_modeling_career",
-    "site_url": "https://paparidisbrancher.github.io/anne-models/",
+    "site_url": "https://annemodels.com.br/",
 }
 
 
@@ -79,7 +79,6 @@ def layout(rota, titulo, descricao, corpo, *, hero=False, extra=""):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{pagina_titulo}</title>
 <meta name="description" content="{descricao}">
-<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0d0d0c">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">

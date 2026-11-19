@@ -13,7 +13,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).parent
 SAIDA = RAIZ / "assets" / "dc"
-SITE_URL = "https://paparidisbrancher.github.io/anne-models/"
+SITE_URL = "https://annemodels.com.br/"
 
 # arquivo do Fable -> (rota no site, título, descrição)
 PAGINAS = {
@@ -26,8 +26,8 @@ PAGINAS = {
     "Recepcionistas": ("cursos/recepcionistas-de-eventos/", "Recepcionistas de eventos", "Postura, etiqueta e comunicação para trabalhar em grandes eventos."),
     "Servicos": ("servicos/", "Serviços", "Catálogo de serviços e preços da Anne Models Management."),
     "Lifestyle": ("servicos/lifestyle/", "Portal Lifestyle", "Programa Lifestyle da Anne Models no YouTube."),
-    "RevistaFashionModels": ("servicos/revista-fashion-models/", "Revista Fashion Models", "Publicação em parceria com a Revista Fashion Models."),
-    "RevistaKrystal": ("servicos/revista-krystal/", "Revista Krystal", "Publicação em parceria com a Revista Krystal."),
+    "RevistaFashionModels": ("servicos/revista-fashion-models/", "Revista Fashion Models", "Revista Fashion Models, filiada à Anne Models Management."),
+    "RevistaKrystal": ("servicos/revista-krystal/", "Revista Krystal", "Revista Krystal, filiada à Anne Models Management."),
     "FashionTrade": ("fashion-trade/", "Fashion Trade", "Programação e formas de participar do Fashion Trade, evento anual da Anne Models."),
     "TradeSales": ("trade-sales/", "Trade Sales", "Curadoria de produtos para book, desfiles e trabalho de modelos e artistas."),
     "AreaDoAluno": ("area-do-aluno/", "Área do aluno", "Acesso às aulas, apostilas, tarefas e certificados dos cursos da Anne Models."),
@@ -145,7 +145,6 @@ def importa(arq, rota, titulo, desc):
     head = f"""<base href="{base}">
 <title>{html.escape(titulo + ("" if not rota else " · Anne Models Management"))}</title>
 <meta name="description" content="{html.escape(desc)}">
-<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="{canon}">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
