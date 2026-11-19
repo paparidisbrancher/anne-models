@@ -9,3 +9,4 @@ wrangler.jsonc
 .wrangler
 *.ts
 node_modules
+CNAME
