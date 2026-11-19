@@ -7,31 +7,31 @@
 </head>
 <body>
 <x-dc>
-<header style="background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #dcd8cf">
-  <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px">
-    <a href="" aria-label="Anne Models Management, início" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto">
-      <img src="img/logo-an.png" alt="" style="width:40px;height:auto;display:block">
-      <span style="display:grid;gap:5px"><span style="font:500 13px/1 Jost,sans-serif;letter-spacing:.3em">ANNE MODELS</span><span style="font:400 9px/1 Jost,sans-serif;letter-spacing:.46em;color:#80622a">MANAGEMENT</span></span>
+<header style="background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid #e2dac9;box-shadow:0 4px 24px rgba(59,58,55,.04)">
+  <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="" aria-label="Anne Models Management, início" style="display:flex;align-items:center;gap:14px;text-decoration:none;flex:0 0 auto">
+      <img src="img/logo-an.png" alt="" style="width:42px;height:auto;display:block">
+      <span style="display:grid;gap:5px"><span style="font:500 13px/1 Jost,sans-serif;letter-spacing:.32em;color:#2c2b28">ANNE MODELS</span><span style="font:400 9px/1 Jost,sans-serif;letter-spacing:.48em;color:#80622a">MANAGEMENT</span></span>
     </a>
     <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-      <nav aria-label="Principal" style="display:flex;gap:26px;font:400 14px/1 Jost,sans-serif;letter-spacing:.03em;white-space:nowrap">
+      <nav aria-label="Principal" style="display:flex;gap:26px;font:500 12px/1 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">
         <sc-for list="{{ links }}" as="l" hint-placeholder-count="7">
-          <a href="{{ l.h }}" aria-current="{{ l.cur }}" style="padding:23px 0 21px;text-decoration:none;color:{{ l.cor }};border-bottom:2px solid {{ l.bd }}" style-hover="color:#80622a">{{ l.t }}</a>
+          <a href="{{ l.h }}" aria-current="{{ l.cur }}" style="padding:27px 0 25px;text-decoration:none;color:{{ l.cor }};border-bottom:2px solid {{ l.bd }};transition:color .2s,border-color .2s" style-hover="color:#80622a">{{ l.t }}</a>
         </sc-for>
       </nav>
     </sc-if>
-    <div style="display:flex;align-items:center;gap:8px;flex:0 0 auto">
-      <a href="./#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;background:#80622a;color:#ffffff;text-decoration:none;font:500 14px/1.2 Jost,sans-serif" style-hover="background:#b08d57;color:#3b3a37">{{ cta }}</a>
+    <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <a href="./#cadastro" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;background:#80622a;color:#ffffff;border:1px solid #80622a;text-decoration:none;font:500 12px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s" style-hover="background:#b08d57;border-color:#b08d57;color:#2c2b28">{{ cta }}</a>
       <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
-        <button type="button" onClick="{{ toggle }}" aria-expanded="{{ aberto }}" style="min-height:44px;min-width:44px;padding:10px 12px;border:1px solid #3b3a37;background:transparent;color:#3b3a37;font:500 14px/1 Jost,sans-serif;cursor:pointer">{{ rotulo }}</button>
+        <button type="button" onClick="{{ toggle }}" aria-expanded="{{ aberto }}" style="min-height:44px;min-width:44px;padding:10px 14px;border:1px solid #3b3a37;background:transparent;color:#3b3a37;font:500 12px/1 Jost,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer">{{ rotulo }}</button>
       </sc-if>
     </div>
   </div>
   <sc-if value="{{ painel }}" hint-placeholder-val="{{ false }}">
-    <nav aria-label="Principal" style="border-top:1px solid #dcd8cf;background:#ffffff">
+    <nav aria-label="Principal" style="border-top:1px solid #e2dac9;background:#faf8f3">
       <ul style="width:min(1240px, calc(100% - 40px));margin:0 auto;list-style:none;padding:8px 0 16px">
         <sc-for list="{{ links }}" as="l" hint-placeholder-count="7">
-          <li style="border-bottom:1px solid #e9e5dc"><a href="{{ l.h }}" aria-current="{{ l.cur }}" style="display:flex;align-items:center;min-height:52px;font:400 26px/1.1 'Bodoni Moda',serif;text-decoration:none;color:{{ l.cor }}">{{ l.t }}</a></li>
+          <li style="border-bottom:1px solid #e6decb"><a href="{{ l.h }}" aria-current="{{ l.cur }}" style="display:flex;align-items:center;min-height:52px;font:400 26px/1.1 'Bodoni Moda',serif;text-decoration:none;color:{{ l.cor }}">{{ l.t }}</a></li>
         </sc-for>
       </ul>
     </nav>

@@ -221,91 +221,74 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#ffffff;color:#3b3a37;font:400 17px/1.6 Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *,*::before,*::after{box-sizing:border-box}
 h1,h2,h3,p,figure,blockquote,dl,dd{margin:0}
-a{color:inherit;text-decoration-color:#b08d57;text-underline-offset:.2em}
+a{color:inherit;text-decoration-color:#b08d57;text-underline-offset:.2em;transition:background-color .22s ease,color .22s ease,border-color .22s ease}
 a:hover{text-decoration-color:currentColor}
-input,select,button,textarea{font:inherit}
+input,select,button,textarea{font:inherit;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
 summary::-webkit-details-marker{display:none}
 ::selection{background:#d9c29b;color:#3b3a37}
 </style>
 </helmet>
-<dc-import name="SiteHeader" atual="agencia" hint-size="100%,64px" style="position:sticky;top:0;z-index:20;display:block"></dc-import>
+<dc-import name="SiteHeader" atual="agencia" hint-size="100%,70px" style="position:sticky;top:0;z-index:20;display:block"></dc-import>
 <main>
-<section style="background:#ffffff;padding:clamp(48px,7vw,104px) 0">
+<section style="background:#faf8f3;border-bottom:1px solid #e6decb;padding:clamp(56px,7vw,104px) 0">
   <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px clamp(40px,6vw,96px);align-items:center">
-    <div style="display:grid;gap:26px;justify-items:start">
-      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a">A agência · desde 1995</p>
-      <h1 style="font:400 clamp(48px,7vw,104px)/.96 'Bodoni Moda',Didot,serif;letter-spacing:-.025em;text-wrap:balance">Nascida em Alpinópolis, <em style="font-style:italic;color:#80622a">presente nas capitais.</em></h1>
-      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:#3a3833;max-width:52ch;text-wrap:pretty">Agência de modelos, manequins e atores fundada em 1995 no sul de Minas Gerais. Formação, agenciamento e eventos de moda em São Paulo, Belo Horizonte e outras capitais.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px"><a href="./#cadastro" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;font:500 15px/1.2 Jost,sans-serif;text-decoration:none;cursor:pointer;background:#80622a;color:#ffffff;border:1px solid #80622a" style-hover="background:#b08d57;border-color:#b08d57;color:#3b3a37">Cadastre-se grátis</a><a href="cursos/" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;font:500 15px/1.2 Jost,sans-serif;text-decoration:none;cursor:pointer;color:#3b3a37;border:1px solid #3b3a37" style-hover="background:#80622a;color:#ffffff">Ver os cursos</a></div>
+    <div style="display:grid;gap:24px;justify-items:start">
+      <p style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1.4 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#80622a"><span style="width:28px;height:1px;background:#b08d57;display:inline-block"></span>A agência · desde 1995</p>
+      <h1 style="font:400 clamp(48px,7vw,104px)/.96 'Bodoni Moda',Didot,serif;letter-spacing:-.025em;text-wrap:balance;color:#2c2b28">Nascida em Alpinópolis, <em style="font-style:italic;color:#80622a">presente nas capitais.</em></h1>
+      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.65;color:#3a3833;max-width:52ch;text-wrap:pretty">Agência de modelos, manequins e atores fundada em 1995 no sul de Minas Gerais. Formação, agenciamento e eventos de moda em São Paulo, Belo Horizonte, Salvador e Milão.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px"><a href="./#cadastro" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;font:500 13px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;background:#80622a;color:#ffffff;border:1px solid #80622a" style-hover="background:#b08d57;border-color:#b08d57;color:#2c2b28">Cadastre-se grátis</a><a href="cursos/" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;font:500 13px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;color:#3b3a37;border:1px solid #3b3a37" style-hover="background:#80622a;border-color:#80622a;color:#ffffff">Ver os cursos</a></div>
     </div>
     
   </div>
 </section>
-<section style="background:#fff;padding:clamp(64px,9vw,128px) 0">
+<section style="background:#ffffff;padding:clamp(72px,9vw,128px) 0">
   <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(40px,7vw,112px);align-items:center">
-    <figure style="position:relative;width:100%;max-width:480px">
+    <figure style="position:relative;width:100%;max-width:480px;border:1px solid #e2dac9;padding:10px;background:#faf8f3">
       <div style="aspect-ratio:4/5;overflow:hidden;background:#e9e5dc"><img src="assets/dc/322964306650.jpg" alt="Anne Mac Pherson, fundadora e CEO da Anne Models Management" style="width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block"></div>
-      <div style="position:absolute;inset:14px;border:1px solid rgba(128,98,42,.95);pointer-events:none"></div>
+      <div style="position:absolute;inset:22px;border:1px solid rgba(176,141,87,.95);pointer-events:none"></div>
     </figure>
     <div style="display:grid;gap:24px;justify-items:start">
-      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a">Fundadora e CEO</p>
-      <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance">Anne Mac <em style="font-style:italic;color:#80622a">Pherson</em></h2>
-      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:#3a3833;max-width:52ch;text-wrap:pretty">Há mais de 30 anos na moda. Criou o Método Anne Mac Pherson. Como colunista social, cobre eventos no canal Lifestyle with Anne Mac Pherson.</p>
-      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px"><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Agenciadora</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Produtora de eventos de moda</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Ministrante de cursos</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Fotógrafa</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Apresentadora</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Palestrante</li><li style="padding:8px 12px;border:1px solid #cfcabf;font-size:14px">Personal stylist</li></ul>
+      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#80622a">Fundadora e CEO</p>
+      <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance;color:#2c2b28">Anne Mac <em style="font-style:italic;color:#80622a">Pherson</em></h2>
+      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.65;color:#3a3833;max-width:52ch;text-wrap:pretty">Há mais de 30 anos na moda. Criou o Método Anne Mac Pherson. Como colunista social, cobre eventos no canal Lifestyle with Anne Mac Pherson.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px"><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Agenciadora</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Produtora de eventos de moda</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Ministrante de cursos</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Fotógrafa</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Apresentadora</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Palestrante</li><li style="padding:8px 14px;border:1px solid #dfd5c0;background:#faf8f3;font-size:14px">Personal stylist</li></ul>
     </div>
   </div>
 </section>
-<!-- Vídeo de apresentação da Anne: escondido até o material chegar.
-<section style="background:#ffffff;color:#3b3a37;padding:clamp(64px,9vw,128px) 0">
-  <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:40px clamp(40px,6vw,96px);align-items:center">
-    <div style="display:grid;gap:22px;align-content:start">
-      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a">Em vídeo</p>
-      <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance">A Anne, <em style="font-style:italic;color:#80622a">em 1 minuto</em></h2>
-      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:rgba(59,58,55,.84);max-width:52ch;text-wrap:pretty">Quem é, como a agência trabalha e o que esperar da formação, contado por ela.</p>
-    </div>
-    <div style="position:relative">
-      <div style="position:relative;aspect-ratio:16/9;width:100%"><image-slot id="agencia-video" shape="rect" placeholder="Capa do vídeo de apresentação da Anne (30 a 60 s)" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
-    </div>
-  </div>
-</section>
--->
-<section style="background:#ffffff;padding:clamp(64px,9vw,128px) 0">
+<section style="background:#faf8f3;border-top:1px solid #e6decb;border-bottom:1px solid #e6decb;padding:clamp(72px,9vw,128px) 0">
   <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(40px,7vw,112px);align-items:start">
     <div style="display:grid;gap:22px;align-content:start">
-      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a">Equipe</p>
-      <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance">Quem trabalha <em style="font-style:italic;color:#80622a">com a Anne</em></h2>
-      <article style="display:grid;gap:6px;margin-top:12px;padding-top:24px;border-top:1px solid #3b3a37">
-        <!-- Foto de Vadú Braga: escondida até o material chegar.
-        <div style="position:relative;aspect-ratio:1/1;width:120px"><image-slot id="equipe-vadu" shape="rect" placeholder="Foto de Vadú Braga" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
-        -->
-        <div style="display:grid;gap:6px"><span style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a">Jornalismo e mídia</span><h3 style="font:400 clamp(24px,2.4vw,30px)/1.12 'Bodoni Moda',serif;text-wrap:balance">Vadú Braga</h3><p style="font-size:15px;line-height:1.5;color:#3a3833">Jornalista à frente dos portais TV Notícias e Edição Fofoca dos Famosos e Celebridades, e da revista Fashion Models.</p></div>
+      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#80622a">Equipe &amp; Parceiros</p>
+      <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance;color:#2c2b28">Quem trabalha <em style="font-style:italic;color:#80622a">com a Anne</em></h2>
+      <article style="display:grid;gap:10px;margin-top:12px;padding:26px;background:#ffffff;border:1px solid #dfd5c0;border-top:3px solid #b08d57">
+        <div style="display:grid;gap:8px"><span style="font:500 11px/1.4 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#80622a">Jornalismo e mídia</span><h3 style="font:400 clamp(24px,2.4vw,30px)/1.12 'Bodoni Moda',serif;text-wrap:balance;color:#2c2b28">Vadú Braga</h3><p style="font-size:15px;line-height:1.55;color:#3a3833">Jornalista à frente dos portais TV Notícias e Edição Fofoca dos Famosos e Celebridades, e da revista Fashion Models.</p></div>
       </article>
     </div>
     <div>
-      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#80622a;padding-bottom:12px;border-bottom:1px solid #3b3a37">Dúvidas sobre a carreira</p>
+      <p style="font:500 12px/1.4 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#80622a;padding-bottom:12px;border-bottom:1px solid #3b3a37">Dúvidas sobre a carreira</p>
       <details open="" style="border-bottom:1px solid #dcd8cf">
-        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif">Como entro para a carreira de modelo ou manequim?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif;color:#2c2b28">Como entro para a carreira de modelo ou manequim?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
         <p style="padding:0 0 24px;max-width:64ch;color:#3a3833;text-wrap:pretty">Você passa por avaliação de medidas, teste fotogênico, de passarela e de vídeo comercial. Aprovada, faz a formação profissional, recebe o CCT e é convidada a se agenciar para ser apresentada aos contratantes.</p>
       </details>
       <details style="border-bottom:1px solid #dcd8cf">
-        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif">O que é o DRT e como consigo?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif;color:#2c2b28">O que é o DRT e como consigo?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
         <p style="padding:0 0 24px;max-width:64ch;color:#3a3833;text-wrap:pretty">No caso de modelos e manequins, o nome correto é RPMT, o registro profissional emitido pelo Ministério do Trabalho. Você leva o CCT do curso com RG, CPF, comprovante de residência e os demais documentos pedidos.</p>
       </details>
       <details style="border-bottom:1px solid #dcd8cf">
-        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif">Tem limite de idade?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif;color:#2c2b28">Tem limite de idade?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
         <p style="padding:0 0 24px;max-width:64ch;color:#3a3833;text-wrap:pretty">Não. Agenciamos de 6 meses a 80 anos, de qualquer etnia. A partir de 16 anos é exigido o RPMT; abaixo disso, é preciso autorização do responsável legal.</p>
       </details>
       <details style="border-bottom:1px solid #dcd8cf">
-        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif">Por que estar em uma agência?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;font:400 clamp(21px,2vw,26px)/1.25 'Bodoni Moda',serif;color:#2c2b28">Por que estar em uma agência?<span aria-hidden="true" style="font:300 24px/1 Jost,sans-serif;color:#80622a">+</span></summary>
         <p style="padding:0 0 24px;max-width:64ch;color:#3a3833;text-wrap:pretty">A agência cuida do contrato assinado, do piso salarial e do apoio jurídico junto ao SATED, e apresenta seu perfil às agências de publicidade, produtores e diretores.</p>
       </details>
     </div>
   </div>
 </section>
-<section style="background:#ffffff;color:#3b3a37;padding:clamp(56px,7vw,96px) 0">
-  <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 48px">
-    <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance;max-width:16ch">Comece pela <em style="font-style:italic;color:#80622a">avaliação gratuita</em></h2>
-    <div style="display:flex;flex-wrap:wrap;gap:10px"><a href="./#cadastro" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;font:500 15px/1.2 Jost,sans-serif;text-decoration:none;cursor:pointer;background:#ffffff;color:#3b3a37;border:1px solid #dcd8cf" style-hover="background:#b08d57;border-color:#b08d57">Cadastre-se grátis</a><a href="cursos/" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;font:500 15px/1.2 Jost,sans-serif;text-decoration:none;cursor:pointer;color:#3b3a37;border:1px solid rgba(59,58,55,.5)" style-hover="border-color:#dcd8cf;background:rgba(176,141,87,.08)">Ver os cursos</a></div>
+<section style="background:#ffffff;color:#3b3a37;padding:clamp(64px,7vw,96px) 0">
+  <div style="width:min(1240px, calc(100% - 40px));margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 48px;padding:clamp(28px,4vw,48px);background:#faf8f3;border:1px solid #dfd5c0;border-left:4px solid #80622a">
+    <h2 style="font:400 clamp(36px,4.8vw,68px)/1.02 'Bodoni Moda',Didot,serif;letter-spacing:-.015em;text-wrap:balance;max-width:16ch;color:#2c2b28">Comece pela <em style="font-style:italic;color:#80622a">avaliação gratuita</em></h2>
+    <div style="display:flex;flex-wrap:wrap;gap:12px"><a href="./#cadastro" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;font:500 13px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;background:#80622a;color:#ffffff;border:1px solid #80622a" style-hover="background:#b08d57;border-color:#b08d57;color:#2c2b28">Cadastre-se grátis</a><a href="cursos/" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 28px;font:500 13px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;color:#3b3a37;border:1px solid #3b3a37" style-hover="background:#80622a;border-color:#80622a;color:#ffffff">Ver os cursos</a></div>
   </div>
 </section>
 </main>

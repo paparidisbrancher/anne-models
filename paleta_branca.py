@@ -40,6 +40,7 @@ def declaracoes(css, interativo):
             # véu creme: opaco vira branco; translúcido (cartão sobre fundo escuro) vira um toque de dourado
             val = re.sub(r"rgba\(\s*247\s*,\s*245\s*,\s*240\s*,\s*([\d.]+)\s*\)",
                          lambda m: f"rgba({'255,255,255' if float(m.group(1)) >= .5 else '176,141,87'},{m.group(1)})", val)
+            val = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:1[468]|25?)\s*\)", "#dfd5c0", val)
             if botao and fundo_escuro:
                 val = re.sub("|".join(ESCUROS), OURO_ESC, val, flags=re.I)
             val = re.sub("|".join(ESCUROS), BRANCO, val, flags=re.I)
@@ -51,6 +52,8 @@ def declaracoes(css, interativo):
                 val = re.sub(r"#fff(?:fff)?\b|\bwhite\b", CINZA, val, flags=re.I)
             elif p.startswith("border") and botao and fundo_escuro:
                 val = re.sub("|".join(ESCUROS), OURO_ESC, val, flags=re.I)
+            if p.startswith("border"):
+                val = re.sub(r"rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:1[468]|25?)\s*\)", "#dfd5c0", val)
             val = re.sub("#d9c29b", OURO_ESC if p == "color" else OURO, val, flags=re.I)
             val = re.sub("|".join(CLAROS), CINZA if p == "color" else "#dcd8cf", val, flags=re.I)
             val = re.sub("|".join(ESCUROS), CINZA, val, flags=re.I)
