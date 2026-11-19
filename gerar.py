@@ -17,7 +17,7 @@ CONFIG = {
     "wa_lifestyle": "5531973023077",  # WhatsApp Business do canal Lifestyle with Anne Mac Pherson
     "wa_assessoria": "5535999516720",  # Assessoria Anne Mac Pherson (staff)
     "wa_jane": None,
-    "email_ceo": "annemacphersonceomodels@gmail.com",  # único e-mail do site e da rede social nova (áudio de 11/11/2026)
+    "email_ceo": "annemodelsmanagement@gmail.com",  # único e-mail do site e da rede social nova (áudio de 11/11/2026)
     "email_cursos": "annypraddocursos@gmail.com",
     "email_assessoria": "annymodelsassessoria@gmail.com",
     "form_cadastro": "https://forms.gle/VuQUWbzRoZpm6ykv9",
