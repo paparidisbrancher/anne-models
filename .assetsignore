@@ -1,0 +1,8 @@
+.git
+.gitignore
+.assetsignore
+.trail
+_fonte
+*.py
+PENDENCIAS.md
+wrangler.jsonc
