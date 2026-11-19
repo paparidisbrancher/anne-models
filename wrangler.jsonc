@@ -1,6 +1,10 @@
 {
-  // Site estático da Anne Models na Cloudflare (Workers com assets). Publicar: cf deploy
+  // Site estático da Anne Models na Cloudflare (Workers com assets). Publicar: npx wrangler deploy
   "name": "anne-models",
   "compatibility_date": "2026-11-01",
-  "assets": { "directory": ".", "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" }
+  "assets": { "directory": ".", "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" },
+  "routes": [
+    { "pattern": "annemodels.com.br", "custom_domain": true },
+    { "pattern": "www.annemodels.com.br", "custom_domain": true }
+  ]
 }
