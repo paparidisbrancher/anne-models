@@ -1,8 +1,18 @@
 {
   // Site estático da Anne Models na Cloudflare (Workers com assets). Publicar: npx wrangler deploy
+  // O Worker (worker/index.js) só atende /documentos/ (área com senha); o resto vem direto dos assets.
   "name": "anne-models",
+  "main": "worker/index.js",
   "compatibility_date": "2026-11-01",
-  "assets": { "directory": ".", "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/documentos", "/documentos/*"]
+  },
+  // Bucket criado uma vez com: npx wrangler r2 bucket create anne-models-documentos
+  "r2_buckets": [{ "binding": "DOCS", "bucket_name": "anne-models-documentos" }],
   "routes": [
     { "pattern": "annemodels.com.br", "custom_domain": true },
     { "pattern": "www.annemodels.com.br", "custom_domain": true }
