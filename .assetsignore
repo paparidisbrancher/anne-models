@@ -10,3 +10,4 @@ wrangler.jsonc
 *.ts
 node_modules
 CNAME
+worker
