@@ -52,6 +52,7 @@ STAFF = [
 
 DOCUMENTOS = [
     ("Credencial de filiação (PDF)", "arquivos/credencial-filiacao.pdf", True),
+    ("Cartilha do scouter filiado (PDF)", "arquivos/cartilha-scouter-filiado.pdf", False),
     ("Área de documentos da equipe (com senha)", "documentos/", False),
 ]
 
