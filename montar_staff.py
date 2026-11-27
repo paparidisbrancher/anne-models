@@ -2,6 +2,7 @@
 
 Editar a lista STAFF e rodar: python montar_staff.py
 - instagram: só o @ (sem link); vazio = o botão vira "Instagram em breve".
+- site: opcional, tupla (rótulo, url) para link público adicional (ex.: rádio/TV web).
 - ativo=False: a pessoa fica fora da página até a Anne liberar.
 """
 import html
@@ -11,12 +12,42 @@ from pathlib import Path
 RAIZ = Path(__file__).parent
 
 STAFF = [
-    # nome, função, instagram, ativo
-    ("Vinícius Produções", "Fotografia, cinegrafia, composite e produção para cinema, TV e teatro.", "", True),
-    ("Vadu Braga · Fofoca dos Famosos", "Mídia e cobertura ao vivo dos eventos da agência.", "", True),
-    ("Paulo · Mais FM", "TV e rádio web internacional.", "", True),
-    ("Karina Silva", "Jornalista e assessoria de imprensa.", "", True),
-    ("Clarice Grigati", "Scouter em Recife (PE).", "", False),  # Anne: "deixar quieta por enquanto"
+    # nome, função, instagram, site, ativo
+    (
+        "Glee Vinicius Produções",
+        "Filiado terceirizado: fotógrafo, cinegrafista, composite e produtor de cinema, TV e teatro.",
+        "gleeproducoes",
+        None,
+        True,
+    ),
+    (
+        "Edição Fofoca dos Famosos · Vadú Braga (Edvaldo)",
+        "Mídia e cobertura ao vivo de eventos, filiado à agência com contrato 2026 atualizado.",
+        "tvnoticiasvadubraga",
+        None,
+        True,
+    ),
+    (
+        "Paulo Maisfm",
+        "Filiado em TV e rádio web internacional (Mais FM), com transmissões ao vivo e divulgação de serviços da agência.",
+        "radiomaisfmbh",
+        ("Site maisfm.top", "https://maisfm.top/"),
+        True,
+    ),
+    (
+        "Karina Silva",
+        "Jornalista, assessora do Vadú Braga e filiada em mídia de eventos.",
+        "",
+        None,
+        True,
+    ),
+    (
+        "Clarice Grigati",
+        "Scouter e filiada em Recife (PE), atua na divulgação e venda de cursos online da agência.",
+        "",
+        None,
+        True,
+    ),
 ]
 
 DOCUMENTOS = [
@@ -31,19 +62,33 @@ URL = "https://annemodels.com.br/staff/"
 E = html.escape
 
 
-def cartao(nome, funcao, insta):
+def cartao(nome, funcao, insta, site=None):
+    acoes = []
     if insta:
-        botao = (f'<a href="https://www.instagram.com/{E(insta)}/" target="_blank" rel="noopener" '
-                 f'style="justify-self:start;display:inline-flex;align-items:center;min-height:48px;padding:12px 20px;'
-                 f'border:1px solid #3b3a37;color:#3b3a37;text-decoration:none;font:500 12px/1.2 Jost,sans-serif;'
-                 f'letter-spacing:.14em;text-transform:uppercase" style-hover="background:#80622a;border-color:#80622a;color:#fff">'
-                 f'Instagram @{E(insta)}</a>')
+        acoes.append(
+            f'<a href="https://www.instagram.com/{E(insta)}/" target="_blank" rel="noopener" '
+            f'style="display:inline-flex;align-items:center;min-height:48px;padding:12px 18px;'
+            f'border:1px solid #3b3a37;color:#3b3a37;text-decoration:none;font:500 12px/1.2 Jost,sans-serif;'
+            f'letter-spacing:.14em;text-transform:uppercase" style-hover="background:#80622a;border-color:#80622a;color:#fff">'
+            f'Instagram @{E(insta)}</a>'
+        )
+    if site:
+        rotulo, href = site
+        acoes.append(
+            f'<a href="{E(href)}" target="_blank" rel="noopener" '
+            f'style="display:inline-flex;align-items:center;min-height:48px;padding:12px 18px;'
+            f'border:1px solid #b08d57;color:#80622a;text-decoration:none;font:500 12px/1.2 Jost,sans-serif;'
+            f'letter-spacing:.14em;text-transform:uppercase" style-hover="background:#80622a;border-color:#80622a;color:#fff">'
+            f'{E(rotulo)}</a>'
+        )
+    if acoes:
+        rodape = f'<div style="margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:10px">{"".join(acoes)}</div>'
     else:
-        botao = '<span style="font:500 12px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#80622a">Instagram em breve</span>'
-    return (f'<li style="display:grid;gap:10px;align-content:start;background:#fff;border:1px solid #dfd5c0;'
+        rodape = '<div style="margin-top:auto;padding-top:8px"><span style="font:500 12px/1.2 Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#80622a">Instagram em breve</span></div>'
+    return (f'<li style="display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #dfd5c0;'
             f'border-top:3px solid #b08d57;padding:24px">'
-            f'<h3 style="font:400 clamp(24px,2.4vw,30px)/1.12 \'Bodoni Moda\',serif;text-wrap:balance;color:#2c2b28">{E(nome)}</h3>'
-            f'<p style="font-size:15px;color:#4a4740;line-height:1.5">{E(funcao)}</p>{botao}</li>')
+            f'<h3 style="font:400 clamp(24px,2.4vw,30px)/1.12 \'Bodoni Moda\',serif;text-wrap:balance;color:#3b3a37">{E(nome)}</h3>'
+            f'<p style="font-size:15px;color:#4a4740;line-height:1.5">{E(funcao)}</p>{rodape}</li>')
 
 
 def botao_doc(rotulo, href, principal):
@@ -56,7 +101,7 @@ def botao_doc(rotulo, href, principal):
 
 
 def main_html():
-    pessoas = "".join(cartao(n, f, i) for n, f, i, ativo in STAFF if ativo)
+    pessoas = "".join(cartao(n, f, i, s) for n, f, i, s, ativo in STAFF if ativo)
     docs = "".join(botao_doc(*d) for d in DOCUMENTOS)
     largura = "width:min(1240px, calc(100% - 40px));margin:0 auto"
     return f"""<main>
@@ -69,7 +114,7 @@ def main_html():
 </section>
 <section style="background:#ffffff;padding:clamp(56px,7vw,96px) 0">
   <div style="{largura}">
-    <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px">{pessoas}</ul>
+    <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px">{pessoas}</ul>
   </div>
 </section>
 <section style="background:#faf8f3;border-top:1px solid #e6decb;padding:clamp(56px,7vw,96px) 0">
